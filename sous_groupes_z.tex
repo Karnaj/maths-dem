@@ -1,0 +1,35 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Sous-groupe de $(\Z, +)$}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Sous-groupe de $(\Z, +)$]
+      Les sous-groupes de $(\Z, +)$ sont les $n\Z$ avec $n \in \N$ avec $n\Z = \enstq{kn \in \Z}{k \in \Z}$.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Soit $n \in \N$, $n\Z$ est le sous-groupe engendré par $n$, donc est bien un sous-groupe.
+
+      Soit maintenant $E$ un sous-groupe de $(\Z, +)$.
+      
+      Si $H = {0}$, alors $H = 0\Z$.
+
+      Sinon $H \neq {0}$, et on pose $H_+ = \enstq{x \in H}{x > 0}$. $H \neq {0}$, donc il existe $x_0 \in H$, $x_0 \in H$.
+      Alors, $x_0$ ou $-x_0$ est dans $H_+$, d’où $H_+$ est une partie non vide de $\N$. Par suite, $H_+$ admet un plus 
+      petit élément $n$. On a déjà $n\Z \subset H$. Montrons l’inclusion inverse.
+      
+      Soit $x \in H$. Par division euclidienne, $x = qn + r$ avec $0 \leq r < n$. Alors $r = x - qn$, avec $x \in H$ et 
+      $qn \in H$ (puisque $n\Z \subset H$), donc $r \in H$. Si $r > 0$, alors $r \in H_+$, IMPOSSIBLE car $r < n = \min H_+$,
+      donc $r = 0$ et $x = qn$, c’est-à-dire $H \subset n\Z$.
+      
+      La double inclusion donne bien que $H = n\Z$.
+\end{document}

@@ -1,0 +1,40 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Topologie des hyperplans}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soit $(E, \norme{.})$ un EVN. Les hyperplans de $E$ sont fermés ou denses dans $E$.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Commençons par montrer que si $H$ est un sous-espace vectoriel de $E$, alors
+      $\adh{H}$ en est un (c’est un résultat classique).
+      
+      Soient $(u, v) \in \adh{H}^2$ et $\lambda \in \R$. Il esiste $(u_n)$ et $(v_n)$
+      deux suites de $H$ telle que $u_n \to u$ et $v_n \to v$. On a 
+      
+      On a $\lambda u_n + v_n \to \lambda u + v$ et $\lambda u_n + v_n \in H$, d’où
+      \[
+         \lambda u + v \in \adh{H}.
+      \]
+      Donc $\adh{H}$ est un SEV.
+      
+      Soit maintenant $H$ un hyperplan de $E$. Par définition, $H$ est de codimension 1.
+      Puisque, $H \subset \adh{H}$, alors $\adh{H}$ est de codimension 1 ou 0.
+      \begin{description}
+         \item S’il est de codimension 0, alors $\adh{H} = E$, et donc 
+               $H$ dense dans $E$.
+         \item Sinon, on a $H \subset \adh{H}$, or ils ont même codimension, donc $H = \adh{H}$ et $H$ est fermé.
+      \end{description}
+      Le résultat est donc démontré. 
+\end{document}

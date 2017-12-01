@@ -1,0 +1,27 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Idéaux d’un corps}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soit $E$ un anneau. $E$ est un corps si et seulement si ses seuls idéaux sont ${0}$ et lui-même.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Soit $E$ un corps et soit $I$ un idéal non nul de $A$. Soit $x \in E$ non nul, alors $x$ est
+      inversible. Par suite, $xx^{-1} = 1 \in I$, d’où $I = E$.
+      
+      Réciproquement, si les seuls idéaux de $E$ sont ${0}$ et lui-même, montrons que tout $x$ 
+      non nul de $E$ est inversible. Soit $x$ non nul. L’idéal engendré par $x$ n’est pas nul, 
+      donc c’est $E$ tout entier. Par suite, $1$ est dans cet idéal, d’où il existe $y \in E$
+      tel que $xy = 1$, d’où le résultat. 
+\end{document}

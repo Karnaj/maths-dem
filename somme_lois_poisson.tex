@@ -1,0 +1,49 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Somme de lois de Poisson}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soient $X$ et $Y$ deux variables aléatoires indépendantes suivant des lois
+      de Poisson de paramètres respectifs $\lambda$ et $\mu$. Alors
+      $X + Y$ suit une loi de Poisson de paramètre $\lambda + \mu$.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Notons $Z = X + Y$. $Z$ est à valeurs dans $\N$ et
+      \[
+         P(Z = k) = \sum_{i = 0}^k P(X = i, Y = k - i).
+      \]
+      $X$ et $Y$ étant indépendantes,       
+      \begin{align*}
+         P(Z = k) &= \sum_{i = 0}^k P(X = i)P(Y = k - i)\\
+                  &= \sum_{i = 0}^k \e^{-\lambda} \frac{\lambda^i}{i!} \times
+                                    \e^{-\mu} \frac{\mu^{k - i}}{(k - i)!}\\
+                  &= \sum_{i = 0}^k \e^{-(\lambda + \mu)} 
+                                    \frac{\lambda^i \mu^{k - i}}{i!(k - i)!}  
+                                    \times \frac{k!}{k!}\\
+                  &= \frac{\e^{-(\lambda + \mu)}}{k!} 
+                     \sum_{i = 0}^k \binom{i}{k} \lambda^i \mu^{k - i}.
+      \end{align*}
+      La \emph{formule du binôme de Newton} permet de conclure,
+      \[
+         P(Z = k) = \frac{\e^{-(\lambda + \mu)} (\lambda + \mu)^k}{k!}
+      \]
+      On obtient bien que $X + Y$ suit une loi de Poisson de paramètre 
+      $\lambda + \mu$.
+      
+      PS : ce résultat peut être obtenu plus rapidement en utilisant les fonction
+      génératrices. En effet, la fonction génératrice d’une somme de variables 
+      aléatoires indépendantes est le produit des fonctions génératrices et 
+      la fonction génératrice d’une variable aléatoire $X$ suivant une loi de
+      Poisson de paramètre $\lambda$ est $G_X(t) = \e^{\lambda(t - 1)}$.
+\end{document}

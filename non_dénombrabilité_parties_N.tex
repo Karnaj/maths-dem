@@ -1,0 +1,31 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Non dénombrabilité des parties de $\N$}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      L’ensemble des parties de $N$ n’est pas dénombrabre.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Pour montrer ce résultat, supposons cet ensemble dénombrabre. Alors il existe une bijection
+      $\phi$ de $\N$ dans $\partie(\N)$. Prenons alors l’ensemble
+      \[
+         A = \enstq{n \in \N}{n \not \in \varphi}.
+      \]      
+      $A$ est une partie de $\N$, il existe un entier $n$ tel que $\phi(n) = A$. On a alors deux possibilités.
+      \begin{description}
+         \item Si $n \in A$, alors $n \not \in \phi(n)$, ABSURDE puisque $A = \phi(n)$.
+         \item Si $n \not \in A$, alors $n \not \in \phi(n)$, et donc $n \in A$, également ABSURDE.
+      \end{description}
+      Par suite, $\partie(\N)$ n’est pas dénombrabre.
+\end{document}

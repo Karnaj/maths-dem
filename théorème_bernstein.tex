@@ -1,0 +1,53 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Théorème de Bernstein}
+\date{}
+\author{}
+      % \[
+         % R_n(x) = x^{n + 1} \int_0^1 \frac{(1 - u)^n}{n!} f^{(n + 1)}(xu)\du.
+      % \]
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soit $a > 0$ et soit $f$ de classe $C^\infty$ sur $I = \interv[-a; a]$ telle 
+      que pour tout entier $k$, $f^(k)$ est positive sur $I$. On a que $f$ 
+      est développable en série entière sur $]-a; a[$.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      La formule de Taylor avec reste intégral donne que pour tout $x \in I$,
+      \[
+         f(x) = f(0) + xf’(0) + \ldots + \frac{x^n}{n!}f^{(n)}(0) 
+                + \int_0^x \frac{(x - t)^n}{n!} f^{(n + 1)}(t)\dt.
+      \]
+      Le changement de variable $t = ux$ dans l’intégrale permet d’obtenir
+      \begin{equation}\label{eq}
+         f(x) = f(0) + xf’(0) + \ldots + \frac{x^n}{n!}f^{(n)}(0)      
+                + x^{n + 1} \int_0^1 \frac{(1 - u)^n}{n!} f^{(n + 1)}(xu)\du.
+      \end{equation}
+      Posons $R_n(x)$ ce reste intégral. 
+      Il nous suffit de montrer que $R_n(x)$ tend vers $0$ pour tout $x$ dans $I$.
+      Puisque $f^{(n + 2)} > 0$, alors $f^{(n + 1)}$ est croissante. Donc
+      pour tout $x \in I$, $f^{(n + 1)}(xu) \leq f^{(n + 1)}(au)$. En intégrant
+      cette inégalité, on obtient
+      \[
+         \abs{x}^{n + 1}\int_0^1 \frac{(1 - u)^n}{n!} f^{(n + 1)}(xu)\du \leq
+         \abs{x}^{n + 1}\int_0^1 \frac{(1 - u)^n}{n!} f^{(n + 1)}(au)\du.
+      \]
+      Et donc
+      \[
+         \abs{R_n(x)} \leq \abs{\frac{x}{a}}^{n + 1} R_n(a).
+      \]
+      Cette inégalité nous permet de dire qu’il suffit de montrer que la suite des
+      $R_n(a)$ est bornée pour que $R_n(x)$ tende vers $0$ et l’égalité \eqref{eq} appliquée à $x = a$ permet de montrer que $R_n(a) \leq f(a)$, donc qu’elle
+      est bien bornée.
+      
+      PS : le \emph{théorème de Bernstein} est en fait plus fort que ça, puisqu’il
+           suffit que pour tout entier $k$, $f^{(2k)}$ soit positive sur $]-a,a[$. 
+\end{document}

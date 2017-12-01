@@ -1,0 +1,30 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Polynôme caractéristique de $AB$}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soient $A$ et $B$ deux matrices de $M_n(R)$. $AB$ et $BA$ ont même polynôme caractéristique.  
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Montrons le résultat pour $A$ inversible. On a 
+      \[
+         \det(XI_n - AB) = \det A \det(xA^-1 - B) = \det(xA^-1 - B) \det A = \det(xI_n - BA).
+      \]
+      On a bien $\polca{AB} = \polca{BA}$.
+      
+      Si $A$ n’est pas inversible, la densité de $GL_n(\R)$ dans $M_n(\R)$ et la continuité du
+      déterminant permettent d’obtenir le résultat. En effet, il existe une suite $A_n$ de matrices 
+      inversibles qui a pour limite $A$. On a pour tout $n \in \N$, $\polca{A_nB} = \polca{BA_n}$.
+      En passant à la limite, on obtient le résultat.
+\end{document}

@@ -1,0 +1,49 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Fonction zéta de Riemann}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+    On définit la fonction zéta de Riemann en posant pour $x \in I = \interv]1; +\infty[$
+    \[
+      \zeta(x) = \sum_{n = 1}^{+\infty} \frac{1}{n^x}.
+    \]
+   \begin{Theoreme}[Continuité de la fonction zéta]
+      La fonction $\zeta$ est de classe $C^\infty$ sur $\interv]1; +\infty[$.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      La fonction zéta est bien définie sur $\interv]1; +\infty[$ (\emph{série de Riemann}). Posons
+      \[
+         f_n(x) = \frac{1}{n^x} = \e^{-x \ln x}.
+      \]
+      Les $f_n$ sont de classe $C^\infty$ sur $I$ et on montre par récurrence que pour tout entier $k$, 
+      \[
+         f_n^{(k)}(x) = \frac{(- \ln n)^k}{n^x}.
+      \]
+      Soit $\interv[a; b] \subset I$. On a pour $x \in \interv[a; b]$,
+      \[
+         \abs{f_n^{(k)}(x)} \leq \frac{(- \ln n)^k}{n^a}.
+      \]
+      Considérons $\rho \in \interv]1; a[$, on a
+      \[
+         \frac{(- \ln n)^k}{n^a}  = o\left(\frac{1}{n^\rho}\right)
+      \]
+      avec la série des $\frac{1}{n^\rho}$ qui converge (\emph{série de Riemann} avec $\rho > 1$). Par 
+      \emph{comparaison de séries à termes positifs}, la série des $u_n^{(k)}$ converge normalement, donc uniformément
+      sur tout segment de $I$, ce qui montre que $\zeta$ est de classe $C^\infty$ sur $\interv]1; +\infty[$ avec 
+      \[
+         \zeta^{(k)}(x) = \sum_{n = 1}^{+\infty} \frac{(- \ln n)^k}{n^x}.
+      \]
+      
+      PS : ceci permet de montrer que $\zeta$ est décroissante et convexe. On montre en utilisant le théorème de la double
+      limite (il y a aussi convergence uniforme en $+\infty$) que $\zeta$ tend vers $1$ en $+\infty$.
+\end{document}

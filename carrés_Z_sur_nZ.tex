@@ -1,0 +1,36 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Carrés de $\varZquotient{n}$}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Carrés de $\varZquotient{n}$]
+      Soit $p$ un nombre premier supérieur à 2. Le nombre de carrés de $\varZquotient{n}$ est
+      \[
+         \frac{n + 1}{2}
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Posons $\phi$ l’application qui à $x$ associe $x^2$. Dans le corps $\varZquotient{n}$,
+      \[
+         \phi(x) = \phi(y) \iff x = \pm y.
+      \]
+      Dans l’image de $\phi$, seul $0$ posède un seul antécédant (lui-même), les autres en possèdent deux distincs. Par suite, 
+      % \[
+         % \card \varZquotient{n}$ = 1 + 2(\card \Im \phi - 1)
+      % \] donc
+      le nombre de carrés de $\varZquotient{n}$ est
+      \[
+         \frac{n + 1}{2}.
+      \]
+      PS : On pourrait montrer que $-1$ est un carré si et seulement si $p \equiv 1 \mod 4$.
+\end{document}

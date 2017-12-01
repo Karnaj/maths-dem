@@ -1,0 +1,59 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Caractérisation des matrices nilpotentes avec la trace}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soit $A \in \M_n(\C)$ telle que pour tout $k \geq 1$, $\Tr(A^k) = 0$. Alors $A$ est nilpotente.
+   \end{Theoreme}
+   \section{Démonstration (récurrence)}
+      Le polynôme caractéristique de $A$ est scindé sur $\C$. Supposons $A$ non nilpotente.
+      Alors $A$ possède des valeurs propres (complexes) non nulles. Notons $\lambda_1, \ldots, \lambda_r$, 
+      les valeurs propres distinctes et $n_1, \ldots, n_r$ leurs ordres de multiplicité.
+      Pour tout $k \geq 1$, on a
+      \[
+         \Tr(A^k) = n_1 \lambda_1^k + \ldots + n_r \lambda_r^k = 0.
+      \]
+      En écrivant ces relations pour $k \in \intervalleEntier{1}{r}$, on obtient que $\transposee{(n_1, \ldots, n_r)}$
+      est dans le noyau de l’endomorphisme représenté par cette matrice.
+      \[M = \begin{pmatrix}
+         \lambda_1   & \lambda_2 & \ldots  & \lambda_r   \\
+         \vdots      & \vdots & \vdots  & \vdots      \\
+         \lambda_1^r & \lambda_2^r & \ldots  & \lambda_r^r \\  
+      \end{pmatrix}\]
+      Le déterminant de cette matrice est  
+      \[
+         \lambda_1 \ldots \lambda_r V_r(\lambda_1, \ldots, \lambda_r)
+      \]
+      avec $V_r(\lambda_1, \ldots, \lambda_r)$ le déterminant de Vandermonde des valeurs propres qui est non nul 
+      car ces valeurs propres sont distinctes.
+      
+      Par suite, $M$ est inversible et donc $\Ker M = {0}$, d’où $(n_1, \ldots, n_r) = (0, \ldots, 0)$.
+      ABSURDE (les valeurs propres ne peuvent pas être d’ordre de multiplicité nul). 
+      
+      Donc $A$ est nilpotente.
+      \section{Démonstration (directe)}
+         Soit $P$ le polynôme caractéristique de $A$,
+         \[
+            P = \sum_{k = 0}^n a_k X^k.
+         \]
+         On a $P(A) = 0$. En passant à la trace, $\Tr(P(A)) = 0$, or
+         \[
+            \Tr(P(A)) = \sum_{k = 0}^n a_k \Tr(A^k) = na_0.
+         \]
+         Donc $a_0$ est nul, d’où $0$ est racine de $P$. En appliquant cette même méthode au polynôme $P/X$ 
+         \[
+            P/X = \sum_{k = 1}^n a_k X^{k-1}
+         \]
+         et en itérant tant de fois que nécessaire ($n$ fois), on montre que les $n$ racines de $P$ sont nulles.
+\end{document}

@@ -1,0 +1,30 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Densité de $GL_n(\R)$ dans $M_n(\R)$}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      $GL_n(R)$ est dense dans $M_n(\R)$.
+   \end{Theoreme}
+   \subsection{Démonstration (limites de suite)}
+      Soit $A \in M_n(R)$. Montrons qu’il existe une suite $A_n$ de matrices inversibles qui tend vers $A$.
+      $A$ possède un nombre fini de valeurs propres, donc pour $n_0$ assez grand $A - \frac{1}{n_0}I_n$ est 
+      inversible. Prenons alors
+      \[
+         A_n = A - \frac{1}{n + n_0}I_n.
+      \]
+      $A_n$ est inversible pour tout $n \in \N$, et $A_n$ tend vers $A$.
+      
+      Le résultat est alors démontré.
+\end{document}
+\end{document}

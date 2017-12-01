@@ -1,0 +1,44 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Théorème des restes chinois}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Isomorphisme d’anneaux]
+      Soit $m$ et $n$ deux entiers premiers entre eux, alors l’application $\pi$
+      définie par
+      \[
+         \fonction{\pi}{\Zquotient{mn}}{\Zquotient{n} \times \Zquotient{m}}{\classe{k}}{\classeUn{k}, \classeDeux{k}}
+      \]
+      est un isomorphisme d’anneaux.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      $\pi$ est bien définie puisque si $k = l [mn]$ alors $k = l[m]$ et $k = l[n]$, et donc $\classe{k} = \classe{l}$,
+      $\classeUn{k} = \classeUn{l}$ et $\classeDeux{k} = \classeDeux{l}$ et c’est bien un morphisme d’anneaux.
+      
+      Il y a égalité des cardinaux de l’ensemble de départ et de celui d’arrivée, donc il nous suffit de montrer que
+      $\pi$ est injective pour avoir que c’est un isomorphisme.
+      
+      Soit $\classe{x} \in \ker \pi$, alors $\classeUn{x} = \classeUn{0}$ et $\classeDeux{x} = \classeDeux{0}$, donc
+      $m \mid x$ et $n \mid x$, d’où $mn \mid x$ puisque $m$ et $n$ sont premiers entre eux, donc $\classe{x} = \classe{0}$,
+      d’où $\ker \pi = \left\{\classe{0}\right\}$. Donc $\pi$ est injective.
+      
+      Le résultat est démontré.
+      
+      Ce résultat permet de résoudre les systèmes du type
+      \[
+         \begin{systeme}
+            x \equiv a &\mod n\\
+            x \equiv b &\mod m
+         \end{systeme}
+      \]
+\end{document}

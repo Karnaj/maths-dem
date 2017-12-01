@@ -1,0 +1,42 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Inégalité de Jensen}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Inégalité de Jensen]
+      Soit $f$ continue de $\interv[a; b]$ dans $\R$, et soit $g$ de $\R$ dans
+      $\R$ continue et convexe. Alors
+      \[
+         g\left( \frac{1}{b - a} \int_a^b f(t) \dt \right) \leq
+         \frac{1}{b - a} \int_a^b g(f(t)) \dt.
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Posons
+      \[
+         I_n = \frac{1}{n} \sum_{k = 0}^{n - 1} f\left(a + k \frac{b - a}{n}\right).
+      \]
+      La suite $(I_n)$ est une suite de sommes de Riemmann et donc
+      \[
+         \lim_{n \to \infty} I_n = \frac{1}{b - a} \int_a^b f(t) \dt.
+      \]
+      La convexité de $g$ donne que
+      \begin{equation}
+         g(I_n) \leq \frac{1}{n} \sum_{k = 0}^{n - 1} g \circ f\left(a + k \frac{b - a}{n}\right) = G_n  \label{ineq}
+      \end{equation}
+      Puisque $g \circ f$ est continue, on a 
+      \[
+         \lim_{n \to \infty} G_n = \frac{1}{b - a} \int_a^b f(f(t)) \dt.
+      \]
+      Le passage à la limite de \eqref{ineq} permet alors d’obtenir le résultat.
+\end{document}

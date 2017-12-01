@@ -1,0 +1,44 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Théorème de Wilson}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Théorème de Wilson]
+      Soit $p \geq 2$ un nombre entier. $p$ est premier si et seulement si
+      \[
+         (p - 1)! \equiv -1 \mod p
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Si $(p - 1)! \equiv -1 \mod p$ alors $p$ divise $(p - 1)! + 1$. Supposons $p$ non premier et posons $q$
+      un diviseur strict de $p$ ($1 < q < p$).
+      
+      On a $q$ divise $(p - 1)! + 1$ et $q \mid (p - 1)!$ (car $1 < q < p$), donc $q | 1$, ABSURDE, donc $p$ 
+      est premier.
+      
+      Montrons maintenant la réciproque. Si $p$ est premier, $\Z/p\Z$ est un corps. Le produit
+      de ses éléments est la classe de $1 \times \cdots \times p - 1 = (p - 1)!$.
+      
+      On est dans un corps, donc tous les éléments non nuls sont inversibles. De plus, aucun élément (sauf $\classe{1}$ 
+      et $\classe{p - 1}$) n’est son propre inverse. En effet, on est dans un corps donc
+      \begin{align*}
+         \classe{x} \times \classe{x} = \classe{1} &\iff \classe{x + 1} \times \classe{x - 1} = \classe{0}\\
+                                                   &\iff \classe{x} = \classe{p - 1} \text{ ou } \classe{x} = 1.
+      \end{align*}
+      Par suite, dans $1 \times \cdots \times p - 1$, on peut (sauf pour $\classe{1}$ et $\classe{p - 1}$), 
+      regrouper les éléments par groupes de $2$ dont le produit est $\classe{1}$. Ce regroupement conduit à
+      \[
+         \classe{(p - 1)!} = \classe{1} \times \classe{1} \times \cdots \times \classe{p - 1} = \classe{p - 1} = -\classe{1}.
+      \]
+      On a donc bien $(p - 1)! \equiv -1 \mod p$
+\end{document}

@@ -1,0 +1,45 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Formule de Chu-Vandermonde}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Formule de Chu-Vandermonde]
+      Soit $(p, q, r) \in \N^3$, avec $r \leq p + q$. On a
+      \[
+         \binom{p + q}{r} = \sum_{k = 0}^r \binom{p}{k} \binom{q}{r - k}
+      \]
+   \end{Theoreme}
+   % \subsection{Démonstration (numérique)}
+      % On a $(1 + x)^{a + b} = $(1 + x)^a (1 + x)^b$. En utilisant la \emph{formule du binôme de Newton}, on obtient
+      % \[
+         % (1 + x)^{a + b} = \sum_{r = 0}^{a + b} \binom{r}{a + b} x^k
+      % \]
+      % et 
+      % \begin{align*}
+         % (1 + x)^a (1 + x)^b &= \sum_{i = 0}^a \binom{i}{a} x^i \sum_{j = 0}^{b} \binom{j}{b} x^j\\
+                             % &= 
+      % \end{align*}
+   \subsection{Démonstration (ensembliste)}
+      Soit $E$, un ensemble à $p + q$ éléments. Le nombre de parties à $r$ éléments de $E$ est
+      \[
+         \binom{p + q}{n}.
+      \]
+      Séparons $E$ en deux parties disjointes $F$ et $G$ de cardinaux $p$ et $q$. Faire une partie à $r$ 
+      éléments de $E$, c’est choisir $k$ éléments dans $F$ (avec $k \in \intervalleEntier{0}{p}$) et compléter
+      avec $r - k$ éléments de $F$. Par suite, le nombre de parties à $r$ éléments de $E$ est aussi
+      \[
+         \sum_{k = 0}^r \binom{p}{k} \binom{q}{r - k}.
+      \]     
+      PS : Ce résultat peut aussi être montré en développant les polynômes égaux
+      $(1 + X)^{p + q}$ et $(1 + X)^p(1 + X)^q$ et en identifiant les coefficients.
+\end{document}

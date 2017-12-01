@@ -1,0 +1,43 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Points de discontinuité de fonction monotone}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soit $f$ une fonction monotone de $I = [a, b]$ dans $\R$. Alors l’ensemble des points de discontinuité de $f$ est 
+      dénombrable.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Quite à considérer $-f$, on peut supposer $f$ croissante.
+      On va noter
+      \[
+         A_n = \enstq{x \in I}{f(x^+) - f(x^-) > \frac{1}{n}}.
+      \]
+      Montrons que $A_n$ est fini pour tout entier $n$. Considérons $p$ réel distincs de $A_n$, $x_1 < x_2 < \ldots < x_p$ 
+      et considérons $p + 1$ réels $y_1, \ldots, y_p$ tels que
+      \[
+         y_0 < x_1 < y_1 < \ldots < x_p < y_p.
+      \]
+      On a alors pour tout $i \in \intervalleEntier{1}{n}$, $f(y_i) - f(y_{i- 1}) \geq \frac{1}{n}$. Ainsi,
+      \[
+         f(b) - f(a) \geq f(y_p) - f(y_0) = \sum_{i = 1}^n f(y_i) - f(y_{i - 1}) \geq \frac{p}{n}.
+      \]
+      On a $p \leq n(f(b) - f(a))$, ce qui permet de majorer le cardinal de $A_n$, montrant qu’il est fini.
+      
+      L’ensemble des points de discontinuité de $f$ est l’union des $A_n$ et est donc dénombrable en tant que réunion
+      finie d’ensembles finis.
+      
+      PS : ce résultat s’étend aux fonctions monotones de $\R$ dans $\R$. En effet, on a que l’ensemble $E_n$
+           des points de discontinuité de $f$ sur $\interv[-n; n]$ est dénombrable ; l’ensemble des points de discontinuité
+           de $f$ sur $\R$ étant la réunion des $E_n$, il est dénombrable en tant que réunion dénombrable d’ensemble dénombrable.
+\end{document}

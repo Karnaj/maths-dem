@@ -1,0 +1,60 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Réduction des isométries du plan}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Réduction des isométries du plan]
+      Soit $f$ une isométrie positive du plan. Alors, il existe $\theta \in \R$ 
+      tel que sa matrice représentative soit de la forme
+      \[
+         R(\theta) = 
+         \begin{pmatrix}
+            \cos \theta & -\sin \theta \\
+            \sin \theta & \cos \theta
+         \end{pmatrix}
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Soit $M$ une matrice de $SO_2(\R)$, 
+      \[
+         M = 
+         \begin{pmatrix}
+            a & b \\
+            c & d
+         \end{pmatrix}
+      \]
+      Puisque $a^2 + c^2 = 1$, il existe $\theta$ tel que $a = \cos \theta$ et
+      $c = \sin \theta$.
+      
+      De plus, on a $\det M = 1$, c’est-à-dire $ad - bc$, par suite
+      \[
+         (a - d)^2 + (b - c)^2 = 2 - 2(ad - bc) = 0.
+      \]
+      Donc $a = d$ et $b = c$. On a bien la forme voulue.
+      
+      Un simple calcul montre que $R(\theta)R(\theta’) = R(\theta + \theta’)$,
+      ce qui est bien normal, faire la composée de deux rotations d’angle $\theta$ 
+      et $\theta’$ équivaut à faire une seule rotation d’angle $\theta + \theta’$.
+      
+      PS : dans le cas d’une isométrie du plan négative, on a $M$ de la forme
+      \[
+         S(\theta) = 
+         \begin{pmatrix}
+            \cos \theta & \sin \theta \\
+            \sin \theta & -\cos \theta
+         \end{pmatrix}
+      \]
+      En effet, $(a + d)^2 + (b - c)^2 = 2 + 2(ad - bc) = 0$, car $ad - bc = \det M
+      = -1$. Par suite, $a = -d$ et $b = c$. Et puisque $a^2 + c^2 = 1$, on a 
+      l’existence de $\theta$ tel que $a = \cos \theta$ et $c = \sin \theta$.
+\end{document}

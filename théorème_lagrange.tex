@@ -1,0 +1,43 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Théorème de Lagrange}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Théorème de Lagrange]
+      Soit $G$ un groupe fini et soit $H$ un groupe de $G$.
+      \[
+         \card H \mid \card G.
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      On considère la relation d’équivalence
+      \[
+         x \mathcal{R} y \iff xy^{-1} \in H. 
+      \]
+      Pour $x \in G$, la classe de $x$ est
+      \[
+         \cl(x) = xH = \enstq{x \times y}{y \in H}.
+      \]
+      En effet,
+      \begin{align*}
+         y \mathcal{R} x &\iff yx^{-1} \in H\\
+                         &\iff y \in xH.
+      \end{align*}
+      
+      Pour tout $x \in G$, l’application de $H$ dans $xH$ qui à $y$ associe $yx$ est bijective.
+      Donc $\card xH = \card H$. Les classes ont donc $\card H$ éléments, et elles forment une 
+      partition de $G$ d’où l’existence de $n$ tel que
+      \[
+         \card G = n \card H.
+      \]  
+\end{document}

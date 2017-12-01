@@ -1,0 +1,57 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Théorème de Cayley-Hamilton}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Théorème de Cayley-Hamilton]
+      Soit $f$ un endormorphisme de $E$. Alors
+      \[
+         \chi_f(f) = 0.
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Soit $x$ non nul de $E$. Il existe un plus petit entier $p > 0$ tel que $(x, f(x), \ldots, f^p(x))$ soit liée
+      (en effet, $(x)$ est libre et $(x, f(x), \ldots, f^{n + 1}(x))$ est liée. Donc il existe 
+      $(a_0, \ldots, a_{p - 1}) \in \R^{p}$ tel que
+      \[
+         f^p(x) = a_0x + a_1 f(x) + \ldots + a_{p - 1}f^{p - 1}(x).
+      \]
+      La famille $(x, f(x), \ldots, f^{p - 1}(x))$ est libre, complétons-la en une base de $E$. Dans cette base, 
+      la matrice de $f$ dans cette base est de la forme
+      \[
+         \begin{pmatrix}
+            A & B\\
+            0 & C
+         \end{pmatrix}
+      \]
+      Avec $A$ la matrice compagnon
+      \[
+         A = 
+         \begin{pmatrix}
+            0      & \ldots & \ldots & 0      & a_0\\
+            1      & 0      &        & \vdots & a_1\\
+            0      & 1      & \ddots & \vdots & \vdots\\
+            \vdots & \ddots & \ddots & 0      & a_{n - 2}\\
+            0      & \ldots & 0      & 1      & a_{n - 1}
+         \end{pmatrix}
+      \]
+      Le polynôme caractéristique de $f$ est $\chi_f = \chi_A\chi_C$. Or le polynôme caractéristique de $A$ est
+      \[
+         \chi_A = (-1)^p(X^p - (a_{p - 1}X^{p - 1} + \ldots + a_0))
+      \]
+      Par suite, pour tout $x \in E$,
+      \[
+         \chi_A(f)(x) = (-1)^p(f^p(x) - (a_{p - 1}f^{p - 1}(x) + \ldots + a_0x)) = 0.
+      \]
+      On a bien que $f$ annule son polynôme caractéristique.
+\end{document}

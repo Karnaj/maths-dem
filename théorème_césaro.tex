@@ -1,0 +1,37 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Théorème de Césaro}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Théorème de Césaro]
+      Soit $\suite{u}$ une suite numérique de limite $\ell$. Alors,
+      \[
+         \frac{1}{n}\sum_{k = 1}^n u_k \to \ell.
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      On peut écrire $u_n = \ell + v_n$ avec $v_n = o(1)$. Alors
+      \[
+        \frac{1}{n}\sum_{k = 1}^n u_k = \ell + \frac{1}{n}\sum_{k = 1}^n v_k. 
+      \]
+      On a que $v_n = o(1)$ et la série « somme des $1$ » diverge et est à termes positifs, le \emph{théorème de sommation 
+      des relations de comparaison} donne
+      \[
+         \sum_{k = 1}^n v_k = o\left(\sum_{k = 1}^n 1\right) = o(n).
+      \]
+      Par suite,
+      \[
+         \frac{1}{n}\sum_{k = 1}^n u_k = \ell + \frac{1}{n} o(n) = \ell + o(1).
+      \]
+      Le résultat est démontré.
+\end{document}

@@ -1,0 +1,31 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Collection de tous les ensembles}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      La collection $E$ de tous les ensembles n’est pas un ensemble.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Montrons ce résultat par l’absurde. Supposons que $E$ est un ensemble.
+      Posons alors
+      \[
+         A = \enstq{H \in E}{H \notin H}.
+      \]
+      $E$ contient tous les ensembles, donc $A$ appartient à $E$. Regardons si $A \in A$.
+      \begin{description}
+         \item Si $A \in A$, puisque $A = \enstq{H \in E}{H \notin H}$ alors  $A \not \in A$, ABSURDE.
+         \item Si $A \not \in A$, alors on montre de la même manière que $A \in A$, ABSURDE.
+      \end{description}
+      Par suite, $E$ n’est pas un ensemble.
+\end{document}

@@ -1,0 +1,33 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Coefficient binomiaux}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soit $E$ un ensemble à $n$ éléments. Le nombre de parties à $k$ éléments de $E$ est
+      \[
+         \binom{n}{k} = \frac{n!}{k!(n- k)!}.
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Pour obtenir une partie de cardinal $k$, on choisit $k$ éléments distincts $x_1, \ldots, x_k$ dans 
+      $\intervalleEntier{1}{n}$, on a $n$ choix pour $x_1$, $n - 1$ pour $x_2$, ... et $n - k + 1$ pour $x_k$. On en 
+      déduit que le nombre de $k$-uplets $(x_1, \ldots, x_k)$ est
+      \[
+         n(n - 1)\cdots(n - k + 1) = \frac{n!}{(n - k)!}.
+      \]
+      Deux $k$-uplets définissent une même partie à $k$ éléments s’ils sont égaux à l’ordre près, la même partie est
+      donc représentée par $k!$ $k$-uplets. D’où le résultat.
+      
+      PS : Ici, nous avons également montré la valeur du nombre d’arrangement $A_n^k$.
+\end{document}

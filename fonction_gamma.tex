@@ -1,0 +1,50 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Fonction Gamma d’Euler}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+    On définit la fonction Gamma d’Euler en posant pour $x \in I = \R_+^*$.
+    \[
+      \Gamma(x) = \int_0^{+\infty} t^{x - 1} \e^{-t} \dt.
+    \]
+   \begin{Theoreme}
+      La fonction $\Gamma$ est définie et continue sur $I$ et pour tout $x > 0$,
+      \[
+         \Gamma(x + 1) = x\Gamma(x).
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Posons $f(x, t) = t^{x - 1} \e^{-t}$. $f$ est définie sur $I^2$.
+      \begin{itemize}
+         \item Pour tout $x > 0$, $t \mapsto g(x,  t)$ est continue par morceaux sur $I$.
+         \item Pour tout $t > 0$, $x \mapsto g(x,  t)$ est continue sur $I$.
+         \item Soit $\interv[a; b] \in I$. Pour tout $x \in \interv[a; b]$, on a $t^{x - 1} \leq t^{a - 1} + t^{b - 1}$, d’où
+            \[
+               \abs{g(x, t)} \leq (t^{a - 1} + t^{b - 1})\e^{-t} = \phi(t)
+            \]
+            avec $\phi$ intégrable sur $I$ (continue sur $I$ et négligeable devant $t \mapsto \frac{1}{t^2}$ en $+\infty$). 
+      \end{itemize}
+      On peut alors appliquer le \emph{théorème de continuité d’une intégrale à paramètres}, ce qui nous permet d’obtenir la continuité de $\Gamma$ sur tout segment de $I$
+      et donc sur $I$.
+      
+      On a 
+      \[
+         \Gamma(x + 1) = \int_0^{+\infty} t^{x} \e^{-t} \dt.
+      \]
+      En faisant une \emph{intégration par parties} avec $u(t) = t^x$ et $v(t) = -\e^{-t}$ (possible car $u$ et $v$ sont de classe $C^1$ et $uv$ a une limite nulle en $+\infty$), on obtient
+      \[
+         \Gamma(x + 1) = \left[-t^x\e^{-t}\right]_0^{+\infty} + \int_0^{+\infty} xt^{x} \e^{-t} \dt = x\Gamma(x)
+      \]
+      
+      PS : une récurrence permet de montrer que pour tout entier $n > 0$, $\Gamma(n) = (n - 1)!$.
+\end{document}

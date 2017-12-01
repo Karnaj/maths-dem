@@ -1,0 +1,42 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Loi sans mémoire}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soit $X$ une variable aléatoire à valeurs dans $\N^*$ tel que pour 
+      tout $n, k$ dans $\N$,
+      \[
+         P(X > n + k \sachant X > n) = P(X > k).
+      \]
+      Alors $X$ suit une loi géométrique.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      En posant $q = P(X > 1)$, on a grâce à l’hypothèse que
+      \begin{align*}
+         P(X > n + 1) &= P(X > n + 1 \sachant X > n)P(X > n)\\ 
+                      &= qP(X > n).
+      \end{align*}
+      Une récurrence donne alors (l’initialisation étant faite car 
+      $P(X > 0) = 1$) que pour tout entier naturel $n$,
+      \[
+         P(X > n) = q^n.
+      \]
+      Ceci permet d’obtenir que
+      \begin{align*}
+         P(X = n) &= P(X > n - 1) - P(X > n)\\ 
+                  &= q^{n -1} - q^n\\
+                  &= (1 - q)^{n - 1}.
+      \end{align*}
+      On obtient alors que $X$ suit une loi géométrique de paramètre $1 - q$.
+\end{document}

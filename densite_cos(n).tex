@@ -1,0 +1,38 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Densité de $\enstq{\cos(n)}{n \in \N}$ dans $\interv[-1; 1]$}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      La suite de terme général $(\cos n)$ est dense dans $\interv[-1; 1]$.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Pour démontrer le résultat, nous allons montrer que $H = \Z + 2 \pi \Z$ est un sous-groupe dense 
+      de $(\R, +)$ puis utiliser la continuité et la périodicité de $\cos$.
+      
+      Les sous-groupes de $(\R, +)$ sont soit denses, soit de la forme $a\Z$. Supposons $H$ de la forme $a\Z$ avec 
+      $a \in \R$. Alors, puisque $\Z \subset H = a\Z$, alors $a \in \Q$. 
+      
+      D’un autre côté, $2\pi\Z \subset H = a\Z$, avec $a$ rationnel, donc $\pi \in a\Q$. ABSURDE car $\pi$ est irrationnel.
+      Donc $H$ est dense dans $\R$.
+      
+      Montrons maintenant le résultat. Soit $x \in \interv[-1; 1]$. Il existe $\theta \in \interv[0; \pi]$, tel que 
+      $\cos \theta = x$ et puisque $H$ est dense dans $\R$, il existe deux suites d’entiers $\suite{a}$ et $\suite{b}$
+      telle que $a_n + 2\pi b_n \to \theta$.
+      On a 
+      \[
+         \cos(a_n) = \cos(a_n + 2\pi b_n) \to cos(\theta) = x.
+      \]
+      
+      Donc, pour tout $x \in \interv[-1; 1]$ il existe une suite d’entiers $\suite{a}$ telle que $\cos(a) \to x$.
+\end{document}

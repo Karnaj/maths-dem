@@ -1,0 +1,61 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Théorème des restes chinois}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Théorème des restes chinois]
+      Soit $m$ et $n$ deux entiers premiers entre eux, et deux entiers $a$ et $b$. Le système
+      \[
+         \begin{systeme}
+            x \equiv a &\mod n\\
+            x \equiv b &\mod m
+         \end{systeme}
+      \]
+      possède une seule solution modulo $mn$.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Le système équivaut à l’existence de $k_1$ et $k_2$ tel que
+      $\begin{systeme}
+            x &= nk_1 + a\\
+            x &= mk_2 + b
+         \end{systeme}$.
+         
+      Le \emph{théorème de Bézout} donne l’existence de $u$ et $v$ tel que $un + vm = 1$. En multipliant la ligne 1 du 
+      système par $mv$ et la ligne 2 par $nu$, on obtient
+      \[
+         \begin{systeme}
+            mvx &= mvnk_1 + amv\\
+            nux &= numk_2 + bnu
+         \end{systeme}
+      \]
+      ce qui permet d’avoir en additionnant les deux lignes
+      \[
+         x = mn(vk_1 + uk_2) + amv + bnu = mn(vk_1 + uk_2) + amv + bnu
+      \]
+      $x$ bien est unique modulo $mn$ ($x \equiv amv + bnu \mod mn$).
+      
+ 
+      Réciproquement, si $x \equiv amv + bnu \mod mn$, on a modulo $n$,
+      \[
+         x = mn(vk_1 + uk_2) + amv + bnu \equiv amv \equiv a(1 - un) \equiv a \mod n 
+      \]
+      et de même $x \equiv b \mod m$.
+      
+      PS : ceci montre l’isomorphisme entre $\varZquotient{nm}$ et $\varZquotient{n} \times \varZquotient{m}$
+      et cette démonstration permet de résoudre les systèmes de ce type en deux étapes.
+      \begin{enumerate}
+         \item On cherche une solution particulière $x_0$ (peut être fait en trouvant les $u$ et $v$ associé au
+               \emph{théorème de Bézout} pour avoir la solution $amv + bnu$).
+         \item L’ensemble des solutions est $\enstq{x_0 + knm}{k \in \Z}$.
+      \end{enumerate}
+\end{document}

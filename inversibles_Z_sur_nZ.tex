@@ -1,0 +1,46 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Inversibles de $\varZquotient{n}$}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Inversibles de $\varZquotient{n}$]
+      Soit $n \in \N$. Un élément $\classe{m}$ de $\varZquotient{n}$ est inversible si et seulement si
+      $m \wedge n = 1$. 
+   \end{Theoreme}
+   \subsection{Démonstration}
+      $\varZquotient{n}, +, \times)$ est un anneau commutatif. Soit $\classe{m} \in \varZquotient{n}$.
+      
+      $\classe{m}$ est inversible si et seulement si il existe $\classe{k} \in \varZquotient{n}$ tel que
+      $\classe{m} \times \classe{k} = \classe{1}$, donc si et seulement si il existe $k \in \Z$ tel que
+      \[
+         km \equiv 1 \mod n.
+      \]
+      Ainsi, $\classe{m}$ est inversible si et seulement si il existe existe deux entiers $k$ et $l$ tel que
+      \[
+         km + ln = 1.
+      \]
+      Le \emph{théorème de Bézout} permet alors de dire que cela équivaut à $m \wedge n = 1$.
+      
+      PS : ceci permet de résoudre les équations $ax + b \equiv c \mod n$.
+      \begin{align*}
+         ax + b \equiv c \mod n &\iff \classe{a} \times \classe{x} + \classe{b} = \classe{c}\\
+                                &\iff \classe{a} \times \classe{x} = \classe{c} - \classe{b}.
+      \end{align*}
+      Si $\classe{a}$ est inversible (donc si $a \wedge n$ = 1), on a
+      \[
+         \classe{x} = \classe{a}^{-1} \times \left(\classe{c} - \classe{b}\right).
+      \]
+      et l’ensemble des solutions est l’ensemble $\enstq{\classe{a}^{-1} \times \left(\classe{c} - \classe{b}\right) + nk}{k \in \Z}$.
+      
+      Sinon, il n’y a pas de solution.
+\end{document}

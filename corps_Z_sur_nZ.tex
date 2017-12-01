@@ -1,0 +1,32 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Condition pour que $\varZquotient{p}$ soit un corps}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Condition pour que $\varZquotient{p}$ soit un corps]
+      $\varZquotient{p}$ est un corps si et seulement si $p$ est premier.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Rappelons tout d’abord que $(\varZquotient{p}, +, \times)$ est un anneau 
+      commutatif et que $\classe{m}$ est inversible si et seulement si 
+      $p \wedge m = 1$. 
+
+      Supposons que $(\varZquotient{p}, +, \times)$ soit un corps. Pour tout 
+      $m \in \intervalleEntier{2}{p - 1}$, $\classe{m}$ est inversible, donc 
+      $m \wedge p = 1$. Par suite, $p$ est premier.
+      
+      Inversement, si $p$ est premier, pour tout $m \in \intervalleEntier{2}{p - 1}$,
+      $m \wedge p = 1$, d’où $\classe{m}$ est inversible. Par suite, tous les 
+      éléments sauf $\classe{0}$ sont inversible. On est bien dans un corps.
+      
+\end{document}

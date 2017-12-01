@@ -1,0 +1,45 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Irrationalité de $\e$}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Irrationalité de $\e$]
+      $\e$ est un nombre irrationnel.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Supposons $\e$ rationnel. Il existe $a, b$ deux entiers strictement positifs, $b > 1$ tel que  $\e = \frac{a}{b}$.
+      On pose
+      \[
+         x = b!\left(e - \sum_{n = 0}^b \frac{1}{n!}\right).
+      \]
+      On a 
+      \[
+         x =  b!\left(e - \sum_{n = 0}^b \frac{1}{n!}\right) = b! \frac{a}{b} - \sum_{n = 0}^b \frac{b!}{n!}
+      \]
+      d’où $x$ est un entier.
+      
+      D’un autre côté,
+      \[
+         x = b!\left(e - \sum_{n = 0}^b \frac{1}{n!}\right) = b! \sum_{n = 0}^{+\infty} \frac{1}{n!} - \sum_{n = 0}^b \frac{b!}{n!}
+                                                           = \sum_{n = b + 1}^{+\infty} \frac{b!}{n!}
+      \]
+      On a alors
+      \[
+         x = \frac{1}{b + 1} + \frac{1}{(b + 1)(b + 2)} + \cdots 
+      \]
+      c’est-à-dire, en faisant intervenir la série géométrique de raison $0 < \frac{1}{b + 1} < 1$ 
+      \[
+         0 < x < \sum_{n = 1}^{+\infty} \frac{1}{(b + 1)^n} = \frac{1}{b + 1} \times \frac{1}{1 - \frac{1}{b + 1}} = \frac{1}{b} < 1.
+      \]
+      $x$ est un entier strictement positif et plus petit que $1$. ABSURDE, donc $\e$ est irrationel.
+\end{document}

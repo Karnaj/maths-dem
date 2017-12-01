@@ -1,0 +1,43 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Groupe orthogonal d’ordre $n$}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Groupe orthogonal d’ordre $n$]
+      L’ensemble $\groupeOrthogonal_n(\R)$, des matrices othogonales est un sous-groupe compact de $(\GL_n(\R), \times)$.
+   \end{Theoreme}
+   \subsection{Démonstration (limites de suite)}
+      On a bien $\groupeOrthogonal_n(\R) \subset \GL_n(\R)$ (ce sont des matrices d’inverse leur transposée). Montrons que
+      c’est un sous-groupe.
+      \begin{enumerate}
+         \item $I_n \in \groupeOrthogonal_n(\R)$.
+         \item Soit $(A, B) \in \groupeOrthogonal_n(\R)^2$. $\transposee{(AB)}AB = \transposee{B}\transposee{A}AB = \transposee{B}B = I_n$, donc
+               $\groupeOrthogonal_n(\R)$ est stable parfois.
+         \item Soit $A \in \groupeOrthogonal_n(\R)$. $\transposee{A^{-1}}A^{-1} = \transposee{\transposee{A}}\transposee{A} = A\transposee{A} = I_n$,
+               donc $A^{-1} \in \groupeOrthogonal_n(\R)$.         
+      \end{enumerate}
+      Donc $\groupeOrthogonal_n(\R)$ est un sous-groupe de $(\GL_n(\R), \times)$.
+      
+      Montrons qu’il est compact. Nous sommes en dimension finie, il suffit de montrer qu’il est fermé borné.
+      
+      En tant qu’image réciproque du fermé ${I_n}$ par l’application continue $A \to \transposee{A}A$, il est fermé.
+      
+      Considérons la norme euclidienne associée au produit scalaire canonique sur $\M_n(\R)$. On a pour $A \in \groupeOrthogonal_n(\R)$, 
+      \[
+         \norme{A} = \sqrt{\Tr(\transposee{A}A)} = \sqrt{\Tr(I_n)} = \sqrt{n}.
+      \]
+      Par suite, $\groupeOrthogonal_n(\R)$ est bornée.
+      
+      Donc on a bien que $\groupeOrthogonal_n(\R)$ est un sous-groupe compact de $\M_n(\R)$.
+\end{document}
+\end{document}

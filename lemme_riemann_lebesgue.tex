@@ -1,0 +1,37 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Lemme de Riemann-Lebesgue}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Lemme de Riemann-Lebesgue]
+      Soit $f$ continue de $\interv[a; b]$ dans $\C$. On pose
+      \[
+         F_n = \int_a^b f(t)\e^{int} \dt.
+      \]
+      $F_n$ tend vers 0.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Ici, nous allons démontrer le résultat pour une classe de fonction et l’étendre aux fonctions continues 
+      grâce à un argument de densité. Si $f$ est de classe $C^1$, une \emph{intégration par parties} donne
+      \[
+         I_n = \left[f(t) \frac{e^{int}}{in}\right]_a^b - \frac{1}{in} \int_a^b f’(t)\e^{int} \dt.
+      \]
+      $f$ est bornée par une constante $M$ car continue sur un segment (\emph{théorème des bornes}), on obtient alors
+      \[
+         \abs{I_n} \leq \frac{1}{n} \left(2M + \int_a^b \abs{f’(t)} \dt\right) \to 0.
+      \]
+      
+      Pour étendre le résultat à toutes les fonctions $f$ continues, nous utilisons, le
+      \emph{théorème de Stone-Weierstrass} pour approcher uniformément $f$ par une suite de polynômes pour qui nous
+      avons déjà montré le résultat (les polynômes sont dérivables).
+\end{document}

@@ -1,0 +1,51 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Réduction des isométries}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Réduction des isométries]
+      Soit $f$ un endormorphisme de $\groupeOrthogonal(E)$. Alors il existe une base orthonormale de $E$ dans laquelle 
+      la matrice de $f$ est diagonale par bloc avec des blocs de la forme
+      \[
+         (1), (-1), \text{ ou }
+         \begin{pmatrix}
+            \cos \theta & - \sin \theta \\
+            \sin \theta & \cos \theta
+         \end{pmatrix}.
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      On procède par récurrence sur $n \in \N$. Si $n = 1$ ou $2$, le résultat est vrai (voir l’étude des isométries
+      du plan). Supposons le résultat vrai jusqu’au rang $n - 1$ avec $n - 1 \geq 2$. 
+      
+      Montrons qu’il existe une droite ou un plan $F$ stable par $u$. Le polynôme caractéritstique se décompose en 
+      polynômes irréductibles. $\chi_f = P_1P_2\ldots P_m$ et et puisque $chi_f(f)$ est nul, l’un d’eux, $P$, n’est 
+      pas injectif. Par suite, $P$ est de la forme $X - \lambda$ ou $X^2 + px + q$. 
+      
+      Si $P(X) = X - \lambda$, $\lambda$ est valeur propre et tout vecteur propre associé engendre une droite 
+      vectorielle stable. Sinon, $P(X) = X^2 + pX + q$. En considérant $x \in \ker P(u)$, on a $u^2(x) + pu(x) + q(x) = 0$,
+      d’où $\Vect(x, u(x))$ est stable par $u$.
+      
+      Montrons maintenant que $\orthogonal{F}$ est stable par $u$. $u(f) \subset F$, et puisque $f$ est bijective 
+      (donc conserve la dimension), $u(F) = F$. Soit $x \in \orthogonal{F}$. Montrons que $u(x)$ est orthogonal à 
+      tout élément de $F$. Soit$y \in F$, on peut écrire $y = u(a)$ avec $a \in F$, donc
+      \[
+         \scalaire{u(x)}{y} = \scalaire{u(x)}{u(a)} = \scalaire{x}{a} = 0.
+      \]
+      Donc $\orthogonal{F}$ est stable par $u$ et est de dimension inférieur à $n$. Par hypothèse de récurrence, il 
+      existe une base orthonormale de $\orthogonal{F}$ dans laquelle la matrice de $f$ soit de la forme voulue. De même,
+      une base convient pour $F$ (car de dimension $1$ ou $2$). En accolant ces deux bases, on forme une base 
+      orthonormale de $E$ qui convient.
+      
+      Le résultat est démontré.
+\end{document}

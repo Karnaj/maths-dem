@@ -1,0 +1,36 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Non dénombrabilité de $\R$}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      L’ensemble des suites à valeurs dans $\{0, 1\}$ n’est pas dénombrabre.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Pour montrer ce résultat, supposons cet ensemble dénombrabre. On peut alors
+      numéroter tous les éléments de cet ensemble grâce à une suite $(U_n)$ tel que
+      \[
+         U_n = (U_n^k)_{k \in \N}.
+      \]
+      On considère alors une suite $u$ définie par
+      \[
+         v_k =
+         \begin{cases}
+            0 & \text{ si $U_n^k$ = 1} \\
+            1 & \text{ sinon}
+         \end{cases}.
+      \]
+      On a que $(v_k)$ est bien une suite à valeurs dans $\{0, 1\}$, pourtant $(v_k)$ 
+      n’est pas un élément de $(U_n)$. ABSURDE. Donc cet ensemble de suite n’est pas 
+      dénombrabre.
+\end{document}

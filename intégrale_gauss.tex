@@ -1,0 +1,46 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Intégrale de Gauss}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Intégrale de Gauss]
+      \[
+         \int_0^{+\infty} \e^{-t^2} \dt = \frac{\sqrt{\pi}}{2}.
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      La fonction $t \mapsto \e^{-t^2}$ est bien intégrable sur $\interv[0; +\infty[$ car $o(1/t^2)$.
+      Posons $I$ son intégrale. On a 
+      \begin{align*}
+         I^2 &= \left( \int_0^{+\infty} \e^{-x^2} \dx \right) \left( \int_0^{+\infty} \e^{-y^2} \dy \right) \\
+             &= \iint_{\R \times \R} \e^{-(x^2 + y^2)} \dx \dy.
+      \end{align*}
+      On fait alors un changement de variable polaires
+      \[
+         \begin{systeme}
+            x &= r\cos \theta
+            y &= r \sin \theta
+         \end{systeme}
+      \]
+      Ici, on est sur un quart de plan, $r \in \interv[0; +\infty[$ et $\theta \in \interv[0; \frac{\pi}{2}]$. Alors,
+      \begin{align*}
+         I^2 &= \iint_{\R \times \interv[0; \frac{\pi}{2}]} r \e^{-r^2} \dr \dtheta\\
+             &= \left( \int_0^{+\infty} \e^{-x^2} \dx \right) \left( \int_0^{\interv[0; \frac{\pi}{2}]} \dtheta \right)\\
+             &= \frac{1}{2} \times \frac{\pi}{2}\\
+             &= \frac{\pi}{4}.
+      \end{align*}
+      Par suite, on a bien
+      \[
+         I = \frac{\sqrt{\pi}}{2}.
+      \]
+\end{document}

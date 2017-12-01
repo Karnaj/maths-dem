@@ -1,0 +1,41 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{$\N^2$ est dénombrabre}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      $\N^2$ est dénombrabre.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Pour montrer ce résultat, il nous suffit d’exhiber une bijection entre $\N$ et $\N^2$. Ici, nous 
+      allons plutôt créer une bijection entre $\N^*$ et $\N^2$. Pour cela, nous allons utiliser le fait
+      que tout nombre s’écrit sous la forme du produit d’une puissance de deux et d’un nombre impair. Posons 
+      \[
+         \phi(k, l) = 2^k(2l + 1).
+      \]
+      L’existence et l’unicité de la décomposition en facteurs premiers de tout entier strictement positif
+      donne alors la bijectivité de $\phi$. On peut néanmoins la montrer par le calcul. Par exemple, pour
+      l’injectivité, supposons, $\phi(k, l) = \phi(p, q)$ avec $(k, l) \neq (p, q)$. On a alors, 
+      \begin{align*}
+         2^k(2l + 1) = 2^p(2q + 1) \implies 2^{k - p}(2l + 1) = (2q + 1).
+      \end{align*}
+      Si $k \neq p$, alors $2q + 1$ est pair, impossible, donc $k = p$. Alors, on a bien $(k, l) = (p, q)$. 
+
+      Notons que la décomposition en facteurs premiers donne aussi une bijection entre $\N^*$ et $\N^3$ et 
+      en général entre $\N^*$ et $\N^k$ pour tout $k > 0$. En effet, en posant $p_1,p_2, \ldots, p_{k - 1}$, les $k - 1$
+      premiers entiers premiers, tout entier $p$ s’écrit sous la forme du produit de puissances des $p_i$ et d’un 
+      nombre qui n’est multiple d’aucun des $p_i$.
+      \[
+         p = \prod_{i = 1}^{k - 1} p_i^{\alpha_i} \times (p_1\cdots p_k \alpha_k + 1).
+      \]
+\end{document}

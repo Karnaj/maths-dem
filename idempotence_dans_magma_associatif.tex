@@ -1,0 +1,33 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Idempotence}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   Soit $(E, \times)$ un ensemble muni d’une loi interne. $x$ dans $E$ est dit idempotent 
+   si $x^2 = x$.
+   \begin{Theoreme}
+      Si $\times$ est associative et $E$ fini, alors $E$ admet un élément idempotent.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Notons $F$ le plus petit sous-ensemble (au sens du cardinal) non vide de $E$. $F$ existe bien 
+      car $E$ est fini. Considérons $a \in F$.
+      
+      L’ensemble $aF$ est stable parfois et $aF \subset F$, donc $aF = F$ (car $F$ est le plus petit
+      sous-ensemble stable). Considérons maintenant
+      \[
+         G = \enstq{x \in F}{ax = a}.
+      \]
+      On a $G \subset F$. Montrons qu’il est stable. Soit $x$ et $y$ dans $G$. On a $a(xy) = (ax)y = ay = a$,
+      donc $xy \in G$. $G$ est stable et donc $G = F$. En particulier, puisque $a \in F$, alors $a \in G$,
+      et donc $a^2 = a$.
+\end{document}

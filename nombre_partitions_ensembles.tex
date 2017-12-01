@@ -1,0 +1,40 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Nombres de partitions d’un ensemble}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Nombres de Bell]
+      Montrer que le nombre $P_n$ de partitions d’un ensemble à $n$ éléments suit la relation
+      \[
+         \begin{systeme}
+            P_0       &= 1\\
+            P_{n + 1} &= \sum{k = 0}^n \binom{n}{k} P_k
+         \end{systeme}
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Montrons cette relation par construction. Un ensemble a $0$ éléments a $1$ partition
+      (celle contenant l’ensemble vide).
+
+      Soit $E$ un ensemble à $n + 1$ éléments et soit $x$ un élément de $E$.
+      Une partition de $E$ est alors composée d’une partie $H$
+      contenant $x$ et ayant $k$ éléments hormis $x$ ($k \in \intervalleEntier{0}{n}$) qu’on complète avec une partition de ce qui reste (donc d’un ensemble à $n - k$ 
+      éléments). Pour tout $k$ entre $0$ et $n$, le nombre de parties $H$ possibles
+      est $\binom{n}{k}$ et le nomnbre de partitions possibles de ce qui reste est 
+      $P_{n - k}$, d’où
+      \begin{align*}
+         P_{n + 1} &= \sum{k = 0}^n \binom{n}{k} P_{n - k}\\
+                   &= \sum_{i = 0}^n \binom{n}{n - i} P_i & (i = n - k)\\
+                   &=  \sum_{i = 0}^n \binom{n}{i} P_i
+      \end{align*}      
+\end{document}

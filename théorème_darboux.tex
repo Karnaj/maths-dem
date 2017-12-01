@@ -1,0 +1,53 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Théorème de Darboux}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Théorème de Darboux]
+      Soit $f$ une fonction dérivable sur un intervalle $\interv[a; b]$. Alors, $f’(\interv[a; b])$ est un intervalle.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Si $f$ est de classe $C^1$ sur $\interv[a; b]$, alors le \emph{théroème des valeurs intermédiaires} donne le 
+      résultat. Pour montrer le résultat dans le cas général on va introduire deux fonctions. 
+      
+      Pour $a < x \leq b$, on pose
+      \[
+         \phi(x) = \frac{f(x) - f(a)}{x - a}
+      \]
+      et pour $a \leq x < b$, on pose
+      \[
+         \psi(x) = \frac{f(x) - f(b)}{x - b}.
+      \]
+      On les prolonge par continuité en posant $\phi(a) = f’(a)$ et $\psi(b) = f’(b)$. Ces deux fonctions sont
+      continues sur $\interv[a; b]$ et $\phi(b) = \psi(a)$ donc $\interv[\phi(a); \phi(b)] \cup \interv[\psi(a); \psi(b)]$
+      est un segment qui contient $f’(a)$ et f’(b).
+      
+      Soit $y \in \interv[f’(a); f’(b)]$. On a $y \in \interv[\phi(a); \phi(b)]$ ou $y \in \interv[\psi(a); \psi(b)]$.
+      
+      Supposons $y \in \interv[\phi(a); \phi(b)]$. $\phi$ est continue, donc il existe $c \in \interv[a; b]$ tel que
+      $y = \phi(c)$ (\emph{théorème des valeurs intermédiaires}). Si $c = a$, alors $y = f’(a)$. Sinon,
+      \[
+         y = \frac{f(c) - f(a)}{c - a}
+      \]
+      et le \emph{théorème des accroissements finis} donne alors l’existence de $d \in \interv]a; c[$ tel que 
+      $f’(d) = y$.
+      
+      De même, on montre que si $y \in \interv[\psi(a); \psi(b)]$, il existe $d \in \interv]a; c[$ tel que 
+      $f’(d) = y$.
+      
+      Ce résultat est vrai pour tout $y \in \interv[f’(a); f’(b)]$, c’est-à-dire que $f’$ prend toutes les valeurs 
+      de cet intervalle.
+
+      PS : Ce résultat montre que seules les fonctions vérifiant la propriété des valeurs intermédiaires peuvent être
+      dérivées d’une autre fonction. Par exemple, la fonction partie entière ne peut pas l’être.
+\end{document}

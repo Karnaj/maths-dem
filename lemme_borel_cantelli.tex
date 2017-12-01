@@ -1,0 +1,44 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Lemme de Borel-Cantelli}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Borel-Cantelli]
+      Soit $\suite{A}$ une suite d’évènements telle que
+      \[
+         \sum_{k = 0}^{+\infty}P(A_n) < + \infty.
+      \]
+      Alors,
+      \[
+         P\left(\lim \sup A_n\right) = 0.
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      % Posons
+      % \[
+         % B_n = \bigcup_{k \geq n} A_k.
+      % \]
+      % Alors, $B_n$ est une suite décroissante pour l’inclusion, 
+      % le \emph{théorème de continuité décroissante} donne alors que
+      % \[
+         % P(\bigcap_{n \geq 0} B_n) = \lim_{n \to +\infty} P(B_n)
+      % \]
+      On a pour tout entier $k$,
+      \[
+         P\left(\lim \sup A_n\right) \leq P\left(\bigcup_{n \geq k} A_n\right) \leq \sum_{n \geq k} P(A_n). 
+      \]
+      Cette somme tend vers $0$ quand $k \to \infty$ (car reste d’une série convergente). Par suite, on a bien
+      \[
+          P(\lim \sup A_n) = 0.
+      \]
+\end{document}

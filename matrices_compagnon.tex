@@ -1,0 +1,93 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Matrices compagnons}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   Soit $(a_0, \ldots, a_{n - 1} \in \R^n$ et le polynôme $P = (-1)^n(X^n - (a_{n - 1}X^{n - 1} + \ldots + a_0))$.
+   On appelle matrice compagnon du polynôme $P$ la matrice
+   \[
+      A = 
+      \begin{pmatrix}
+         0      & \ldots & \ldots & 0      & a_0\\
+         1      & 0      &        & \vdots & a_1\\
+         0      & 1      & \ddots & \vdots & \vdots\\
+         \vdots & \ddots & \ddots & 0      & a_{n - 2}\\
+         0      & \ldots & 0      & 1      & a_{n - 1}
+      \end{pmatrix}
+   \]
+   \begin{Theoreme}[Matrices compagnons]
+      $\chi_A = P$ et $A$ est diagonalisable si et seulement si $A$ est scindé à racines simples.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      En développant par rapport à la dernière colonne, on montre que $\chi_A = P$.
+      % En effet,
+      % \[
+         % \det (XI_{n + 1} - A) = P(X).
+      % \]
+      Ce résultat peut aussi être montré par récurrence sur $n \in \N^*$. Pour passer du range $n$ au rang $n + 1$,
+      il faudra alors développer par rapport à la première ligne.
+      % \begin{align*}
+         % \chi_a(X) &= \det (XI_{n + 1} - A)\\ 
+         % &= - X \begin{vmatrix}
+            % X      & \ldots & \ldots & 0      & -a_0\\
+            % 1      & X      &        & \vdots & -a_1\\
+            % 0      & 1      & \ddots & \vdots & \vdots\\
+            % \vdots & \ddots & \ddots & X      & -a_{n - 2}\\
+            % 0      & \ldots & 0      & 1      & X - a_{n - 1}
+         % \end{vmatrix} +
+         % (-1)^{n + 1}a_0
+         % \begin{vmatrix}
+            % 1      & -X     & 0      & \ldots & 0\\
+            % 0      & 1      & -X     & \vdots & \vdots\\
+            % 0      & 0      & \ddots & \vdots & 0\\
+            % \vdots & \ddots & \ddots & 1      & -X\\
+            % 0      & \ldots & 0      & 0      & 1
+         % \end{vmatrix}
+      % \end{align*}
+      
+      Si $P$ est scindé à racines simples, $A$ est bien sûr diagonalisable (son polynôme caractéristique est scindé à 
+      racines simples). Pour établir la réciproque, étudions les sous-espaces propres de $A$. Soit $\lambda$ une valeur
+      propre de $A$. On a
+      % et soit $X = \transposee{(x_1, \ldots, x_n)} \in \Ker(A - \lambda I_{n})$. On a 
+      % \[
+        % AX = X\lambda I_n \iff       
+            % \begin{systeme}
+               % a_0 x_n = \lambda x_1\\
+               % x_1 + a_1x_n = \lambda x_2\\
+               % \vdots\\
+               % x_{n - 1} + a_{n - 1}x_n = \lambda x_n
+            % \end{systeme} \iff 
+            % \begin{cases}
+               % \begin{systeme}
+                  % x_1 = 1
+                  % a_0 x_n = \lambda x_1\\
+                  % x_1 + a_1x_n = \lambda x_2\\
+                  % \vdots\\
+                  % x_{n - 1} + a_{n - 1}x_n = \lambda x_n
+               % \end{systeme}
+            % \end{cases}
+      % \]
+      \[
+         \rg(a - \lambda I_n) = \rg       
+            \begin{pmatrix}
+              -\lambda & \ldots   & \ldots & 0        & a_0\\
+               1       & -\lambda &        & \vdots   & a_1\\
+               0       & 1        & \ddots & \vdots   & \vdots\\
+               \vdots  & \ddots   & \ddots & -\lambda & a_{n - 2}\\
+               0       & \ldots   & 0      & 1        & a_{n - 1} -\lambda 
+            \end{pmatrix} = n - 1.
+      \]
+      En effet les $n - 1$ premiers vecteurs colonnes sont libres. Les sous-espaces propres de $A$ sont donc de 
+      dimension $1$. Si $A$ est diagonalisable, $E$ est la somme directe des sous-espaces propres, d’où il y en
+      a $n$, donc $n$ valeurs propres distinctes. Par suite, $\chi_A$ est scindé à racines simples.
+\end{document}

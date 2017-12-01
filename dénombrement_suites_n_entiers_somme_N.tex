@@ -1,0 +1,36 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Dénombrement}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      L’ensemble des $n$-uplets $(a_1, \ldots, a_n)$ d’entiers naturels tels que $a_1 + \ldots + a_n = N$ a pour cardinal
+      \[
+         \binom{N + n - 1}{N}.
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Ce résultat peut être montré (laborieusement) par une récurrence. Plutôt que de la faire, nous allons écrire la
+      somme $a_1 + \ldots + a_n$ comme une succession de « $1$ » et de « $+$ ». Par exemple
+      \begin{align*}
+         2 + 0 + 1 + 3 &\text{ donne } 11 + + 1 + 111\\ 
+         0 + 2 + 1 + 3 &\text{ donne } + 11 + 1 + 111\\ 
+         0 + 2 + 3 + 0 &\text{ donne } + 11 + 111 + +        
+      \end{align*}
+      Cette écriture est faite avec $N + n - 1$ symboles ($N$ « 1 » et $n - 1$ « + »). Choisir un $n$-uplet 
+      correspond à choisir la place des $N$ « 1 » (ou la place des $n - 1$ « + »). Par suite, le nombre de 
+      $n$-uplets correspondant est
+      \[
+         \binom{N + n - 1}{N}.
+      \]
+\end{document}

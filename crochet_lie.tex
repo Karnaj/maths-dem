@@ -1,0 +1,40 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Crochet de Lie}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soit $A, B$ dans $M_n(\C)$ telles que $AB - BA = B$. Montrer que $B$ est nilpotente.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Commençons par essayer les puissances de $B$. On part de la relation $AB - BA = B$ qu’on multiplie
+      par $B$ à droite (ce qui donne $AB^2 - BAB = B^2$) et à droite (ce qui donne $BAB - B^2A = B^2$).
+      En additionnant les deux, $2B^2 = AB^2 - B^2A$. 
+      
+      Montrons par récurrence que $AB^k - B^kA = kB^k$. La relation est vraie pour $k = 1$ et $k = 2$.
+      Supposons la vraie au rang $k -1$. On a 
+      \begin{align*}
+         AB^k - BA^k &= (AB^{k - 1} - B^{k - 1}A)B + B^{k - 1}(AB - BA)\\
+                     &= (k - 1)B^k + B^k = kB^k.
+      \end{align*}
+      Le résultat est démontré.
+      
+      Reste à montrer que $f$ est nilpotente. Pour cela, considérons l’endomorphisme
+      \[
+         f \colon M \to AM - MA.
+      \]
+      Si $B$ n’est pas nilpotente, alors $B^k$ n’est pas nulle à partir d’un certain rang. Or $B^k$ non nulle implique
+      que $k$ est dans le spectre de$f$. En effet, $f(B^k) = kB^k$. ABSURDE, car le spectre de $f$ est finie.
+      Donc $B$ est nilpotente.
+\end{document}
+\end{document}

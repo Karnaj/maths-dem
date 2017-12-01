@@ -1,0 +1,48 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Dénombrement des parties paires d’un ensemble}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soit $E$ un ensemble non vide. $E$ a autant de parties paires que de parties impaires.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      % On note respectivement $N_{i, n}$ et $N_{p, n}$ le nombre de parties de $E$ de cardinal impair et pair d’un ensemble à $n$ éléments. On a
+      % \[
+      % \left\{ \begin{aligned}
+                 % N_{i, n + 1} &= N_{i, n} + N_{p, n} = 2^n\\
+                 % N_{p, n + 1} &= N_{p, n} + N_{i, n} = 2^n
+              % \end{aligned}
+      % \right. .
+      % \]
+      % En effet, pour avoir une partie de cardinal impair dans $E$ de cardinal $n + 1$, on écrit 
+      % $E = A \cup \left\{a\right\}$ (avec $A = E \setminus \left\{a\right\}$ de cardinal $n$). Un ensemble de cardinal 
+      % impair de $E$ est alors soit une partie de $A$ de cardinal impair, soit l’union de $\left\{a\right\}$ et d’une 
+      % partie de $A$ de cardinal pair. Donc $N_{i, n + 1} = N_{i, n} + N_{p, n}$. De même, on montre que 
+      % $N_{p, n + 1} = N_{i, n} + N_{p, n}$.
+      % \[
+         % \forall n \in \N^*, N_{i, n} = N_{p, n}.
+      % \]
+      
+      % On peut aussi construire une bijection en se basant sur cela.  
+      Soit $n$ le cardinal de $E$. 
+      
+      Si $n$ est impair, le nombre de parties de cardinal pair est égal au nombre de parties de cardinal impair, 
+      par passage au complémentaire. 
+      
+      Si $n$ est impair, en considérant un élément $x$ de $E$, on a  que le nombre de parties de cardinal pair 
+      (resp. impair) qui contient $n$ est égal au nombre de parties de cardinal impair (resp. pair) ne contenant pas $n$
+      (on enlève l’élément $x$ de l’ensemble).
+      
+      PS : on en déduit bien sûr que le nombre de parties paires (et impaires) est $2^{n - 1}$. 
+\end{document}

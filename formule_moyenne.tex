@@ -1,0 +1,37 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Formule de la moyenne}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Formule de la moyenne]
+      Soient $f$ et $g$ continues de $\interv[a; b]$ dans $\R$ avec $g \geq 0$. Alors il existe $c \in \interv[a; b]$
+      tel que
+      \[
+         \int_a^b f(t)g(t) \dt = f(c) \int_a^b g(t) \dt
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      $f$ est continue sur l’intervalle fermé $\interv[a; b]$, donc (\emph{théorème des bornes}) son image est un 
+      intervalle fermé $\interv[m; M]$. On a alors
+      \[
+         m\int_a^b f(t)\dt \leq \int_a^b f(t)g(t) \dt \leq M\int_a^b g(t) \dt.
+      \]
+      Donc, il existe $y \in \interv[m; M]$, tel que
+      \[
+         \int_a^b f(t)g(t) \dt = y\int_a^b g(t) \dt.
+      \]
+      Le \emph{théorème des valeurs intermédiaires} donne l’existence de $c \in \interv[a; b]$ tel que $y = f(c)$.
+      On a bien le résultat voulu.
+      
+      Notons que le résultat s’applique si $g$ est de signe constant (quitte à changer $g$ par $-g$).
+\end{document}

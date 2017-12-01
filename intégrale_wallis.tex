@@ -1,0 +1,49 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Intégrale de Wallis}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   Soit $n \in \N$, l’intégrale de Wallis est 
+   \[
+      I_n = \int_0^{\frac{\pi}{2}} \cos^n t \dt.
+   \]
+   \begin{Theoreme}
+      On a $nI_n = (n - 1)I_{n - 2}$. De plus
+      \[ 
+          I_{2p} = \frac{(2p)!}{2^{2p}(p!)^2}\frac{\pi}{2} \text{ et }
+          I_{2p + 1} = \frac{2^{2p}(p!)^2}{(2p + 1)!}.
+      \]
+   \end{Theoreme}
+   \section{Démonstration}
+      On a en faisant une \emph{intégration par parties} pour $n \geq 2$,
+      \begin{align*}
+         I_n &= \int_0^{\frac{\pi}{2}} \cos t \cos^{n - 1} t \dt\\
+             &= \left[ \sin t \cos^{n - 1}\right]_0^{\frac{\pi}{2}} + (n - 1) \int_0^{\frac{\pi}{2}} \sin^2 t \cos^{n - 2} t \dt\\
+             &= (n - 1) \int_0^{\frac{\pi}{2}} (1 - \cos^2 t) \times \cos^{n - 2} t \dt\\
+             &= (n - 1) (I_{n - 2} - I_n).
+      \end{align*}
+      On obtient bien la relation de récurrence voulue. Elle permet d’obtenir les 
+      deux formules générales par récurrence, l’initialisation étant faite
+      puisque $I_0 = \frac{\pi}{2}$ et $I_1 = 1$.
+   % \subsection{Démonstration}
+
+   % \begin{Theoreme}[Équivalent en $+\infty$]
+      % On a
+      % \[
+         % I_n \sim \sqrt{\frac{\pi}{2n}}.
+      % \]
+   % \end{Theoreme}
+   % \section{Démonstration}
+      % On a pour $n \in \N$ et $t \in \interv[0; \frac{\pi}{2}], 0 \leq cos^{n + 1} t \leq cos^{n} t$,
+      % en intégrant cette inégalité, on obtient que la suite $(I_n)$ est décroissante.
+\end{document}

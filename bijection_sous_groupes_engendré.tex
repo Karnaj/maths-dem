@@ -1,0 +1,38 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Bijection sous-groupe engendré par un élément}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soit $G$ un groupe et $g \in G$. Si $g$ est d’ordre $n$, alors 
+      \[
+         (g) \simeq \varZquotient{n}.
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Définissons le morphisme
+      \[
+         \fonction{\phi}{\varZquotient{n}}{G}{\classe{m}}{g^m}
+      \]
+      On vérifie que c’est bien un morphisme et par définition de $g$ 
+      (il est d’ordre $n$), $\phi$ est surjectif.
+      
+      Si $\phi(\classe{m}) = e_G$, la division euclidienne de $m$ par $n$ donne
+      $m = qn + r$ avec $0 \leq r < n$.
+      
+      Ainsi, si $\phi(\classe{m}) = 0$, alors $g^{qn + r} = 0$, c’est-à-dire
+      $g^r = 0$ d’où $r = 0$ (par définition de l’ordre).On en déduit que 
+      $\ker \phi = \singleton{\classe{0}}$, $\phi$ est injectif.
+      
+      Par suite, $\phi$ est un isomorphisme et $(g) \simeq \varZquotient{n}$.
+\end{document}

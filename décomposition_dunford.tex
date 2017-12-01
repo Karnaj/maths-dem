@@ -1,0 +1,53 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Décomposition de Dunford}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Décomposition de Dunford]
+      Soit $f$ un endormorphisme de $E$. Si le polynôme caractéristique de $f$ est scindé, alors 
+      il existe un unique couple $(d, n)$ avec $d$ diagonalisable et $n$ nilpotent tel que
+      \[
+         f = d + n \text{ et } n \circ d = d \circ n
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      On note $\lambda_1, \ldots, \lambda_r$ les valeurs propres de $f$, $\alpha_1, \ldots, \alpha_r$ leur ordre de 
+      multiplicité et $E_1, \ldots, E_r$ les sous-espaces propres associés. $E$ est la somme directe des $E_k$, il 
+      suffit de définir $d$ et $n$ sur les $E_k$. Posons pour $x \in E_k$,
+      \[
+         d_k(x) = \lambda_k x \text{ et } n_k(x) = f(x) - \lambda_k x.
+      \]
+      $E_k$ est stable par $f$ donc par $d$ et $n$ donc ce sont bien des endomorphismes de $E_k$. De plus, 
+      on a bien $d_k$ diagonalisable et $n_k$ nilpotente (pour tout $x \in E_k$, $(f - \lambda_k \Id)^{\alpha_k}(x) = 0$). 
+      Et puisque $d_k(x) = \lambda_k \Id$, $d_k$ et $n_k$ commutent.
+
+      Montrons l’unicité de cette décomposition. Supposons un autre couple $(d', n')$ qui convienne. On a $f = d + n = d' + n'$, d'où
+      \[
+         d - d' = n' - n.
+      \]        
+      On a $f \circ d' = d' \circ f$, donc les $E_k$ sont stables par $d'$. Comme $d_k = \lambda_k \Id_{E_k}$, on en déduit que $d'$ et $d$ commute sur $E_k$ et donc sur $E$ tout entier (car somme directe des $E_k$). Par suite, $d$ et $d'$ sont codiagonalisables, d'où $d' - d$ est diagonalisable.
+      
+      On a $n = f - d$ et $n' = f - d'$ avec $d$ et $d'$ qui commutent, donc $n$ et $n'$ 
+      commutent. Si $n^p = n'^q = 0$, on a avec la \emph{formule du binôme de Newton},
+      \[
+         (n - n')^{p + q} = \sum_{k = 0}^{p + q} \binom{p + q}{k} (-1)^k n^k n'^{p + q - k} = 0.
+      \]
+      Donc $n - n'$ est nilpotent.
+      
+      $d - d' = n - n'$ est diagonalisable nilpotent donc nul. L’unicité est démontrée.
+      
+      PS : $n$ et $d$ sont des polynômes en $f$. Cette décomposition est très utile pour calculer par exemple les 
+      puissances ou les exponentielles de matrice.
+  
+      
+\end{document}

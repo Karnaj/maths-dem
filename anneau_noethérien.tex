@@ -1,0 +1,44 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Anneaux noethériens}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Anneaux noethériens]
+      Soit $A$ un anneau. On a équivalence entre les trois propriétés suivantes.
+      \begin{enumerate}
+         \item Tout idéal de $A$ est fini.
+         \item Toute suite croissante d’idéaux ($I_1 \subset I_2 \subset \ldots$) d’idéaux de $A$
+               est stationnaire.
+         \item Tout ensemble non vide d’idéaux de $A$ a un élément maximal pourl’inclusion.
+      \end{enumerate}
+      Un tel anneau est dit noethérien.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Montrons $1 \implies 2$. La suite $I_n$ est croissante pour l’inclusion, la réunion $I$ de
+      tout les $I_n$ est un idéal donc est fini (selon $1$) c’est-à-dire de la forme $(a_1, \ldots
+      , a_k)$. Il existe $N \in N$ tel que $a_1, \ldots a_k \in I_N$, donc $I = I_N$ d’où l’implication.
+
+      Montrons $2 \implies 3$.Soit $E$ un ensemble non vide d’idéaux. Supposons que $E$ n’a pas
+      d’élément maximum. En prenant $I_1 \in E$ quelconque, puisque $I_1$ n’est pas maximum, on 
+      peut prendre $I_2 \in E$ avec $I1 \subsetneq I_2$ et par récurrence, on construit ainsi une
+      suite d’idéaux de $A$ strictement croissante. ABSURDE. 
+      
+      Montrons $3 \implies 1$. Soit $I$ un idéal de $A$ et $E$ l’ensemble des idéaux finis inclus dans $I$. $E$ est non vide ($\singleton{0} \in E$). Soit $J$ un élément maximum de $E$. 
+      Si $J \neq I$, alors en prenant $a \in I - J$, on a que $J + (a)$ est un idéal de fini inclus
+      dans $I$ et strictement plus grand que $J$ (pour l’inclusion). ABSURDE car $J$ est un élément maximum de $E$. Donc $J = I$, c’est-à-dire que $I$ est fini.
+
+      Le résultat est démontré. 
+      
+      PS : on pourrait alors démontrer le \emph{théorème de Hilbert} qui dit que si $A$ est noethérien,
+      alors $A[X]$ l’est aussi.
+\end{document}

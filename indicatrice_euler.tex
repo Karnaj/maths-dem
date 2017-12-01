@@ -1,0 +1,59 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Indicatrice d’Euler}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   Notons $\phi$ la fonction indicatrice d’Euler 
+   % la fonction $\phi$ de $\N^*$ dans
+   % $\N^*$ définie par
+   % \[
+      % \phi(n) = \card{\enstq{k \in \intervalleEntier{1}{n}}{k \wedge n = 1}}.
+   % \]
+   % On a bien évidémment que $\phi(n)$ est le nombre d’éléments inversibles 
+   % de l’anneau $\varZquotient{n}$ et le nombre de générateurs du groupe 
+   % $\varZquotient{n}$. 
+   \begin{Theoreme}
+      Soit $p$ premier et $\alpha$ un entier non nul, alors
+      \[
+         \phi(p) = p^\alpha - p^{\alpha - 1}. 
+      \]
+      Si $p_1^{\alpha_1} \ldots p_N^{\alpha_N}$ est la décomposition en éléments
+      premiers d’un entier $n$, alors
+      \[
+         \phi(n) = n \prod_{k = 1}^N \left(1 - \frac{1}{p_k}\right)
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Si $p$ est premier, les seuls nombres de $\intervalleEntier{1}{p^\alpha}$
+      qui ne sont pas premiers avec $p^\alpha$ sont les multiples de $p$. Il y 
+      en a $p^{\alpha - 1}$. On en déduit que le nombre d’éléments inversibles est
+      \[
+         \phi(p) = \card \intervalleEntier{1}{n} - p^{\alpha - 1} = p^\alpha - 
+         p^{\alpha - 1}.
+      \]
+      Le \emph{lemme chinois} permet d’avoir que si $n$ et $m$
+      sont premiers entre eux, alors
+      \[
+         \phi(nm) = \phi(n)\phi(m) 
+      \]
+      Grâce à cela, si $n = p_1^{\alpha_1} \ldots p_N^{\alpha_N}$, alors,
+      puisque les $p_k^{\alpha_k}$ sont premiers entre eux,
+      \begin{align*}
+         \phi(n) = \prod_{k = 1}^N \phi(p_k^{\alpha_k})
+                 &= \prod_{k = 1}^N p_k^{\alpha_k} - p_k^{\alpha_k - 1}\\
+                 &= \prod_{k = 1}^N p_k^{\alpha_k} \left(1 - \frac{1}{p_k^{\alpha_k}}\right)\\
+                 &= \prod_{k = 1}^N p_k^{\alpha_k} \prod_{k = 1}^N\left(1 - \frac{1}{p_k^{\alpha_k}}\right)\\
+                 &= n \prod_{k = 1}^N \left(1 - \frac{1}{p_k}\right).
+      \end{align*}
+      On obtient bien le résultat.
+\end{document}

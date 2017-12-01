@@ -1,0 +1,65 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Matrice de trace nulle}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soit $M \in \M_n(\R)$ de trace nulle. Alors, $M$ est semblable à une matrice à diagonale nulle.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      On considère $f$ l’endomorphisme canoniquement associé à $M$.
+      Montrons le résultat par récurrence sur $n$. Si $n = 1$, le résultat est vrai.
+      Soit $n > 1$. On suppose le résultat vrai à l’ordre $n - 1$.
+      
+      Si $f$ est une homothétie, le résultat est vrai et $M$ est la matrice nulle.
+      
+      Si $f$ n’est pas une homothétie, on montre par contraposée qu’il existe $x$ tel que $(x, f(x))$ est libre. 
+      % si pour tout $x$, $(x, f(x)$ est liée, alors pour tout $x$, il existe $\lambda_x$ tel que $f(x) = \lambda_x x$.
+      % Alors, 
+      % \[
+         % \begin{systeme}
+            % f(x + y) &= \lambda_{x + y} (x + y) = \lambda_{x + y} x + \lambda_{x + y} y\\
+            % f(x + y) &= f(x) + f(y) = \lambda_{x} x + \lambda_{y} y
+         % \end{systeme}
+      % \]
+      % Donc, pour tout $(x, y)$, $\lambda_x = \lambda_y = \lambda$, et $f(x) = \lambda x$, $f$ est une homothétie.
+      Considérons un tel $x$ et complétons $(x, f(x))$ en une base
+      de l’espace. Dans cette base, la matrice de $f$ est
+      \[
+         M’ = 
+         \begin{pmatrix}
+            0 & M_1\\
+            M_2 & A
+         \end{pmatrix}
+      \]
+      avec $C$ une matrice colonne, $L$ une matrice ligne et $A \in \M_{n - 1}(\R)$. $A$ est de trace nulle,
+      l’hypothèse de récurrence donne que $A$ est semblable à $B$ de diagonale nulle. Il y a $P$ inversible telle que $A = PBP^{-1}$. Posons
+      \[
+         Q = 
+         \begin{pmatrix}
+           1 & 0\\
+           0 & P
+         \end{pmatrix}
+      \]
+      On a $Q$ inversible et en utilisant $Q$ comme matrice de passage, on a $M$ semblable à
+      \[
+         \begin{pmatrix}
+            0 & M_1\\
+            M_2 & A
+         \end{pmatrix} = Q \begin{pmatrix}
+         0  & *\\
+         * & B
+         \end{pmatrix} Q^{-1}        
+      \]
+      qui est bien une matrice de trace nulle.
+\end{document}

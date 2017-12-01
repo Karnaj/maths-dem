@@ -1,0 +1,33 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Multiple de 2017}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   Le principe des tiroirs dit que si on a $n$ chaussettes à placer dans $p$ tiroirs avec $n > p$, 
+   alors il existe un tiroir qui contient au moins deux chaussettes. On va l’utiliser pour montrer ce résultat.
+   \begin{Theoreme}
+      Montrer qu’il existe un multiple de $2017$ qui ne s’écrit qu’avec des $1$.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      On va noter $u_n$ le nombre dont l’écriture en base 10 est formée de $n$ $1$ : $u_1 = 1,u_2 = 11$, etc.
+      Le principe des tiroirs donne qu’il y a au moins deux termes de cette suite congrus modulo 2017 (il y a une 
+      infinité de termes dans la suite et 2017 restes possibles).
+      
+      Soient $u_n$ et $u_m$ deux de ces termes (avec $n > m$). 
+      On a $u_n \equiv u_m[2017]$, donc $2017$ divise $u_n - u_m = 10^mu_{n - m}$, or $2017$ est premier avec 
+      $10^{n - m}$, donc $2017$ divise $u_{n - m}$.
+      
+      $u_{n - m}$ est un multiple de $2017$ qui ne s’écrit qu’avec des $1$.
+      
+      PS : Ce résultat est vrai pour tout entier premier avec 10.
+\end{document}

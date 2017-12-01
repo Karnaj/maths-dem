@@ -1,0 +1,56 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Nombre de fonctions croissantes}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soit $p$ et $q$ deux entiers. Le nombre de fonctions croissantes de $\intervalleEntier{1}{k}$ dans 
+      $\intervalleEntier{1}{n}$ est
+      \[
+         \binom{n + k - 1}{k}.
+      \] 
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Commençons par dénombrer le nombre de fonctions strictement croissantes. Une application $f$ srictement
+      croissante est entièrement définie par son image (les éléments sont ordonnés). En choisir une revient à
+      choisir les $k$ éléments de son image. 
+      % Soit $f$ une application strictement croissante de $\intervalleEntier{1}{k}$ dans $\intervalleEntier{1}{n}$. 
+      % L’image de $f$ est une partie à $k$ éléments de $\intervalleEntier{1}{n}$. Montrons qu’il y a une bijection 
+      % entre les fonctions strictement croissantes de $\intervalleEntier{1}{k}$ dans $\intervalleEntier{1}{n}$ et
+      % les parties à $k$ éléments de $\intervalleEntier{1}{n}.$
+      % \begin{description}
+         % \item[Injectivité] : soit $A$ une partie à $k$ éléments de $\intervalleEntier{1}{n}$. Il existe une unique
+                              % fonction strictement croissante de $\intervalleEntier{1}{k}$ dans $A$ (on ordonne $A$).
+         % \item[Surjectivité] : si $A$ est associée à deux fonctions $f$ et $g$, alors, puisque ces deux fonctions 
+                               % sont croissantes, elles sont égales (les deux consistent à ordonner $A$).
+      % \end{description}
+      Par suite, le nombre de fonctions strictement croissantes de $\intervalleEntier{1}{k}$ dans $\intervalleEntier{1}{n}$ est
+      \[
+         \binom{n}{k}.
+      \]
+   
+      Soit maintenant $f$ une fonction croissante de $\intervalleEntier{1}{k}$ dans $\intervalleEntier{1}{n}$. Posons
+      \[
+         g(x) = f(x) + x - 1.
+      \]
+      La fonction $g$ est strictement croissante à valeurs dans $\intervalleEntier{1}{n + k - 1}$. De plus, toute 
+      fonction strictement croissante de $\intervalleEntier{1}{k}$ dans $\intervalleEntier{1}{n + k - 1}$ est associé 
+      à une unique fonction croissante de $\intervalleEntier{1}{k}$ dans $\intervalleEntier{1}{n}$ (les deux sont 
+      entièrement définis par $g(x) = f(x) + x - 1$). Il y a donc une bijection entre les fonctions strictement 
+      croissantes de $\intervalleEntier{1}{k}$ dans $\intervalleEntier{1}{n + k - 1}$ et les fonctions croissantes 
+      de $\intervalleEntier{1}{k}$ dans $\intervalleEntier{1}{n}$. Par suite, le nombre de fonctions
+      croissantes de $\intervalleEntier{1}{k}$ dans $\intervalleEntier{1}{n}$ est
+      \[
+         \binom{n + k - 1}{k}.
+      \]    
+\end{document}

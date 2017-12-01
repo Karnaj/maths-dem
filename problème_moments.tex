@@ -1,0 +1,44 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Un théorème des moments}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soit $f$ continue de $\interv[0; 1]$ dans $^R$ tel que pour tout $k \in \N$
+      \[
+         \int_0^1 f(x)x^k \dx = 0.
+      \]
+      Alors $f$ est identiquement nulle.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      D’après le \emph{théorème de Weierstrass}, il existe une suite de polynômes $\suite{P}$ qui converge
+      uniformément vers $f$ sur $\interv[0; 1]$. Par linéarité de l’intégrale, on a que
+      \begin{equation}
+         \int_0^1 fP_n = 0 \label{eq:int}
+      \end{equation}
+      pour tout $n$. 
+      
+      $f$ est continue sur un segment donc bornée par une constante $M \in \R_+$ (\emph{Théorème des bornes}).
+      Par suite, pour tout $x \in  \interv[0; 1]$,
+      \[
+         \normeInf{fP_n - f^2} = M\normeInf{P_n - f}
+      \]
+      qui tend vers 0 puisque $\suite{P}$ converge uniformément vers $f$ sur $\interv[0; 1]$. Donc, $\suite{fP}$ converge 
+      uniformément vers $f^2$ sur $\interv[0; 1]$.
+      
+      En passant à la limite sous l’intégrale \eqref{eq:int}, on a que
+      \[
+         \int_0^1 f^2 = 0.
+      \]
+      $f^2$ étant continue, positive, cela impose $f^2$ nulle, donc $f$ nulle.
+\end{document}

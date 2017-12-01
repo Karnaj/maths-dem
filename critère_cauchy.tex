@@ -1,0 +1,45 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Critère de Cauchy}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Critère de Cauchy]
+      Soient $\suite{u}$ et $\suite{v}$ deux suites à valeurs positives telles que 
+      \[
+         \frac{u_{n + 1}}{u_n} \leq \frac{v_{n + 1}}{v_n}.
+      \]
+      Alors la convergence de la série des $v_n$ entraîne celle de la série des $u_n$.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Supposons que la série des $v_n$ converge. Soit $n \in \N$. On a
+      \[
+         \ln \left( \sum_{k = 0}^n \frac{u_{k + 1}}{u_k} \right) \leq \ln \left( \sum_{k = 0}^n \frac{v_{k + 1}}{v_k} \right)
+      \]
+      c’est-à-dire
+      \[
+        \ln \left(\prod_{k = 0}^n \frac{u_{k + 1}}{u_k} \right) \leq \ln \left(\prod_{k = 0}^n\frac{v_{k + 1}}{v_k} \right).
+      \]
+      Par télescopage, on obtient
+      \[
+         \ln\left(\frac{u_{n + 1}}{u_0}\right) \leq \ln\left(\frac{v_{n + 1}}{v_0}\right)
+      \]
+      Et donc 
+      \[
+         \frac{u_{n + 1}}{u_0} \leq \frac{v_{n + 1}}{v_0}.
+      \]
+      On a alors
+      \[
+         0 \leq u_{n + 1} \leq \frac{v_{n + 1} u_0}{v_0}
+      \]
+      d’où \emph{par comparaison de séries à termes positifs}, la série des $u_n$ converge.
+\end{document}

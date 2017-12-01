@@ -1,0 +1,38 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Lemme fondamental du calcul des variations}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[]
+      Soit $f$ une fonction continue de $\interv]a; b[$ dans $\R$. Si pour toute fonction
+      $h$ de $\interv]a; b[$ dans $\R$, on a
+      \[
+         \int_a^b fh = 0
+      \]
+      Alors, $f$ est nulle.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Si $f$ vérifie les hypothèses, supposons qu’il existe $x$ dans $\interv]a; b[$, 
+      $f(x) \neq 0$. Par continuité, $f$ est de signe constant sur un intervalle $I \subset \interv]a; b[$ tel que $x \in I$. Considérons $v$ de classe $C^1$ sur 
+      $\interv[a; b]$ strictement positive sur $I$ et nulle en dehors. On peut prendre 
+      par exemple
+      \[
+         v(x) = \begin{cases}
+            (d - x)^2(x - a)^2 & \text{si } x \in I\\
+            0                  & \text{sinon}.
+         \end{cases}
+      \]
+      On a que $fv$ est de signe constant (et non nulle) sur $I$ et nulle ailleurs, donc 
+      son intégrale est non nulle, ABSURDE. Donc $f$ est nulle sur $\interv]a; b[$ et donc
+      sur $\interv[a; b]$ par continuité.
+\end{document}

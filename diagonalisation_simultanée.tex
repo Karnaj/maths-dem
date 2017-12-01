@@ -1,0 +1,38 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Diagonalisation simultanée}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Diagonalisation simultanée]
+      Soit $f$ et $g$ deux endomorphismes diagonalisables. Alors, $f$ et $g$ commutent si et seulement si il existe une base commune de diagonalisation (\ie{} $f$ et $g$ sont codiagonalisables). 
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Soient $\lambda_1, \ldots, \lambda_r$ les valeurs propres de $f$ et $E_{\lambda_1}, \ldots, E_{\lambda_r}$ 
+      les sous-espaces propres associés. Pour tout $k$, $E_{\lambda_k}$ est stable par $g$. La restriction
+      de $g$ à cet espace induit un endomorphisme, lui aussi diagonalisable. 
+      
+      Donc il existe une base $B_k$ de $E_{\lambda_k}$ de vecteurs propres de $g$ et de vecteurs propres de $f$ 
+      (la restriction de $f$ à cet espace est $\lambda_k \Id_{E_{\lambda_k}}$). En concaténant ces bases, on obtient une base de diagonalisation de $f$ et $g$.
+      
+      Réciproquement, si $f$ et $g$ sont codiagonales, on montre facilement que $f$ et $g$ commutent sur cette
+      base. En effet, si on considère, $A$ et $B$ les matrices de $f$ et $g$, on a qu’il existe $P$ inversible
+      et $D_1$ et $D_2$ diagonales telles que $A = P^{-1}D_1P$ et $B = P^{-1}D_2P$. Par suite,
+      \[
+         AB = (P^{-1}D_1P)(P^{-1}D_2P) = P^{-1}D_1D_2P = P^{-1}D_2D_1P = (P^{-1}D_2P)(P^{-1}D_1P) = BA.
+      \]
+      Le résultat est démontré.
+      
+      PS : ce résultat peut notamment être utilisé pour démontrer l’unicité de la \emph{décomposition de Dunford}.
+      
+      PS 2 : on montre par récurrence que $f_1, \ldots, f_n$ sont codiagonalisables si et seulement si ils commutent deux à deux.
+\end{document}

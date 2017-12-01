@@ -1,0 +1,46 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Moyenne spatiale}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Moyenne spatiale]
+      Soit $f$ continue telle que pour tout $x \in \R$ et tout $a > 0$,
+      \[
+         f(x) = \frac{1}{2a}\int_{x - a}^{x + a} f.
+      \]
+      Alors $f$ est affine.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Les fonctions affines vérifient bien cette hypothèse. Montrons que ce sont les seules.
+      
+      Soit $f$ vérifiant la relation et $F$ une primitive de $f$. L’égalité devient
+      \begin{equation}
+         f(x) = \frac{1}{2a} (F(x + a) - F(x - a)). \label{eq:prim}
+      \end{equation}
+      On a alors pour tout $x \in \R$ et $a > 0$,
+      \begin{align*}
+         4af(x) &= F(x + 2a) - F(x - 2a)\\
+                &= F(x + 2a) - F(x) + F(x) - F(x - 2a)\\
+                &= 2af(x + a) + 2af(x - a).
+      \end{align*}
+      Et donc,
+      \begin{equation}
+         2f(x) = f(x + a) - f(x - a). \label{eq:dev}
+      \end{equation}
+      De plus, \eqref{eq:prim} implique $f$ dérivable sur $\R$. En dérivant \eqref{eq:dev}, on obtient alors
+     \[
+         0 = f’(x + a) - f’(x - a).
+     \]
+     Cette relation étant valable pour tout $x \in \R$ et $a > 0$, on en déduit que $f’$ est constante,
+     c’est-à-dire que $f$ est affine.
+\end{document}

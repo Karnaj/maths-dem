@@ -1,0 +1,29 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Théorème d’Euler}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Théorème d’Euler]
+      Notons $\phi$ l’indicatrice d’Euler. Si $a$ est premier avec $n$, alors
+      \[
+         a^{\phi(n)} \equiv 1 \mod n
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Si $a \wedge n = 1$, alors $\classe{a}$ est un élément du groupe des inversibles de  $\varZquotient{n}$ et ce groupe possède $\phi(n)$ éléments, d’où le résultat.
+
+      PS : Si $p$ est premier, $\phi(p) = p - 1$ et on retrouve le \emph{petit théorème de Fermat},
+      \[
+         a \wedge n \implies a^{p - 1} \equiv 1 \mod n.
+      \]
+\end{document}

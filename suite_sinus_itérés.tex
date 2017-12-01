@@ -1,0 +1,37 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Suite de sinus itéré}
+\date{}
+\author{}
+
+\input{../outils_maths}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Lemme de Riemann-Lebesgue]
+      Soit $\suite(u)$ définie par $u_0 \in \interv[0; \frac{pi}{2}]$ et pour tout entier $n$, $u_{n + 1} = \sin(u_n)$.
+      \[
+         u_n \sim \sqrt{frac{\pi}{3}}.
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Nous allons d’abord montrer que $u_n$ tend vers 0. Posons $I = \interv[0; \frac{\pi}{2}]$.
+      $I$ est stable par la fonction $\sin$, donc pour tout entier $n$, $u_n \in I$. De plus,
+      pour tout $x \in I$, $\sin(x) \geq x$, donc $(u_n)$ est décroissante. Elle est 
+      décroissante minorée (par $0$), donc elle converge vers un réel $l$. $l$ vérifie 
+      $\sin(l) = l$, donc $l = 0$.
+      
+      Cherchons maintenant l’équivalent. On a 
+      \begin{align*}
+         \frac{1}{u_{n + 1}^2} - \frac{1}{u_n^2} = \frac{1}{\sin^2 u_n} - \frac{1}{u_n^2} &= \frac{1}{\left(u_n - \frac{u_n^3}{6} + O(u_n^2)\right)^2} - \frac{1}{u_n^2}\\
+                                                 &= \frac{1}{u_n^2} \left( \frac{1}{1 - \frac{u_n^2}{3} + O(u_n^3)} - 1\right)\\
+                                                 &= \frac{1}{u_n^2} \left( \frac{u_n^2}{3} + O(u_n^3) \right)\\
+                                                 &= \frac{1}{3} + O(u_n) \sim \frac{1}{3}.                                                
+      \end{align*}
+      
+\end{document}
