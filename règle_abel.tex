@@ -1,0 +1,44 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Règle d'Abel}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soit $u_n$ une suite telle que $u_n = a_n v_n$ avec
+         \begin{itemize}
+            \item $\suite{a}$ une suite positive, décroissante de limite nulle.
+            \item la série de terme général $v_n$ est bornée.
+         \end{itemize}
+      Alors, la série de terme général $u_n$ converge.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Pour commencer, notons $S_n$ la suite des sommes partielles de $v_n$. On a
+      qu’il existe $M$ tel que $\norme{S_n} < M$ pour tout $n$. De plus, on a
+      avec une \emph{transformation d’Abel} que
+      \begin{align*}
+         \sum_{k = 0}^n u_k &= \sum_{k = 0}^n a_kv_k\\
+                            &= a_0 v_0 + \sum_{k = 1}^n a_k\left(S_k - S_{k - 1}\right)\\
+                            &= a_0 v_0 + \sum_{k = 1}^n a_k S_k - \sum_{k = 1}^n a_k S_{k - 1}\\
+                            &= \sum_{k = 0}^n a_k S_k - \sum_{k = 0}^{n - 1} a_{k + 1} S_k\\
+                            &= a_nS_n + \sum_{k = 0}^{n - 1} \left(a_{k - 1} - a_k\right) S_k.
+      \end{align*}
+      Montrons la convergence absolue de la première série.
+      \[
+         \sum_{k = 0}^{n - 1} \norme{\left(a_{k - 1} - a_k\right) S_k}
+               \leq M \sum_{k = 0}^{n - 1} \norme{\left(a_{k - 1} - a_k\right)} = \left(a_0 - a_{n + 1}\right)M \leq a_0M.
+      \]
+      Et on a que le premier terme, $\left(a_nS_n\right)$ tend vers $0$ puisque
+      $\suite{S}$ bornée et $\suite{a}$ décroissante de limite nulle.
+
+      On en déduit bien la convergence de la série de terme général $u_n$.
+\end{document}

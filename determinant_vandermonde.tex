@@ -1,6 +1,6 @@
-\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
 \usepackage[utf8]{inputenc}
-\usepackage[french]{babel}
+\usepackage{babel}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath, amssymb, stmaryrd}
 \usepackage[amsmath]{ntheorem}
@@ -9,17 +9,17 @@
 \date{}
 \author{}
 
-\input{../outils_maths}
+\input{../outils}
 \setcounter{secnumdepth}{0}
 \begin{document}
 \maketitle
-   Pour $(a_1, a_2, \ldots, a_n) \in \K^n$, on pose 
+   Pour $(a_1, a_2, \ldots, a_n) \in \K^n$, on pose
    \[
-      V_n(a_1, \ldots, a_n) = 
+      V_n(a_1, \ldots, a_n) =
       \begin{vmatrix}
          1      & a_1    & a_1^2  & \ldots & a_1^{n - 1} \\
          \vdots & \vdots & \vdots & \vdots & \vdots \\
-         1      & a_n    & a_n^2  & \ldots & a_n^{n - 1} \\         
+         1      & a_n    & a_n^2  & \ldots & a_n^{n - 1} \\
       \end{vmatrix}
    \]
    \begin{Theoreme}[Déterminant de Vandermonde]
@@ -29,15 +29,15 @@
    \end{Theoreme}
    \subsection{Démonstration (récurrence sur $n \in \N^*$)}
       Le résultat est vrai pour $n = 1$. Soit $n \in \N^*$. On suppose le résultat vrai pour $n$.
-      
-      Soit $(a_1, \ldots, a_{n + 1}) \in \K^{n + 1}$. S’il y a $i \neq j$ tel que $a_i = a_j$, deux lignes 
+
+      Soit $(a_1, \ldots, a_{n + 1}) \in \K^{n + 1}$. S’il y a $i \neq j$ tel que $a_i = a_j$, deux lignes
       sont identiques alors le déterminant est nul,
       \[
          V_{n + 1}(a_1, \ldots, a_n, a_{n + 1}) = 0 = \prod_{1 \leq i < j \leq n + 1} (a_i - a_j).
       \]
-      Sinon, on pose $P(x) = V_{n + 1}(a_1, \ldots, a_n, x)$. En développant par rapport à la dernière ligne, 
-      on a que $P$ est un polynôme de degré $n$ et de coefficient dominant $V_n(a_1, \ldots, a_n)$. De plus, 
-      $a_1, \ldots, a_n$ sont $n$ racines distinctes de $P$, donc on a 
+      Sinon, on pose $P(x) = V_{n + 1}(a_1, \ldots, a_n, x)$. En développant par rapport à la dernière ligne,
+      on a que $P$ est un polynôme de degré $n$ et de coefficient dominant $V_n(a_1, \ldots, a_n)$. De plus,
+      $a_1, \ldots, a_n$ sont $n$ racines distinctes de $P$, donc on a
       \[
          P(x) = V_n(a_1, \ldots, a_{n - 1})\prod_{i = 1}^n (x - a_i).
       \]
@@ -47,5 +47,4 @@
                                                  &= \prod_{1 \leq i < j \leq n + 1} (a_i - a_j)
       \end{align*}
       et le résultat est établi.
-\end{document}
 \end{document}

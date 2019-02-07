@@ -1,6 +1,6 @@
-\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
 \usepackage[utf8]{inputenc}
-\usepackage[french]{babel}
+\usepackage{babel}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath, amssymb, stmaryrd}
 \usepackage[amsmath]{ntheorem}
@@ -9,7 +9,7 @@
 \date{}
 \author{}
 
-\input{../outils_maths}
+\input{../outils}
 \setcounter{secnumdepth}{0}
 \begin{document}
 \maketitle
@@ -20,7 +20,7 @@
       Pour montrer ce résultat, supposons cet ensemble dénombrabre. Alors il existe une bijection
       $\phi$ de $\N$ dans $\partie(\N)$. Prenons alors l’ensemble
       \[
-         A = \enstq{n \in \N}{n \not \in \varphi}.
+         A = \enstq{n \in \N}{n \not \in \varphi(n)}.
       \]      
       $A$ est une partie de $\N$, il existe un entier $n$ tel que $\phi(n) = A$. On a alors deux possibilités.
       \begin{description}

@@ -1,0 +1,52 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Densité des matrices diagonalisables dans $\M_n(\C)$}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      L’ensemble des matrices diagonalisables à coefficients dans $\C$ est dense
+      dans $\M_n(\C)$.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Soit $A$ dans $\M_n(\C)$. $A$ st triangulaire dans une base adaptée. Notons
+      $\lambda_k$, $k \in \intervalleEntier{1}{n}$ les valeurs propres de $A$.
+      Si elles sont distinctes, $A$ est diagonalisable.
+      
+      Sinon, notons $A’_{p}$ la suite de matrice diagonales telle que 
+      \[
+         \forall k \in \intervalleEntier{1}{n}, a’_{p, k, k} = \frac{1}{kp}.
+      \]
+      
+      Posons $A_p = A + A’_p$. À partir d’un certain rang $N$, $A_p$ possède 
+      $n$ valeurs propres distinctes, donc est diagonalisable. Mais on note que
+      \[
+         \normeInf{A - A_p} = \normeInf{A’_p} \leq \frac{1}{p}. 
+      \]
+      Donc la suite $(A_p)$ tend vers $A$. Ainsi, toute matrice est limite d’une
+      suite de matrices diagonalisables pour la norme infinie (donc pour toutes 
+      les normes vu qu’elles sont équivalentes en dimension finie). On en déduit
+      que l’ensemble des matrices diagonalisables est dense dans $\M_n(\C)$.
+      
+      PS : attention, ce n’est pas le cas dans $\M_n(\R)$. Prenons
+      \[
+         A = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}. 
+      \]
+      Son polynôme caractéristique, $X^2 + 1$, n’admet pas de racines réelles, 
+      d’où $A$ n’est pas diagonalisable. Supposons qu’il existe une suite $D_n$ 
+      de matrices diagonalisables qui converge vers $A$. 
+      
+      Le discriminant du polynôme caractéristique des $D_k$ est continu (car  
+      polynomial en les coefficients) et il est positif puisqu’elles sont 
+      diagonalisables. Le passage à la limite donne que le discriminant de 
+      $X^2 + 1$ est positif ou nul, ce qui est absurde.       
+\end{document}

@@ -1,0 +1,44 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Règle de Raab-Duhamel}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Règle de Raab-Duhamel]
+      Soient $\suite{u}$ à valeurs positives telles que 
+      \[
+         \frac{u_{n + 1}}{u_n} = \frac{1}{1 + a/n + O(1/n^2}
+      \]
+      \[
+         \frac{u_{n + 1}}{u_n} \leq \frac{v_{n + 1}}{v_n}.
+      \]
+      Alors il existe $\lambda > 0$ tel que $u_n \sim \lambda / n^a$ en $+\infty$.
+      Ainsi, la série des $u_n$ converge ssi $a > 1$.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Nous voulons montrer que la suite de terme général $n^a u_n$ converge 
+      et a une limite strictement positive. Considérons $v_n = \log(n^a u_n)$
+      et $w_n = v_{n + 1} - v_n$. On a
+      \begin{align*}
+         w_n &= \log(n^a u_n) - \log((n + 1)^a u_{n + 1}\\
+             &= \log \left[\left(\frac{n + 1}{n}\right)^a\right] + \log\left(\frac{u_{n + 1}}{u_n}\right)\\
+             &= a \log\left(1 + \frac{1}{n}\right) - \log\left(1 + \frac{1}{n} + O\left(\frac{1}{n^2}\right)\right)\\
+             &= \frac{a}{n} + O\left(\frac{1}{n^2}\right) - \left(\frac{a}{n} + O\left(\frac{1}{n^2}\right)\right)\\
+             &= O\left(\frac{1}{n^2}\right).
+      \end{align*}
+      On en déduit que la série de terme général $w_n$ converge avec
+      \[
+         \sum_{k = 1}^n w_n = v_{n + 1} - v_1.
+      \]
+      Donc la suite $(v_n)$ est elle aussi convergente. On a alors $\exp(v_n) = n^\alpha u_n$
+      qui converge vers une limite strictement positive, ce qui nous donne le résultat.
+\end{document}

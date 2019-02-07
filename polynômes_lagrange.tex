@@ -1,0 +1,50 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Polynômes de Lagrange}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soit $n \in \N$, et $x_0, \ldots, x_n$ $n + 1$ complexes deux à deux distincts.
+      Il existe $(n + 1)$ polynômes uniques $L_0, \ldots, L_n$ tel que 
+      $\forall (i, j) \in \intervalleEntier{1}{n}^2, L_i(x_j) = \delta_{i, j}$.
+      Ils forment une base de $\C_n[X]$.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Soit $i \in \intervalleEntier{1}{n}$. $L_i$ est de degré au plus $n$ et on connaît $n$ racines, donc il existe $\lambda_i$ tel que
+      \[
+         L_i = \lambda_i\prod_{j \neq i} (X - x_j).
+      \]
+      Et l’égalité $L_i(x_i) = 1$ permet de trouver la valeurs de $\lambda_i$. On
+      trouve
+      \[
+         L_i = \prod_{j \neq i} \frac{(X - x_j)}{x_i - x_j}.
+      \]
+      Réciproquement, un tel $L_i$ est bien défini puisque les $x_i$ sont 
+      distincts, est de degré inférieur ou égal à $n$ et vérifie bien 
+      $L_i(x_j) = \delta_{i, j}$. D’où l’existence et l’unicité.
+      
+      Montrons qu’il s’agit d’une base. La famille $(L_k)$ a le bon cardinal,
+      montrons qu’elle est libre. Soit $(\lambda_0, \ldots, \lambda_n) \in \C^{n + 1}$.
+      \begin{align*}
+         \sum_{i = 0}^n \lambda_i L_i = 0 
+              & \implies \forall 0 < j \leq n, \sum_{i = 0}^n \lambda_i L_i(j) = 0\\
+              & \implies \forall 0 < j \leq n, \sum_{i = 0}^n \lambda_i \delta_{i, j} = 0\\
+              & \implies \forall 0 < j \leq n, \lambda_j = 0.
+      \end{align*}
+      Par suite, c’est bien une base de $\C_n[X]$.
+      
+      PS : Ceci permet de montrer que si $(y_0, \ldots, y_n)$ sont $n + 1$ complexes,
+      il existe un unique polynôme de degré au plus $n$ tel que $P(x_j) = y_j$ pour tout
+      $j$. En effet, si $P$ est un tel polynôme, ses coordonnées dans la base
+      des $(L_i)$ est $(y_0, \ldots, y_n)$ \ie il est entièrement déterminé.  
+\end{document}

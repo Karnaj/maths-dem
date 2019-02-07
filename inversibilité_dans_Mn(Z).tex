@@ -1,0 +1,38 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Inversibilité dans $\M_n(\Z)$}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soit $M$ une matrice à coefficients entiers. Alors $M$ est inversible 
+      avec $M^{-1}$ à coefficients entiers si et seulement si $\det M = \pm -1$.
+   \end{Theoreme}
+   \subsection{Démonstration}
+       Soit $M \in \M_n(\Z)$. Alors, $\det M \in \Z$.
+       
+       Si $M$ est inversible avec $M^{-1}$ à coefficients entiers, alors on a
+       $\det M^{-1} \in \Z$. Mais
+       \[
+           \det M^{-1} = \frac{1}{\det M}
+       \]
+       donc $\det M = \pm -1$.
+       
+       Réciproquement, si $\det M = \pm -1$ alors $M$ est inversible. Reste à 
+       montrer que $M^{-1}$ est à coefficients entier. On a que tous les mineurs
+       de $M$ sont à coefficients entiers, donc sa comatrice est à coefficients
+       entiers. Par suite, puisque
+       \[
+           M^{-1} = \frac{1}{\det M} \times \transposee{\comat M}
+       \]
+       alors $M^{-1}$ est bien à coefficients entiers.
+\end{document}

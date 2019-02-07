@@ -1,6 +1,6 @@
-\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
 \usepackage[utf8]{inputenc}
-\usepackage[french]{babel}
+\usepackage{babel}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath, amssymb, stmaryrd}
 \usepackage[amsmath]{ntheorem}
@@ -9,14 +9,14 @@
 \date{}
 \author{}
 
-\input{../outils_maths}
+\input{../outils}
 \setcounter{secnumdepth}{0}
 \begin{document}
 \maketitle
    \begin{Theoreme}
       Soit $A \in \M_n(\C)$ telle que pour tout $k \geq 1$, $\Tr(A^k) = 0$. Alors $A$ est nilpotente.
    \end{Theoreme}
-   \section{Démonstration (récurrence)}
+   \subsection{Démonstration (récurrence)}
       Le polynôme caractéristique de $A$ est scindé sur $\C$. Supposons $A$ non nilpotente.
       Alors $A$ possède des valeurs propres (complexes) non nulles. Notons $\lambda_1, \ldots, \lambda_r$, 
       les valeurs propres distinctes et $n_1, \ldots, n_r$ leurs ordres de multiplicité.
@@ -42,7 +42,7 @@
       ABSURDE (les valeurs propres ne peuvent pas être d’ordre de multiplicité nul). 
       
       Donc $A$ est nilpotente.
-      \section{Démonstration (directe)}
+  \subsection{Démonstration (directe)}
          Soit $P$ le polynôme caractéristique de $A$,
          \[
             P = \sum_{k = 0}^n a_k X^k.

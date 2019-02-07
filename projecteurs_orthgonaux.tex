@@ -1,0 +1,56 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Projecteurs orthognaux}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   Soient $E$ un EVN de dimension $n$, $F$ et $G$ deux SEV de $E$ et $(e_0, \ldots,e_m)$ une base 
+   orthonormale de $F$.
+   \begin{Theoreme}
+      Une projection $p$ sur $F$ est orthogonale si et seulement si pour tout $x$ de $E$, $\norme{p(x)} \leq \norme{x}$.
+      On a alors que la distance de $x$ à $F$ est $\norme{x - p(x)}$ et que
+      \[
+         p(x) = \sum_{k = 0}^{m} \scalaire{e_k}{x} e_k.
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Si $p$ est orthogonale. Pour tout $y \in F$, le \emph{théorème de Pythagore} donne %(car $(x - p(x)) \in \orthogonal{F}$ et $(p(x) - y) \in F$)
+      \[
+         \norme{x - y}^2 = \norme{(x - p(x)) + (p(x) - y)} 
+                         = \norme{x - p(x)}^2 + \norme{p(x) - y}^2
+                         \geq \norme{x - p(x)}         
+      \]
+      avec égalité si et seulement si $y = p(x)$, d’où $\distance{x}{F} = \norme{x - p(x)}$. 
+      
+      De plus, puisque $p(x) \in F$, on a
+      \[
+         p(x) = \sum_{k = 0}^m \scalaire{e_k}{p(x)} e_k 
+      \]
+      avec $(\scalaire{e_k}{x - p(x)} = 0 $ (car $x - p(x) \in \orthogonal{F}$), donc 
+      $\scalaire{e_k}{p(x)} = \scalaire{e_k}{x}$, c’est-à-dire
+      \[
+         p(x) = \sum_{k = 0}^{m} \scalaire{e_k}{x} e_k.
+      \]
+      Soit $x \in E$. Si $p$ est la projection orthogonale sur $F$, on a $x = p(x) + (x - p(x))$
+      avec $p(x) \in F$ et $x - p(x) \in \orthogonal{F}$. Le \emph{théorème de Pythagore} donne alors
+      \[
+         \norme{x}^2 = \norme{p(x)}^2 + \norme{x - p(x)}^2 \geq \norme{p(x)}^2.
+      \]
+      Réciproquement, soit $p$ la projection sur $F$ parralèlement à un SEV $G$ avec
+      pour tout $x \in E$, $\norme{p(x)} \leq \norme{x}$. Pour $(a, b) \in F \times G$
+      et $\lambda \in \R$ considérons $x = a + \lambda b$. On a 
+      \[
+         \norme{p(x)} \leq \norme{x} \implies 2\lambda \scalaire{a}{b} + \lambda^2\norme{b}^2 \geq 0
+      \]
+      Si $\scalaire{a}{b} \neq 0$, cette expression n’est pas de signe constant au voisinage de $0$
+      (équivalent à $2 \lambda\scalaire{a}{b}$. ABSURDE, donc $\scalaire{a}{b} = 0$.
+\end{document}

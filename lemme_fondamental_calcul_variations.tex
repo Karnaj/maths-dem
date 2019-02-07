@@ -1,6 +1,6 @@
-\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
 \usepackage[utf8]{inputenc}
-\usepackage[french]{babel}
+\usepackage{babel}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath, amssymb, stmaryrd}
 \usepackage[amsmath]{ntheorem}
@@ -9,11 +9,11 @@
 \date{}
 \author{}
 
-\input{../outils_maths}
+\input{../outils}
 \setcounter{secnumdepth}{0}
 \begin{document}
 \maketitle
-   \begin{Theoreme}[]
+   \begin{Theoreme}
       Soit $f$ une fonction continue de $\interv]a; b[$ dans $\R$. Si pour toute fonction
       $h$ de $\interv]a; b[$ dans $\R$, on a
       \[
@@ -21,18 +21,28 @@
       \]
       Alors, $f$ est nulle.
    \end{Theoreme}
-   \subsection{Démonstration}
+   \subsection{Démonstration (absurde)}
       Si $f$ vérifie les hypothèses, supposons qu’il existe $x$ dans $\interv]a; b[$, 
       $f(x) \neq 0$. Par continuité, $f$ est de signe constant sur un intervalle $I \subset \interv]a; b[$ tel que $x \in I$. Considérons $v$ de classe $C^1$ sur 
       $\interv[a; b]$ strictement positive sur $I$ et nulle en dehors. On peut prendre 
       par exemple
       \[
          v(x) = \begin{cases}
-            (d - x)^2(x - a)^2 & \text{si } x \in I\\
+            (b - x)^2(x - a)^2 & \text{si } x \in I\\
             0                  & \text{sinon}.
          \end{cases}
       \]
       On a que $fv$ est de signe constant (et non nulle) sur $I$ et nulle ailleurs, donc 
       son intégrale est non nulle, ABSURDE. Donc $f$ est nulle sur $\interv]a; b[$ et donc
       sur $\interv[a; b]$ par continuité.
+      
+   \subsection{Démonstration (directe) si $f$ est continue sur $\interv[a; b]$}
+      On considère le produit scalaire intégrale sur $\interv]a; b[$. $f$ est 
+      orthogonale à toute fonction de $\interv]a; b[$ dans $\R$, donc en particulier, 
+      $f$ est orthogonale à tout polynôme. Mais il existe une suite de polynômes
+      qui converge uniformément vers $f$ (théorème de \emph{Stone-Weierstrass}).
+      
+      On a alors que pour cette suite de polynômes l'intégrale tend vers $0$. 
+      En passant à la limite, on obtient que l'intégrale de $f^2$ est nulle 
+      avec $f^2$ positive donc $f$ est nulle.
 \end{document}

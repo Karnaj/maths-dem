@@ -1,0 +1,41 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Paradoxe du singe savant}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   Considérons qu’on met un singe devant une machine à écrire de 80 lettres (minuscules,
+   majuscules et autres caractères).
+   \begin{Theoreme}
+      En tapant au hasard, le singe tapera presque sûrement le mot « savant ».
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Nous allons nous intéresser à la probabilité qu’il ne tape jamais le mot « savant ».
+      Notons tout d’abord que chaque lettre est tapée indépendamment des autres. Ainsi,
+      s’il doit taper 6 lettres, la probabilité que le mot tapé ne soit pas « savant »
+      est
+      \[
+         p = 1 - \frac{1}{60^6}.
+      \]
+      Nous allons maintenant séparer son entrée en bloc de $6$. La probabilité 
+      qu’il ne tape pas « savant » dans le premier bloc est de $p$, et chaque bloc
+      étant tapé indépendammment, la probabilité que « savant » ne soit pas tapé 
+      dans les $n$ premiers blocs est
+      \[
+         p_n = p^n.
+      \]
+      On a que $p_n$ tend vers $0$ en $+\infty$, donc la probabilité que le singe
+      ne tape jamais le mot « savant » est nulle. Par suite, il tapera presque sûrement
+      ce mot.
+      
+      En fait, le singe tapera presque sûrement n’importe quel texte donné.
+\end{document}

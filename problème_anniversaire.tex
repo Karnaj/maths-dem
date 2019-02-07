@@ -1,0 +1,60 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Problème des anniversaires}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soit $n \in \N$. La probabilité que dans une population de $n$ personnes,
+      trois d’entres-elles au moins partagent la même date d’anniersaire est
+      \[
+            w_n = 1 - \sum_{i = 0}^{\ent{\frac{n}{2}}} \frac{365!n!}{2^i i! (365 - n + i)! (n - 2i)! 365^n}
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Nous allons calculer la probabilité $P_i(n) $que parmi $n$ personnes,
+         $i$ paires de personnes aient une date d’anniversaire commune et que les dates de autres soient toutes distinctes entres elles et de celles des paires. L’évènement « trois personnes sont nés le même jour » est le complémentaire de celui « pour tout $i$ entre $0$ et $\ent{\frac{n}{2}}$,
+         il y a exactement $i$ paires de personnes nés le même jour, et tous les
+         autres sont nés des jours différents » (c’est la moitié de $n$ car
+         c’est le maximum de paires possibles). On a donc
+         \[
+            \omega_n = 1 - \sum_{i = 1}^{\ent{\frac{n}{2}}} P_i(n). 
+         \]
+         
+         Soit $0 \leq i \leq \ent{\frac{n}{2}}$. Calculons $P_i(n)$.
+         
+         Pour commencer, il y a $\binom{365}{i}$ manières de choisir les anniversaires des différentes paires, puis $\binom{n}{2}$ manières de choisir la première
+         paire, $\binom{n - 2}{2}$ pour la seconde, ..., et $\binom{n - 2(i - 1)}{2}$
+         pour la dernière. 
+         Ensuite, il nous faut choisir les dates d’anniversaire des $n - 2i$ personnes
+         soit restantes, soit $A^{n - 2i}_{365 - i}$. Par suite,
+         \begin{align*}
+           P_i(n) &= \binom{365}{i} \times \prod_{l = 0}^{i - 1} \binom{n - 2l}{2} \times \frac{A^{n - 2i}_{365 - i}}{365^n}\\
+           &=  \binom{365}{i} \times \prod_{l = 0}^{i - 1} \binom{n - 2l}{2} \times 
+              \frac{(365 - i)!}{(365 - n + i)! \times 365^n}. 
+         \end{align*}
+         Et en fait, on se rend compte que, par une sorte de télescopage, 
+         \[
+            \prod_{l = 0}^{i - 1} \binom{n - 2l}{2} = \frac{n!}{2^i(n - 2i)!}.
+         \]
+         D’où
+         \begin{align*}
+            P_i(n) &= \binom{365}{i} \times \frac{n!}{2^i(n - 2i)!} \times 
+                                        \frac{(365 - i)!}{(365 - n + i)! \times 365^n}\\
+                &= \frac{365!n!}{2^i i! (365 - n + i)! (n - 2i)! 365^n}.
+         \end{align*}
+         Et on en déduit la probabilité qu’on cherche,
+         \[
+            w_n = 1 - \sum_{i = 0}^{\ent{\frac{n}{2}}} \frac{365!n!}{2^i i! (365 - n + i)! (n - 2i)! 365^n}
+         \]
+      
+\end{document}

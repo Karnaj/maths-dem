@@ -1,41 +1,41 @@
-\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
 \usepackage[utf8]{inputenc}
-\usepackage[french]{babel}
+\usepackage{babel}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath, amssymb, stmaryrd}
 \usepackage[amsmath]{ntheorem}
 
-\title{Moyenne spatiale}
+\title{Point fixe application contractante}
 \date{}
 \author{}
 
-\input{../outils_maths}
+\input{../outils}
 \setcounter{secnumdepth}{0}
 \begin{document}
 \maketitle
    Une application $f$ est dite contractante (respectivement strictement contractante) si elle est $k$-lipschitzienne avec
    $k \in \interv[0; 1]$ (respectivement $k \in \interv[0; 1[$).
-   \begin{Theoreme}[Moyenne spatiale]      
+   \begin{Theoreme}[Moyenne spatiale]
       Soit $f$ une application contractante de $\R$ dans $\R$. Alors $f$ admet un unique point fixe.
    \end{Theoreme}
    \subsection{Démonstration}
       Montrons d’abord l’unicité du point fixe. Si $x$ et $y$ sont points fixes de $f$ alors
       \[
-         \norme{x - y} = \norme{f(x) - f(y)} \leq k\norme{y - x}          
+         \norme{x - y} = \norme{f(x) - f(y)} \leq k\norme{y - x}
       \]
       or $k \in \interv[0; 1[$, donc $x = y$, l’unicité est démontrée.
-      
+
       Montrons maintenant son existence. Pour cela étudions la suite récurrente $\suite{x}$ définie par
-      $x_0 \in E$ et pour $n \in \N$, $x_{n + 1} = f(x_n)$. 
-      
+      $x_0 \in E$ et pour $n \in \N$, $x_{n + 1} = f(x_n)$.
+
       Pour tout entier $n$, on a $\norme{x_{n + 1} - x_n} \geq k\norme{x_n - x_{n - 1}}$. Une récurrence donne alors
       \[
          \norme{x_{n + 1} - x_n} \geq k^n\norme{x_1 - x_0}
       \]
-      Puisque $k \in \interv[0; 1[$, la série géométrique des $k^n$ converge ; par \emph{comparaison de séries à termes 
-      positifs}, la série de terme général $\norme{x_{n + 1} - x_n}$ converge. Par suite, la série de terme général 
+      Puisque $k \in \interv[0; 1[$, la série géométrique des $k^n$ converge ; par \emph{comparaison de séries à termes
+      positifs}, la série de terme général $\norme{x_{n + 1} - x_n}$ converge. Par suite, la série de terme général
       $(x_{n + 1} - x_n)$ converge, d’où $x_n$ converge vers sa limite $l$.
-      
+
       $f$ étant continue (car lipschitzienne), la relation $x_{n + 1} = f(x_n)$ donne (en passant à la limite) $f(l) = l$. Donc $f$ possède
       bien un point fixe.
 \end{document}

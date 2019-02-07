@@ -1,0 +1,45 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Méthode des trapèzes}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Méthode des trapèzes]
+      Soit $f$ une fonction de classe $C^2$ sur un intervalle $\interv[a; b]$. Soit $n \in \N^*$. Alors
+      \[
+        \epsilon_n = \abs{\frac{\delta}{2} \sum_{k = 0}^{n - 1} f(x_k) + f(x_{k + 1} - \int_a^b f(t) \dt} = O\left(\frac{1}{n^2}\right).
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Notons d’abord que $f’$ est bornée par une constante $M$ sur $\interv[a; b]$ (\emph{théorème des bornes}).
+      
+      On va introduire la subdivsion $x_k = a + k \frac{b - a}{n}$ et $\delta = \frac{b - a}{n} = x_{k + 1} - x_k$.
+
+      Il nous faut majorer la différence sur chacun des intervalles. Pour cela posons pour chaque $k$
+      \[
+         E(x) = \left(\int_{x_k}^{x} f(t) \dt \right) - (x_k - x) f(x_k).
+      \]
+      En dérivant $E$, on obtient $E’(x) = f(x) - f(x_k)$, l’\emph{inégalité des accroissements finis} donne alors
+      $\abs{E’(x)} \leq M\abs{x - x_k}$. En intégrant ceci sur $\interv[x; x_k]$, on obtient
+      \[
+         \abs{E(x)} \leq \frac{M\abs{x - x_k}^2}{2}.
+      \]
+      D’où en évaluant en $x_{k + 1}$,
+      \[
+         \abs{\left(\int_{x_k}^{x} f(t) \dt \right) - (x_k - x_{k + 1}) f(x_k)} \leq \frac{M\abs{b - a}^2}{2n^2}.
+      \]
+      En sommant cette inégalité pour $k \in \intervalleEntier{0}{n - 1}$, on obtient
+      \[
+         \epsilon_n  \leq \sum_{k = 0}^{n - 1} \frac{M(b - a)^2}{2n^2} = \frac{M\abs{b - a}^2}{2n} = O\left(\frac{1}{n}\right).
+      \]
+      On a bien le résultat voulu.
+\end{document}

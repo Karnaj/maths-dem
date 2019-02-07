@@ -1,0 +1,61 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Inégalité de Hölder}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soit $p$ et $q$ des exposants conjugués \ie{} deux nombres positifs vérifiant
+   $\frac{1}{p} + \frac{1}{q} = 1$.
+   Soit $f$ et $g$ deux fonctions positives intégrables sur $E$, alors
+      \[
+         \int_Efg \geq \left(\int_E f^p \right)^{\frac{1}{p}}
+                       \left(\int_E g^q \right)^{\frac{1}{q}}
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Posons
+      \[
+         A = \left(\int_E f^p \right)^{\frac{1}{p}} \text{ et } 
+         B = \left(\int_E g^q \right)^{\frac{1}{q}}.
+      \] 
+      Si $A = 0$ ou $B = 0$, alors l’une des deux fonctions est d’intégrale       
+      nulle donc est nulle (car positive), et le résultat est démontré. Sinon,
+      posons $F = \frac{f}{A} \text{ et } G = \frac{g}{B}$. On a alors
+      \begin{equation}\label{un}
+         \int_E F^p = \int_E G^q = 1. 
+      \end{equation}
+      De plus, puisque $F$ et $G$ sont positives, pour $x \in \R$ il existe 
+      $s$ et $t$ tels que
+      \[
+         F(x) = \e^{\frac{s}{p}} \text{ et } G(x) = \e^{\frac{t}{p}}.
+      \]
+      La convexité de l’exponentielle et le fait que $p$ et $q$ soient conjuguées
+      donnent alors
+      \[
+         \e^{\frac{s}{p} + \frac{t}{p}} \leq \e^{\frac{s}{p}}+ \e^{\frac{t}{p}}
+                                        \leq \frac{1}{p}\e^s + \frac{1}{q}\e^t
+      \]
+      C’est-à-dire
+      \[
+         F(x)G(x) \leq \frac{1}{p}F(x)^p + \frac{1}{q}G(x)^q.
+      \]
+      En intégrant et en utilisant \eqref{un}, on obtient
+      \[
+         \int_E FG \leq \frac{1}{p} + \frac{1}{q} = 1. 
+      \]
+      Il ne reste plus qu’à faire réapparaître $f$ et $g$, ce qui donne
+      \[
+         \int_E \frac{fg}{AB} \leq 1.         
+      \]
+      ce qui donne bien le résultat voulu.
+\end{document}

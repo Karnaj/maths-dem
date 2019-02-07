@@ -1,0 +1,47 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Caractérisation des projecteurs orthogonaux}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soit $p$ un projecteur de $E$ un espace euclidien. $p$ est une projection 
+      si et seulement si,
+      \[
+         \forall x \in E, \norme{p(x)} \leq \norme{x}
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Soit $p$ une projection orthogonale sur $F$. On a
+      \[
+         x = p(x) + (x - p(x)).
+      \]
+      On a $x \in F$ et $x - p(x) \in \orthogonal{F}$ d’où ils sont orthogonaux. 
+      Le théorème de Pythagore donne alors que 
+      \[
+         \norme{x}^2 = \norme{p(x)}^2 + \norme{x - p(x)}^2 \geq \norme{p(x)}^2
+      \]
+      d’où le résultat.
+      
+      Réciproquement, si $p$ est une projection sur $F$ parallèlement à $G$ vérifiant
+      l’inégalité, montrons que $p$ est orthogonale. Soit $\lambda \in \R$ et 
+      $x = a + \lambda b$ avec $(a, b) \in F \times G$. On a $p(x) = a$ et l’inégalité
+      nous donne que pour tout $\lambda \in \R$,
+      \[
+         2 \lambda \scalaire{a}{b} + \lambda^2\norme{b}^2 \geq 0.
+      \]
+      Si $\scalaire{a}{b}$ n’est pas nul \ie{} si $p$ n’est pas ne projection orthogonale,
+      alors $2 \lambda \scalaire{a}{b} + \lambda^2\norme{b}^2$ est équivalent à 
+      $2 \lambda \scalaire{a}{b}$ en $0$, mais dans ce cas, cette expression n’est pas 
+      de signe constant (son signe dépend de la valeur $\lambda$), ce qui est impossible
+      vu qu’elle est positive. Par suite, $\scalaire{a}{b}$ est nul, et p est orthogonale.
+\end{document}

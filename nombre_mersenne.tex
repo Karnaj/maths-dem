@@ -1,0 +1,36 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Nombre de Mersenne}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soit $(a, n) \in \N^2, a > 1, n > 1$. Si $a^n - 1$ est premier, alors $a = 2$
+      et $n$ est premier.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      On a 
+      \[
+         a^n - 1 = (a - 1)(1 + a + \ldots + a^{n - 1}),
+      \]
+      donc puisque $a > 1$, alors $(a - 1)$ divise $a^n - 1$. Mais, $a^n - 1$
+      est premier, donc $a = 2$.
+      
+      Notons maintenant $n = pq$ avec $p$ et $q$ deux entiers. On a
+      \[
+         a^n - 1 = 2^n - 1 = (2^p)^q - 1.
+      \]
+      Par suite, $2^q - 1$ divise $a^n -1$, d’où $q = 1$ ou $q = n$ puisque $a^{n - 1}$
+      est premier. On en d"duit bien que $n$ est premier.
+      
+      PS : La réciproque est fausse. Par exemple, $2^11 - 1 = 2047 = 23 \times 49$.
+\end{document}

@@ -1,0 +1,46 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Théorème de Poisson}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Théorème de Poisson]
+      Soit $\suite{p}$ telle que $np_n \to \lambda$ avec $\lambda \in \R_+$.
+      Soit $X_n$ une suite de variable aléatoire telle que $X_n \sim 
+      B(n, \frac{\lambda}{n})$. Alors $X_n \to X$ avec $X \sim P(\lambda)$.
+   \end{Theoreme}
+   \subsection{Démonstration}
+   Soit $k$ fixé. On a pour $n > k$ 
+   \[
+      P(X_n = k) = \binom{n}{k} \frac{\lambda^k}{n^k}
+                                \left( 1-\frac{\lambda}{n}\right)^{n - k}.
+   \]
+   On a
+   \[
+      \binom{n}{k} = \frac{n!}{(n - k)!k!} = \frac{n(n - 1)\ldots(n - k + 1)}{k!} \to \frac{n^k}{k!}.
+   \]
+   Et à côté de ça,
+   \begin{align*}
+      \left(1 - \frac{\lambda}{n}\right)^{n -  k} 
+      &= \e^{(n - k)\ln \left(1 - \frac{\lambda}{n}\right)}\\
+      &\sim \e^{(n - k)\frac{\lambda}{n}}\\
+      &\to \e^{\lambda}
+   \end{align*}
+   car $k$ est fixé.
+   
+   Par suite,
+   \[
+      P(X_n = k) \to n^k \frac{\lambda^k}{n^k} \e^{\lambda} 
+                 = \frac{\lambda^k}{k!}\e^{\lambda}.
+   \]
+   On obtient le résultat voulu.
+\end{document}

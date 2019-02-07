@@ -1,0 +1,49 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Chiffrement RSA}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle 
+   \begin{Theoreme}
+       Soit $p$ et $q$ deux nombres premiers distincts et $n = pq$. Soient $c$ et
+       $d$ deux entiers tels que $cd \equiv 1 \mod \phi(n)$, alors pour tout 
+       $t \in \Z$, $t^{cd} \equiv t \mod n$.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      On a $\phi(n) = (p - 1)(q - 1)$ puisque $p$ et $q$ sont premiers distincts.
+      Soit $k$ tel que $cd = 1 + k\phi(n)$ et soit $t \in \Z$. On veut montrer 
+      $t^{cd} \equiv t \mod n$; il suffit de montrer que 
+      \[
+         t^{cd} \equiv t \mod p \text{ et } t^{cd} \equiv t \mod q.
+      \]
+      On aura alors que $p$ et $q$ divisent $t^{cd} - t$ alors $p \wedge q = 1$,
+      d’où $n = pq$ divise $t^{cd - t}$ qui est bien le résultat voulu.
+      
+      Montrons que $t^{cd} \equiv t \mod p$, (le calcul est similaire pour $q$).
+      \begin{itemize}
+         \item Si $t \wedge p = 1$, alors on a (\emph{petit théorème de Fermat})
+         $t^{p - 1} \equiv 1 \mod n$, et donc $t^{cd} \equiv (t^{p - 1})^{k(q - 1)}t \equiv t \mod p$
+         \item Sinon $p$ divise $t$ et alors $t^{cd} \equiv t \equiv 0 \mod p$.
+      \end{itemize}
+      D’où le résultat.
+      
+      PS : ce résultat est utilisé pour le chiffrage RSA. Avec $g \colon t \mapsto t^c$
+      la fonction de chiffrement et $f \colon t \mapsto t^d$ la fonction de déchiffrement
+      dans $\varZquotient{n}$. En effet, on a $f \circ g$ qui est l’identité, ce 
+      qui permet de chiffrer avec $g$ et de déchiffrer avec $f$. Le couple $(n, c)$
+      est une clé publique et permet de chiffrer (elle est connue par tous), 
+      $d$ est la clé privée (secrète).
+
+      Sa sécurité repose sur le fait que trouver $d$ est compliqué. Il faudrait 
+      factoriser $n$ pour trouver $p$ et $q$ ; on choisit donc $p$ et $q$ très grands
+      et ils sont alors durs à trouver. 
+\end{document}

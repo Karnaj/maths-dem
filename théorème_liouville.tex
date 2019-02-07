@@ -1,0 +1,40 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Théorème de Liouville}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soit un entier $p > 5$. Alors l’équation
+      \[
+         (p - 1)! + 1 = p^m
+      \]
+      n’a aucune solution dans $N^*$.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Puisque $p > 5$, alors $(p - 1)! + 1$ est un nombre impaire, donc $p^m$ est impair c’est-à-dire 
+      que $p$ est impair. Et puisque $p > 5$, on obtient $4 < p - 1 < 2(p - 1)$, d’où
+      \[
+         (p - 1)^2 = 2 \times \frac{p - 1}{2} \times (p - 1) \text{ divise } (p - 1)!
+      \]
+      Supposons alors que $(p - 1)! + 1 = p^m$. Puisque, $(p - 1)! = p^m - 1$,
+      alors $(p - 1)^2$ divise $p^m - 1 = (p - 1)(1 + p + \ldots + p^{m - 1})$, d’où
+      \[
+         (p - 1) \text{ divise } S = \sum_{k = 1}^{m - 1} p^k. 
+      \]
+      Mais, $p \equiv 1 \mod p - 1$, d’où $S \equiv m \mod p - 1$, ce qui prouve que
+     $p - 1$ divise $m$. Donc $m \geq p - 1$, d’om
+     \[
+      p^m \geq p^{p - 1} \geq (p - 1)^{p - 1} \geq (p - 1)!.
+     \]
+     Par suite, $(p - 1)! + 1 < p^m$, d’où l’équation n’a pas de solution.
+\end{document}

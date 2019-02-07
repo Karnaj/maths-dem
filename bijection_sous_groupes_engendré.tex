@@ -1,6 +1,6 @@
-\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
 \usepackage[utf8]{inputenc}
-\usepackage[french]{babel}
+\usepackage{babel}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath, amssymb, stmaryrd}
 \usepackage[amsmath]{ntheorem}
@@ -9,14 +9,14 @@
 \date{}
 \author{}
 
-\input{../outils_maths}
+\input{../outils}
 \setcounter{secnumdepth}{0}
 \begin{document}
 \maketitle
    \begin{Theoreme}
       Soit $G$ un groupe et $g \in G$. Si $g$ est d’ordre $n$, alors 
       \[
-         (g) \simeq \varZquotient{n}.
+         \langle g \rangle \simeq \varZquotient{n}.
       \]
    \end{Theoreme}
    \subsection{Démonstration}
@@ -34,5 +34,7 @@
       $g^r = 0$ d’où $r = 0$ (par définition de l’ordre).On en déduit que 
       $\ker \phi = \singleton{\classe{0}}$, $\phi$ est injectif.
       
-      Par suite, $\phi$ est un isomorphisme et $(g) \simeq \varZquotient{n}$.
+      Par suite, $\phi$ est un isomorphisme et $\langle g \rangle \simeq \varZquotient{n}$.
+      
+      PS : ainsi, tout groupe cyclique est isomorphe à $\varZquotient{n}$.
 \end{document}

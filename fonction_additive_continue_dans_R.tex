@@ -1,0 +1,47 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Fonction réelle continue additive}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soit $f$ continue de $\R$ dans $\R$ telle que pour tout réels $x$ et $y$
+      \[
+        f(x + y) = f(x) + f(y).
+      \]
+      Alors $f$ est linéaire.
+   \end{Theoreme}
+   \subsection{Démonstration}
+        On commence par montrer que pour tout réel $x$ et pour tout $n \in \N$,
+        $f(nx) = nf(x)$. Cest vrai pour $n = 0$ ($f(0) = f(0) + f(0)$
+        implique que $f(0)$ est nul) et s'il est vrai pour $n$, alors
+        $f((n + 1)x) = f(nx) + f(x)$ permet de montrer le résultat par récurrence
+        sur $n$.
+
+        Ce résultat s'étend ensuite à $ n \in \Z$. En effet, on a $f(-x) = f(x)$
+        puisque $f(x) + f(-x) =f(x - x) = f(0) = 0$.
+
+        En considérant $r = \frac{p}{q}$ un rationnel, avec $p \in Z$ et $q \in \N^*$,
+        on obtient
+        \[
+            f(r) = f\left(p \times \frac{1}{q}\right) = p f\left(\frac{1}{q}\right)
+                 = \frac{p}{q}\times q \times f\left(\frac{1}{q}\right)
+                 = \frac{p}{q}\times q \times f(1)
+                 = rf(1).
+        \]
+        En notant $a = f(1)$, on a pour tout $r \in \Q$, $f(r) = ar$.
+
+        Et finalement on étend ce résultat à $\R$ par continuité et densité de $\Q$
+        dans $\R$. En effet, pour tout réel $x$, il existe une suite $u_n$ de
+        rationnel qui converge vers $x$. Par continuité $f(u_n) \to f(x)$ avec
+        $f(u_n) = au_n \to ax$. Par unicité de la limité, $f(x) = ax$.    
+\end{document}

@@ -1,0 +1,31 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Intégrité d'un anneau de polynômes}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle 
+   \begin{Theoreme}
+       Soit $A$ un anneau. $A$ est intègre si et seulement si $A[X]$ est intègre.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Ce résultat demande surtout de se ramener aux définitions.
+      
+      Les éléments de $A$ sont des éléments de $A[X]$ (ce sont les polynômes constants),
+      donc pour $a, b$ dans $A$, $a$ et $b$ sont aussi dans $A[X]$ d'où $ab = 0$
+      implique $a = 0$ ou $b = 0$ donc $A$ est intègre.
+      
+      Supposons maintenant $A$ intègre. Soit $P$ et $Q$ deux polynômes. Montrons
+      que $PQ \neq 0$. Si on considère $n$ et $m$ les degrés de $P$ et $Q$ et 
+      en notant $P_i$ et $Q_j$ les coefficients des polynômes, on a 
+      $P_n$ et $Q_m$ qui sont des éléments de $A$ non nuls,  avec $PQ_{n + m} = P_nQ_m$
+      d'où $PQ_{n + m} \neq 0$ puisque $A$ est intègre. Par suite, $PQ$ est non nul.
+\end{document}

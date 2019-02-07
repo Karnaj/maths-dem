@@ -1,0 +1,47 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Série harmonique}
+\date{}
+\author{}
+
+\input{outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+    Posons pour tout $n > 0$,
+    \[
+        H_n  = \sum_{k = 1}^{n} \frac{1}{k}
+    \]
+    les termes de la série harmonique.
+   \begin{Theoreme}[Divergence de la série harmonique]
+    La série harmonique diverge.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Ce résultat se montre classiquement avec une \emph{comparaison série-intégrale}.
+      Ici, nous allons le montrer différemment. 
+      On a
+      \[
+        H_{2n} - H_n = \sum_{k = n + 1}^{2n} \frac{1}{k} \geq \frac{n}{2n} = \frac{1}{2}.
+      \]
+      d'où $H_n \to +\infty$. On peut montrer par récurrence que 
+      \[    
+        H_{2^n} \geq \frac{n}{2} H_1 = \frac{n}{2}
+      \]
+      d'où
+      \[
+        H_n \geq \frac{\ent{\log_2 n}}{2}.
+      \]
+      
+      On a alors une démonstration élémentaire n'utilisant que la définition de limite.
+      Une autre démonstration, assez proche de celle par \emph{comparaison série-intégrale}
+      consiste à se ramener à une série télescopique en remarquant que
+      \[
+        \ln\left(n + 1\right) - \ln\left(n \right) = \ln\left(1 + \frac{1}{n}\right) \sim \frac{1}{n}.
+      \]
+      On conclut alors par \emph{commparaison de série à termes positifs}.
+\end{document}

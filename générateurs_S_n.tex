@@ -1,0 +1,31 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Générateurs de $S_n$}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soit $n \in \N$. Le groupe symétrique $S_n$ est engendré par les transpositions.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Il suffit de montrer que toute permutation $\tau$ se décompose en produits 
+      de transpositions et puisqu’une permutation se décompose en produits de 
+      cycles disjoints, il suffit de montrer que tout cycle se décompose en produits
+      de permutation. Soit $\tau = (a_1 a_2 \cdots a_k)$ un cycle. Alors
+      \[
+         \tau = (a_1 a_2) (a_2 a_3) \cdots (a_{n - 1} a_n).
+      \]
+      D’où le résultat.
+      
+      PS : on a également $(a b) = (1 a) (1 b) (1 a)$, d’où $S_n$ est engendré 
+      par les transpositions $(1, k)$ avec $k \in \intervalleEntier{1}{n}$.
+\end{document}
