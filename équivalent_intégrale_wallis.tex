@@ -17,6 +17,7 @@
    \[
       I_n = \int_0^{\frac{\pi}{2}} \cos^n t \dt.
    \]
+   On a (voir \emph{Intégrales de Wallis}) $nI_n = (n - 1)I_{n - 2}$.
    \begin{Theoreme}
       On a en $+\infty$
       \[
@@ -24,30 +25,30 @@
       \]
    \end{Theoreme}
    \section{Démonstration}
-      On a pour $n \in \N$ et $t \in \interv[0; \frac{\pi}{2}]$, 
-      $0 \leq \cos^{n + 1} t \leq \cos^{n} t$, en intégrant cette inégalité, 
+      On a pour $n \in \N$ et $t \in \interv[0; \frac{\pi}{2}]$,
+      $0 \leq \cos^{n + 1} t \leq \cos^{n} t$, en intégrant cette inégalité,
       on obtient que $\suite{I}$ est positive décroissante. Alors
       \[
-         \frac{I_{n + 1}}{I_n} \leq \frac{I_{n + 1}}{I_n} \leq \frac{I_n}{I_n} = 1
+         \frac{I_{n + 1}}{I_{n - 1}} \leq \frac{I_{n + 1}}{I_n} \leq \frac{I_n}{I_n} = 1
       \]
       ce qui donne avec la relation de récurrence $nI_n = (n - 1)I_{n - 2}$,
       \[
          \frac{n + 1}{n + 2} \leq \frac{I_{n + 1}}{I_n} \leq 1.
       \]
       On en deduit que $I_n \sim I_{n + 1}$.
-      
-      De plus, $nI_nI_{n - 1}$ est constant. En effet, 
+
+      De plus, $nI_nI_{n - 1}$ est constant. En effet,
       \[
-         nI_n = (n - 1)I_{n - 2} \implies nI_nI_{n - 1} = (n - 1)I_{n - 1}I_{n - 2}. 
+         nI_n = (n - 1)I_{n - 2} \implies nI_nI_{n - 1} = (n - 1)I_{n - 1}I_{n - 2}.
       \]
       Elle est donc égale à $I_1I_0 = \frac{\pi}{2}$. On a alors
       \[
-         \frac{\pi}{2} = nI_nI_{n - 1}^2 \sim nI_n^2. 
+         \frac{\pi}{2} = nI_nI_{n - 1}^2 \sim nI_n^2.
       \]
-      Par suite, on a bien 
+      Par suite, on a bien
       \[
          I_n \sim \sqrt{\frac{\pi}{2n}}.
       \]
-      
+
       PS : certaines opérations sont licites car $I_n > 0$, ce qui a bien été précisé.
 \end{document}
