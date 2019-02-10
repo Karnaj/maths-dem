@@ -1,0 +1,49 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+\usepackage{tikz,tkz-tab}
+
+\title{Matrice de Gram}
+\date{}
+\author{}
+
+\input{outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+    Soit $E$ un espace préhilbertien réel muni de la norme associée au produit scalaire.
+    Pour tout $(x_1, \ldots, x_n) \in E^n$, on note $G(_1, \ldots, x_n)$ le déterminant
+    de la matrice $M$ définie par $\forall 1 \leq i, j \leq n$, $M[i, j] = \scalaire{i}{j}$.
+   \begin{Theoreme}[Matrice de Gram]
+      $(x_1, \ldots, x_n)$ est liée si et seulement si $G(x_1, \ldots, x_n) = 0$
+      et si elle est libre, alors en notant $V$ le sous-espace vectoriel qu'elle
+      engendre, on a pour tout $x$ dans $E$,
+      \[
+        \distance{x}{V}^2 = \frac{G(x_1, \ldots, x_n, x)}{G(x_1, \ldots, x_n)}.
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Si $(x_1, \ldots, x_n)$ est liée, alors il existe $a_1, \ldots a_n$ tel que
+      $a_1 x_ + \ldots a_n x_n = 0$, d'où pour tout $k \in \intervalleEntier{1}{n}$,
+      \[
+        \sum_{i = 1}^{n} a_i \scalaire{x_i}{x_k} = 0.
+      \]
+      Par suite, les vecteurs lignes de $M$ sont liées, d'où $G(x_1, \ldots, x_n) = 0$.
+      
+      Réciproquement, si $G(x_1, \ldots, x_n) = 0$, alors les vecteurs colonnes de $M$
+      sont liés, \ie{} il existe $a_1, \ldots, a_n$ non tous nuls tels que pour 
+      tout $k \in \intervalleEntier{1}{n}$
+      \[
+        \sum_{j = 1}^{n} a_j \scalaire{x_k}{x_j} = 0.
+      \]
+      D'où
+      \[
+        \scalaire{x_k}{\sum_{j = 1}^{n} a_j x_j } = 0.
+      \]
+      En notant $y$ la somme, on a $y \in V \cap \orthogonal{V}$, 
+      d'où $y = 0$ (car $V$ de dimension finie) et donc $(x_1, \ldots, x_n)$ est 
+      liée. 
+\end{document}

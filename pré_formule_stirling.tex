@@ -1,0 +1,45 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+\usepackage{tikz,tkz-tab}
+
+\title{Préformule de Sitrling}
+\date{}
+\author{}
+
+\input{outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Préformule de Stirling]
+      Il existe une constante $K$ tel que
+      \[
+        n! \sim \frac{K \sqrt{n} n^n}{e^{-n}}.
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      On considère les suites $u_n$ et $v_n$ définie sur $\N$ par
+      \[
+        u_n = \frac{n^ne^{-n}\sqrt{n}}{n!} \text{ et } 
+        v_n = \ln \left(\frac{u_{n + 1}}{u_n}\right).
+      \]
+      On a 
+      \begin{align*}
+        v_n &= \ln \left[ \left(\frac{n + 1}{n}\right)^{n + \frac{1}{2}} \e^{-1}\right] \\
+            &= -1 + \left( n + \frac{1}{2}\right) \ln \left(1 + \frac{1}{n}\right)\\
+            &= -1 + \left( n + \frac{1}{2}\right) \left(\frac{1}{n} - \frac{1}{2n^2} + O\left(\frac{1}{n^3}\right)\right) \\
+            &= O\left(\frac{1}{n^2}\right).
+      \end{align*}
+      Par suite, la somme des $v_n$ converge, avec $v_0 + \ldots + v_n = \ln u_{n + 1} - \ln u_0$.
+      Donc la suite $\ln u_n$ converge vers $\lambda$ d'où, $u_n$ converge vers $K = e^\lambda > 0$.
+      On a alors
+      \[
+        \frac{n^ne^{-n}\sqrt{n}}{n!} to K \implies
+        n! \sim \frac{K \sqrt{n} n^n}{e^{-n}}  
+      \]
+      PS : l'étude des \emph{intégrales de Wallis} permet de déterminer $K$, à
+           savoir $K = \sqrt{2\pi}$.
+\end{document}
