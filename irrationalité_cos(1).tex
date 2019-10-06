@@ -1,0 +1,55 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half,french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Irrationnalité de $\cos(1)$}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      $\cos(1)$ est irrationnel.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Pour démontrer ce résultat, nous allons passer par la série de $\cos$.
+      En effet, on a 
+      \[
+        \cos(1) = \sum_{k = 0}^{+\infty} \frac{(-1)^k}{(2k)!}.
+      \]
+      Nous remarquons qu'il s'agit d'une série alternée, ainsi, pour en notant
+      $S_n$ les sommes partielles associées, on a en utilisant le \emph{critère des séries alternées},
+      \[
+         S_{2n - 1} < \cos(1) < S_{2n} = S_{2n - 1} + \frac{1}{4n!}.
+      \]
+      En multipliant tous les termes par $(4n - 2)!$, on obtient
+      \[
+         (4n - 2)!S_{2n - 1} < (4n - 2)!\cos(1) < (4n - 2)!S_{2n - 1} + \frac{1}{4(n - 1)4n}.
+      \]
+      On remarque que $(4n - 2)!S_{2n - 1}$ est un entier (notons le $K$) et 
+      que $\frac{1}{4(n - 1)4n} < 1$. Ainsi,
+      \[
+        K < (4n - 2)!\cos(1) < K + 1.
+      \]
+      Supposons $\cos(1)$ irrationnel, c'est-à-dire qu'il existe deux entiers $p$
+      et $q$, $q > 0$ tel que
+      \[
+         \cos(1) = \frac{p}{q}.
+      \] 
+      En prenant $n > q$, on obtient que $(4n - 2)!$ divise $q$ d'où $(4n - 2)!\cos(1)$ 
+      est un entier. ABSURDE, il n'y a pas d'entiers $N$ tel que $K < N < K + 1$.
+      
+      PS : on montre de manière similaire que $\sin(1)$ est irrationnel. Puis,
+      on montre par récurrence que pour tout entier $n$ non nul, 
+      $cos(n)$ et $sin(n)$ sont irrationnels. On a en effet,
+      \[
+        \cos(1 + n) = \cos(n)\cos(1) - \sin(n)\sin(1) \text{ et }
+        \sin(1 + n) = \cos(n)\cos(1) - \sin(n)\sin(1)
+      \]
+      et donc si $\cos(n)$ et $\sin(n)$
+\end{document}

@@ -1,0 +1,63 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half,french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Intérieur des matrices diagonalisables de $M_n(\C)$}
+\date{}
+\author{}
+
+\newcommand*{\D}{\mathcal{D}_n(\C)}
+\newcommand*{\Dn}{\mathcal{D}_n'(\C)}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   Soit $n \in \N$, on note $\D$ l'ensemble des matrices
+   diagonalisables de $\M_n(\C)$ et $\Dn$ l'ensemble des
+   matrices à $n$ valeurs propres distinctes (donc $\Dn \subset \D$). 
+   \begin{Theoreme}[Intérieur de $\D$]
+      On a $\Int{\D} = \Dn$.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Montrons que $\Dn$ est ouvert. On a $M \in \Dn$ si et seulement si 
+      les racines de $\chi_M$ sont distinctes. Notons 
+      $(\lambda_{1,M}, \ldots, \lambda_{n, M})$ 
+      les $n$ racines de $\chi_M$ et considérons
+      \[
+        f(M) = \prod_{i \neq j} (\lambda_{i,M} - \lambda_{j, M}).
+      \]
+      $f$ est continue en tant que fonction polynoimiale des coefficients
+      de $M$. On en déduit que $\Dn$ est ouvert en tant qu'image réciproque de
+      $\C^*$ par $f$.
+      
+      On a $\Dn \subset \D$ et puisque $\Dn$ est ouvert, $\Dn \subset \Int{\D}$.
+      Montrons que $\Int{\D} \subset \Dn$. Supposons qu'il existe $M \in \Int{\D}$ 
+      avec une valeur propre $\lambda$ d'ordre supérieur ou égal à $2$. Il existe
+      $P$ inversible telle que $M = PDP^{-1}$ avec 
+      $D = \Diag{\lambda, \lambda, \lambda_3, \ldots, \lambda_n}$. On pose pour
+      tout entier $k > 0$
+      \begin{alignat*}{3}
+         \Delta_k = \begin{pmatrix}
+            \lambda & \frac{1}{k}\\
+            0 & \lambda
+         \end{pmatrix}  
+         & & \quad & &
+         D_k = \begin{pmatrix}
+             \Delta_k &   & & 0\\
+                    &  \lambda_3 & &\\ 
+                    &   &    \ddots & \\
+                  0 &           & & \lambda_n
+          \end{pmatrix} 
+      \end{alignat*}
+      Le polynôme minimal de $D_k$ est un multiple de celui de $D_k$ avec
+      $\chi_{D_k} = (X - \lambda)^2$ (c'est ça où $X - \lambda$ et $X - \lambda$
+      n'annnule pas $D_k$). Par suite $M_k = PD_kP^{-1}$ n'est pas diagonalisable
+      puisque son polynôme minimal n'est pas scindé à racines simples.
+      
+      Mais on a $M_k \underset{+\infty}{\to} M$, donc $M \not\in \Int{\D}$.
+      Donc $\Int{\D} \subset \Dn$ et on a l'égalité par double inclusion.
+\end{document}

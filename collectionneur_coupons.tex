@@ -1,0 +1,52 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half,french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Le collectionneur de coupon}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+    On considère un collectionneur qui cherche à obtenir tous les objets d'une collection
+    (par exemple tous les dinausaures sachant qu'un dinausaure est donné dans une boîte de
+    céréales) et que les dinausaures sont répartis équitablement dans les boîtes.
+   \begin{Theoreme}
+      En moyenne, ce collectionneur devra acheter $n \ln (n)$ boîtes de céréales pour
+      avoir toute la collection.
+   \end{Theoreme}
+   \subsection{Démonstration}
+     Notons $T_n$ la variable aléatoir qui représente le nombre de boîte de
+     céréales à acheter pour avoir les $n$ dinausaures. Pour $0 < i \leq n$, on 
+     note $t_i$ la variable aléatoire représentant le nombre de paquets 
+     supplémentaites à acheter pour obtenir $i$ dinausaures sachant qu'on en a
+     $i - 1$. On a
+     \[
+        T_n = \sum_{i = 1}^n t_i
+     \]
+    Quand $i - 1$ vignettes ont été obtenues, la probabilité d'obtenir une 
+    nouvelle vignette en ouvrant un paquet est
+    \[
+      p_i = \frac{n - i + 1}{n}
+    \]
+    d'où $t_i$ suit une loi géométrique de paramètre $p_i$. Par suite,
+    \[
+       E(t_i) = \frac{n}{n - i + 1}.
+    \]
+    Par linéarité de l'espérance, on a alors
+    \[
+      E(T) = \sum_{i = 1}^n E(t_i) 
+           = \sum_{i = 1}^n \frac{n}{n - i + 1}
+           = \sum_{k = 1}^n \frac{n}{k}
+           = n \sum_{k = 1}^n \frac{1}{k}.
+    \]
+    Et donc
+    \[
+      E(T) \underset{+\infty}{\sim} n \ln(n). 
+    \]
+\end{document}

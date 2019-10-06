@@ -1,0 +1,53 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Reste d'une série de Riemann}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+    Soit $\alpha > 1$ de sorte que la série de Riemann associée converge. Alors,
+   \begin{Theoreme}[Intégrale de Riemann]
+      Soit $n > 0$ et $R_n$ le reste d'ordre $n$ de la série de Riemann. On a
+      \[
+         R_n \underset{+\infty}{\sim} \frac{1}{(\alpha - 1)n^{\alpha - 1}}.
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      On passe par une \emph{comparaison série-intégrale}. Puisque $\alpha > 1$,
+      la fonction $t \mapsto 1/t^\alpha$ est décroissante et intégrable sur
+      $\interv[1; +\infty[$ (\emph{intégrale de Riemann}), et pour $k \leq 2$,
+      on a
+      \[
+         \int_k^{k +1} \frac{\dt}{t^\alpha} \leq \frac{1}{k^\alpha} \leq \int_{k - 1}^{k} \frac{\dt}{t^\alpha}
+      \]
+      En sommant de $n + 1$ à $N$ on obtient
+      \[
+         \int_{n + 1}^{N +1} \frac{\dt}{t^\alpha} \leq \sum_{k = n}^{N} \frac{1}{k^\alpha} \leq \int_{n + 1}^{N} \frac{\dt}{t^\alpha}.
+      \]
+      Il ne reste plus qu'à faire tendre $N$ vers l'infini. On remarque d'abord que pour tout  $a > 0$
+      \[
+         \int_{a}^{x} \frac{\dt}{t^\alpha} = 
+         \frac{x^{1-\alpha} - a^{1- \alpha}}{1 - \alpha},   
+      \]
+      d'où
+      \[
+         \lim_{x \to +\infty} \int_{a}^{x} \frac{\dt}{t^\alpha} = 
+         \frac{a^{1- \alpha}}{\alpha - 1} = 
+         \frac{1}{(\alpha - 1)a^{\alpha - 1}}.
+      \]
+      En faisant tendre $N$ vers l'infini dans notre ingéalité, on obtient donc
+      \[
+         \frac{1}{(\alpha - 1)(n + 1)^{\alpha - 1}} \leq 
+         R_n \leq
+         \frac{1}{(\alpha - 1)n^{\alpha - 1}}.
+      \]
+      D'où le résultat.
+\end{document}

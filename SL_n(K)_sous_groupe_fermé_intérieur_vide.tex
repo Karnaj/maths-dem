@@ -1,0 +1,53 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Groupe spécial linéaire d’ordre $n$}
+\date{}
+\author{}
+
+\input{outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   Ici, $\K = \R$ ou $\C$ et $n > 0$.
+   \begin{Theoreme}[Groupe spécial linéaire d’ordre $n$]
+      L’ensemble $\SL_n(\K)$, des matrices de déterminant 1 est un sous-groupe
+      fermé d'intérieur vide de $(\GL_n(\K), \times)$.
+   \end{Theoreme}
+   \subsection{Démonstration (limites de suite)}
+      On a bien $\groupeOrthogonal_n(\R) \subset \GL_n(\R)$. Montrons que
+      c’est un sous-groupe.
+      \begin{enumerate}
+         \item $I_n \in \SL_n(\K)$.
+         \item Soit $(A, B) \in \SL_n(\K)^2$, $\det(AB) = \det(A)\det(B) = 1$,
+               donc $\SL_n(\K)$ est stable parfois.
+         \item Soit $A \in \SL_n(\R)$, $\det\left(A^{-1}\right) = \frac{1}{\det(M)} = 1$
+               donc $A^{-1} \in \SL_n(\K)$.         
+      \end{enumerate}
+      Donc $\SL_n(\R)$ est un sous-groupe de $(\GL_n(\R), \times)$.
+      
+     En tant qu’image réciproque du fermé $\ens{1}$ par l’application continue 
+     $\det$, il est fermé dans $\M_n(\K)$.
+     
+     Pour montrer qu'il est d'intérieur vide, nous allons montrer que toute matrice de 
+     $\SL_n(\K)$ est limite d'une suite de matrice de $\M_n(\K) \subset \SL_n(\K)$.
+     et est donc dans l'l'adhérence de $\M_n(\K) \subset \SL_n(\K)$ (et donc
+     n'est pas dans l'intérieur de $\SL_n(\K)$.  
+     
+     Soit $M \in \SL_n(\K)$. La suite définie par $M_k = M - 2^k I_n$ converge 
+     vers $M$. La suite $\suite(\det(M_k)$ ne peut prendre la valeur $1$ qu'un 
+     nombre fini de fois (sinon $\chi_M$ est constant, or il est degré $n$). 
+     Donc il existe $k$ à partir duquel $M_n \not\in \SL_n(\K)$, d'où $M$ 
+     est limite d'une suite de matrice de $\M_n(\K) \subset \SL_n(\K)$. 
+     
+     On a bien $\SL_n(\K)$ fermé d'intérieur non vide.
+     
+     PS : On a $\groupeOrthogonal_n(\K) \subset \SL_n(\K) \cup \det^{-1}\left(\ens{-1}\right)$
+     et on montre de manière similaire que $\det^{-1}\left(\ens{-1}\right)$ est
+     d'intérieur vide d'où $\groupeOrthogonal_n(\K)$ est d'intérieur vide. En 
+     fait, $\groupeOrthogonal_n(\K)$ est un sous-groupe compact de $(\GL_n(\K), \times)$. 
+\end{document}

@@ -1,0 +1,57 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Nombre de mots de Dyck}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   Soit $n \in \N$. Un mot de Dyck est un mot $w$ composé de $n$ \texttt{(} 
+   et $n$ \texttt{)} telles que lorsqu'on parcourt $w$, il y a toujours plus de 
+   parenthèses ouvertes que fermées. Cela revient à être bien parenthésé. Ainsi,
+   \texttt{(())()} est un mot de Dyck, mais pas \texttt{())(}.
+   
+   \begin{Theoreme}[Nombre de mots de Dyck]
+      Soit $n \in \N$. Le nombre de mots de Dyck de longueur $2n$ est
+      \[
+         C_n = \binom{2n}{n} - \binom{2n}{n - 1}.
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Le nombre de mots de longueur $2n$ avec autant de \texttt{(} que de 
+      \texttt{)} est $\binom{2n}{n}$ (on choisit la place des $n$ \texttt{(}).
+      
+      Comptons le nombre de ces mots qui ne sont pas de Dyck. Considérons le 
+      premièr \texttt{)} qui pose problème \ie{} qui n'est pas associée
+      à un \texttt{(}. Avant lui il y a autant de \texttt{(} que de \texttt{)} ; 
+      après lui, il y a un \texttt{(} de plus que de \texttt{)}.
+      
+      On échange toutes les parenthèses après le premier \texttt{)} qui pose
+      problème par la parenthèses opposées. On transforme ainsi tout mot avec
+      autant de \texttt{(}  que de \texttt{)} et qui n'est pas de Dyck en un mot
+      avec $n - 1$ \texttt{(} et $n + 1$ \texttt{)}. Cette opération est une 
+      bijection ; le nombre de mots à $n$ parenthèses ouvrantes et $n$ 
+      parenthèses fermantes qui ne sont pas de Dyck est donc $\binom{n - 1}{2n}$
+      (on choisit les places des  $n - 1$ parenthèses ouvrantes).
+      Ainsi, le nombre de mot de Dyck est bien
+      \[
+         C_n = \binom{2n}{n} - \binom{2n}{n - 1}.
+      \] 
+      
+      PS : ces nombre sont les \emph{nombre de Catalans}. Ils vérifient
+      la relation de récurrence suivante, qui donne également un moyen de calculer
+      $C_n$.
+      \[
+      \begin{cases}
+         C_0 &= 1\\
+         C_{n + 1} &= \sum_{i = 0}^n C_iC_{n - i - 1}.
+      \end{cases}
+      \]
+\end{document}

@@ -1,0 +1,56 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half,french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Déterminant d'une exponentielle}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   Soit $K = \R$ ou $\C$ et $n \in \N$. On définit $\exp(A)$ pour $A \in \M_n(K)$
+   par
+   \[
+      \exp(A) = \sum_{k = 0}^{+\infty} \frac{A^k}{k!}.
+   \]
+   Elle est bien définie et est continue sur $\M_n(\C)$. En effet, en munissant
+   $M_n(\C)$ d'une norme d'algèbre, on a
+   \[
+     \sum_{k = 0}^{N} \frac{\norme{A^k}}{k!} \leq \sum_{k = 0}^{N} \frac{\norme{A}^k}{k!}
+     \leq \exp(\norme{A}).
+   \]
+   et donc la série converge normalement sur tout compact.
+   \begin{Theoreme}[Déterminant d'une exponentielle]
+      Soit $A \in \M_n(K)$, alors
+      \[
+        \det(\exp(A)) = \exp(\Tr(A))
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Si $D = \Diag{\lambda_1,\ldots, \lambda_n}$, $D^k = \Diag{\lambda_1^k, \ldots, \lambda_n^k}$ d'où
+      $\exp(D) = \Diag{\exp\left(\lambda_1^k\right), \ldots, \exp\left(\lambda_n^k\right)}.
+      $
+      On a alors 
+      $\displaystyle \det(\exp(D)) = \prod_{k = 1}^n \exp(\lambda_k) 
+                                   = \exp(\sum_{k = 1}^n \lambda_k)
+                                   = \exp(\Tr(D)).
+      $
+      
+      Le résultat est donc vrai sur les matrices diagonales. Considérons maintenant $M$ une matrice diagonalisable. Il existe $P \in \GL_n(\K)$,
+      et $D$ diagonale, $D = P^{-1}MP$.
+      
+      On a par récurrence que $(P^{-1}MP)^k = P^{-1}M^kP$, d'où $\exp(D) = P^{-1}\exp(M)P$.
+      Ainsi, $\exp(D)$ et $\exp(M)$ sont semblables et ont donc même trace 
+      et même déterminant ce qui donne le résultat pour les matrices diagonalisables.
+
+      La densité des matrices diagonalisables dans $M_n(\C)$ et la continuité
+      des applications $\exp$, $\det$ et $\Tr$ permettent d'avoir le résultat
+      pour toutes les matrices de $\M_n(\C)$ (et donc pour celles de $\M_n(\R)$.
+      
+      
+\end{document}

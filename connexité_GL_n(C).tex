@@ -1,0 +1,61 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half,french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Connexité de $\GL_n(\C)$}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Connexité de $\GL_n(\C)$]
+      $\GL_n(\C)$ est connexe.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Montrons que pour tout $A \in \GL_n(\C)$, il y a un chemin de $A$ à $I_n$.
+      Soit $A \in \GL_n(\C)$, il existe $T$ triangulaire et $P \in \GL_n(\C)$ 
+      telles que $A = P^{-1}TP$.
+      \[
+        T = \begin{pmatrix}
+           a_1      & b_{1, 2} & \cdots & b_{1, n}\\
+           0        & \ddots   & \ddots & \vdots  \\
+           \vdots   & \ddots   & \ddots & b_{n-1, n}\\
+           0        & \cdots   &  0     &  a_n
+        \end{pmatrix}
+      \]
+      Puisque $\C^*$ est connexe par arc, alors pour tout 
+      $k \in  \intervalleEntier{1}{n}$, il existe $c_k$ continue de $\interv[0; 1]$
+      dans $\C^*$ telle que $c_k(0) = 1$ et $c_k(1) = a_k$. On pose alors pour
+      $t \in \interv[0; 1]$
+       \[
+        f_A(t) = P^{-1}\begin{pmatrix}
+           c_1(t)      & tb_{1, 2} & \cdots & tb_{1, n}\\
+           0        & \ddots   & \ddots & \vdots  \\
+           \vdots   & \ddots   & \ddots & tb_{n-1, n}\\
+           0        & \cdots   &  0     &  c_n(t)
+        \end{pmatrix}P.
+      \]
+      $f_A$ est continue de $\interv[0; 1]$ dans $\GL_n(\C)$ avec $f_A(0) = I_n$ 
+      et $f_A(1) = A$ et est donc un chemin de $I_n$ à $A$ dans $\GL_n(\C)$. 
+      Pour $A, B \in \GL_n(\C)$ obtient un chemin de $A$ à $B$  en reliant leurs 
+      chemins à $I_n$. Par suite, $\GL_n(\C)$ est connexe par arc et donc connexe.
+     
+      Une autre solution : $t \mapsto \det(tA + (1 - t)B)$ est polynomiale
+      en $t$ et non nulle, donc a un nombre fini de racines. $0$ et $1$ ne sont pas
+      racines, donc on peut construire une courbe continue $\lambda(t) \in \C$
+      qui relie $0$ et $1$ en évitant ces racines. On considère alors
+      \[  
+         f_A(t) = \lambda(t) + (1 - \lambda(t))B.    
+      \]
+      $f_A$ est continue de $\interv[0; 1]$ dans $\GL_n(\C)$ avec $f_A(0) = I_n$ 
+      et $f_A(1) = A$ et est donc un chemin de $A$ à $B$ dans $\GL_n(\C)$. 
+      
+      PS 2 : ce n'est pas le cas de $\GL_n(\R)$. En effet, si c'était le cas, 
+      son image par $\det$ serait connexe (puisque $\det$ est continue) or
+      $\det(\GL_n(\R) = \R^*$.  
+\end{document}

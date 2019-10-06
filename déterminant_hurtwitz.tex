@@ -1,0 +1,72 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half,french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Déterminant de Hürwitz}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Déterminant de Hürwitz]
+      Soit $a, b \in \R$, et $x_1, \ldots, x_n \in \R$. On pose
+      \[
+         D_n(a, b) = \begin{vmatrix}
+          x_1    & a      & \cdots & a\\
+          b      & x_2    & \ddots & \vdots\\
+          \vdots & \ddots & \ddots & a\\
+          a      & \cdots & a      & x_n
+         \end{vmatrix}
+      \]
+      Alors
+      \[
+      D_n(a, b) = 
+      \begin{cases}
+         \frac{bQ(a) - aQ(b)}{b - a} & \text{si $a \neq b$}\\
+          aQ(a) - Q'(a) & \text{sinon}
+      \end{cases}
+      \text{ avec } Q(X) = \prod_{k = 1}^n (x_k - X).
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      On va poser
+      \[
+         P(X) = 
+         \begin{vmatrix}
+            x_1 + X & a + X   & \ldots & a + X\\
+            b + X   & x_2 + X & \ldots & \vdots\\
+            \vdots  & \ddots  & \ddots & a + X\\
+            b + X   & \ldots  & b + x  & x_n + X
+         \end{vmatrix}
+         =
+         \begin{vmatrix}
+            x_1 + X & a - x_1   & \cdots & \cdots & a - x_1\\
+            b + X   & x_2 - b   & a - b  & \cdots & a - b\\
+            \vdots  & 0         & \ddots & \ddots & \hdots\\
+            b + X   & 0         & \cdots & 0      & x_n - b
+         \end{vmatrix}.
+      \]
+      On a que $D_n(a, b) = P(0)$. Un développement par rapport à la première 
+      ligne donne que $P$ est affine, $P(X) = \alpha X + \beta$.
+      On a $P(-a) = Q(a)$ et $P(-b) = Q(b)$ (détermintant de matrices 
+      triangulaires). Mais $P(-a) = -a\alpha + \beta$ et $P(-b) = -b\alpha + \beta$, d'où
+      si $b \neq a$,
+      \[
+         D_n(a, b) = P(0) = \beta = \frac{bQ(a) - aQ(b)}{b - a}.
+      \]
+      Pour $D_n(a, a)$ on remarque que
+      \[
+        \frac{bQ(a) - aQ(b)}{b - a}
+        = \frac{bQ(a) - aQ(a) + aQ(a) - aQ(b)}{b - a}
+        = Q(a) - a\frac{Q(b) - Q(a)}{b - a}.
+      \]
+      D'où par continuité de la fonction polynomiale $b \mapsto D_n(a, b)$, 
+      \[
+        D_n(a, a) = \lim_{b \to a} = Q(a) - a\frac{Q(b) - Q(a)}{b - a} = Q(a) - aQ'(a).
+      \]
+\end{document}

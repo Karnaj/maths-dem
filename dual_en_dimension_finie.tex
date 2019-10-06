@@ -1,0 +1,57 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Dimension du dual en dimension finie}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Dimension du dual]
+      Soit $E$ un $K$-espace vectoriel de dimension $n$. $E^*$ est aussi de 
+      dimension $n$.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Soit $\mathcal{B} = (e_1, \ldots, e_n)$ une base de $E$. On pose $e_i^*$ la
+      forme linéaire tel que $e_i^*(e_j) = \delta_{i, j}$, c'est-à-dire que pour
+      $x = (x_1, \ldots, x_n)$ on a
+      \[
+        e_i^*(x) = x_i.
+      \]
+      Ce sont bien des formes linéaires (
+      $e_i^*(\lambda x + y) = \lambda x_i + y_i = \lambda e_i^*(x) + e_i^*(y)$).
+      
+      Montrons que les $e_i^*$ forment une famille libre de $E^*$. Soit 
+      $(\lambda_1, \ldots, \lambda_n) \in K$ tel que
+      \[
+        f = \sum_{i = 0}^n \lambda_i e_i^* = 0.
+      \]
+      Pour tout $i \in \intervalleEntier{1}{n}$, on a $f(e_i) = \lambda_i e_i$
+      d'où $\lambda_i = 0$. Donc on a la liberté de la famille.
+      
+      Montrons qu'elle est génératrice. Soit $f \in E^*$.
+      Pour tout $x = (x_1, \ldots, x_n) \in E$, on a 
+      \[
+        f(x) = \sum_{i = 0}^n x_i f(e_i) = \sum_{i = 0}^n e_i^*(x) f(e_i)
+             = \sum_{i = 0}^n f(e_i) e_i^*(x).
+      \]
+      Donc
+      \[
+        f = \sum_{i = 0}^n f(e_i) e_i^*
+      \]
+      et les $e_i$ forment donc bien une famille génératrice de $E^*$.
+      
+      Donc, $\dim E^* = \dim E$. La base construite est appelée 
+      \emph{base antéduale} de $\mathcal{B}$. On a
+      \begin{alignat*}{3}
+        \forall f \in E^*, f = \sum_{i = 0}^n f(e_i) e_i^* 
+        & \quad & \text{ et } & \quad &
+        \forall x \in E^*, x = \sum_{i = 0}^n e_i^*(x) e_i.
+      \end{alignat*}
+\end{document}

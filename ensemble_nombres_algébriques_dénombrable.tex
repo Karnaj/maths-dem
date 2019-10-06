@@ -1,0 +1,46 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Dénombrabilité des nombres algébriques}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   Un réel $x$ est algébrique s'il est racine d'un polynôme de $\Q[X]$.
+   \begin{Theoreme}[Dénombrabilité des nombres algébriques]
+      L'ensemble des nombres algébriques est dénombrable.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      %Notons qu'on peut supposer les coefficients des polynômes entiers (en 
+      %multipliant tous les coefficients de $P \in \Q[X]$ par le PPCM de leurs 
+      %démoninateurs, on obtient un polynôme $Q$ à coefficients entiers et 
+      %$P(x) = 0$ si et seulement si $Q(x) = 0$.
+      
+      On note que $\Q[X]$ est dénombrable en tant qu'union dénombrable d'ensemble 
+      dénombrables. En effet,
+      \[
+        \Q[X] = \bigcup_{n \in \N} Q_n[X]
+      \]
+      et $Q_n[X]$ est dénombrable ($Q_n[X]$ est isomorphe à $\Q^{n + 1}$ car
+      un polynômes de $Q_n[X]$ est une suite d'éléments de $Q^{n + 1}$).
+      
+      Les polyômes de $\Q[X]$ sont dénombrables et l'ensemble des racines d'un
+      polynôme est fini, donc l'ensemble des nombres algébriques est dénombrable
+      en tant qu'union dénombrables d'ensemble fini.
+      
+      En effet, puisque $\Q[X]$ est dénombrable, il existe une suite de polynômes
+      $P_n$ tel que $\Q[X] = \enstq{P_n}{n \in \N}$  et on a alors, en notant $E$
+      l'ensemble des nombres algébrique
+      \[
+        E = \bigcup_{n \in \N} \enstq{x \in \R}{P_n(x) = 0}.
+      \] 
+      
+      PS : cela assure par exemple l'existence de nombre transcendants.
+\end{document}

@@ -1,0 +1,25 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half,french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Concourance des médiatrices d'un triangle}
+\date{}
+\author{}
+
+\input{outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Concourance des médiatrices d'un triangle]
+      Les médiatrices d'un triangle sont concourantes.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Soit $ABC$ un triangle et $O$ le point d'intersection des médiatrices de
+      $[AB]$ et $[BC]$ ($O$ existe car le triangle est non dégénéré). On a 
+      que $AO = BO$ (car $O$ est sur la médiatrice de $[AB]$) et $BO = CO$
+      (car $O$ est sur la médiatrice de $[BC]$) d'où $BO = CO$, c'est-à-dire
+      que $O$ est sur la médiatrice de $AC$. 
+\end{document}

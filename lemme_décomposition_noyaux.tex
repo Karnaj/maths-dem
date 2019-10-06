@@ -1,0 +1,61 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+\usepackage{tikz,tkz-tab}
+
+\title{Lemme de décomposition des noyaux}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Lemme de décomposition des noyaux]
+      Soit $E$ un $K$-espace vectoriel non nul. Soient $P, Q \in K[X]$ et 
+      $u$ un endomorphisme de $E$. Si $P$ et $Q$ sont premiers entre eux, alors
+      \[
+        \ker(PQ)(u) = \ker P(u) \oplus \ker Q(u)
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      On a $P \wedge Q = 1$, donc il existe $U, V$, $UP + VQ = 1$. On a alors
+      \[
+         \Id = U(u) \circ P(u) + V(u) \circ Q(u). 
+      \]
+      Pour $x \in \ker(P)(u) \cap \ker(Q)(u)$, on a donc
+      \[
+         x = \left(U(u) \circ P(u)\right)(x) + \left(V(u) \circ Q(u)\right)(x) = 0
+      \]
+      d'où $\ker(P)(u)$ et $\ker(Q)(u)$ sont en somme directe.
+      
+      Reste à montrer l'égalité. 
+      
+      On a $(PQ)(u) = Q(u) \circ P(u)$, donc $\ker(P)(u) \subset \ker(PQ)(u)$
+      et $\ker(Q)(u) \subset \ker(PQ)(u)$, d'où 
+      $\ker(P)(u) \oplus \ker(P)(u) \subset \ker(PQ)(u)$.
+      
+      Réciproquement, considérons $x \in \ker(PQ)(u)$. On a
+      \[
+        x =  \underbrace{\left(U(u) \circ P(u)\right)(x)}_{a} + 
+             \underbrace{\left(V(u) \circ Q(u)\right)(x)}_{b}.
+      \]
+      Mais
+      \[
+        Q(u)(a) = \left(Q(u) \circ U(u) \circ P(u)\right)(x) = 
+                  \left(U(u) \circ (PQ)(u)\right)(x) = 0
+      \]
+      et de même $P(u)(b) = 0$, donc $a \in \ker P(u)$ et $b \in \ker Q(u)$,
+      d'où l'inclusion inverse et donc l'égalité par double inclusion.
+      
+      PS : Une récurrence donne que si $P_1, \ldots, P_n$ sont premiers
+      entre eux deux à deux, alors
+      \[
+         \ker(P_1\ldots P_n)(u) = \ker P_1(u) \oplus \ldots \oplus \ker P_n(u).
+      \]
+      Pour l'hérédite, il faudra montrer que $P_{n + 1}$ est premier avec
+      $P_1\ldots P_n$. 
+\end{document}

@@ -1,0 +1,34 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Somme de cosinus}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}
+      Soit un entier $n > 0$. Alors
+      \begin{equation}
+         S_n = \sum_{k = 0}^n \cos\left(\frac{k\pi}{n} \right) = 0.
+      \end{equation}
+   \end{Theoreme}
+   \subsection{Démonstration}
+       Nous pourrions calculer cette somme en passant par des complexes, mais
+       nous allons agir autrement en montrant qu'elle est égale à son inverse.
+       En effet, on a en faisant le changement d'indice $l = n - k$ que
+       \begin{align*}
+           S_n &= \sum_{l = 0}^{n} \cos\left( \frac{(l - n)\pi}{n} \right)\\
+               &= \sum_{l = 0}^{n} \cos\left(\frac{l\pi}{n} - \pi \right)\\
+               &= \sum_{l = 0}^{n} \cos\left(-\frac{l\pi}{n} \right)\\
+               &= \sum_{l = 0}^{n} -\cos\left(\frac{l\pi}{n} \right)\\
+               &= -S_n.
+       \end{align*}
+       D'où le résultat.
+\end{document}

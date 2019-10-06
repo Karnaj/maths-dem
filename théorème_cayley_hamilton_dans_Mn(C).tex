@@ -1,0 +1,29 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Théorème de Cayley-Hamilton}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Théorème de Cayley-Hamilton]
+      Soit $f$ un endormorphisme de $E$ un $\C$-espace vectoriel de dimension finie $n$. Alors
+      \[
+         \chi_f(f) = 0.
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Soit $A \in \M_n(\C)$ la matrice de $f$ dans une base. Si $A$ est diagonalisable, il existe une matrice inversible $Q$ et une matrice diagonale $D = \Diag{\lambda_1, \ldots, \lambda_n}$ telles que $A = P^-1DP$. On a 
+      \[  
+         \chi_A(A)
+      \]
+      
+      On a donc le résultat pour les matrices diagonales. La densité de l'ensemble des matrices diagonables dans $M_n(\C)$ nous donne alors le résultat puisque $M \mapsto \chi_M(M)$ est continue de $\M_n(\C)$ dans $\M_n(\C)$ (ses composantes sont des fonctions polynomiales).
+\end{document}

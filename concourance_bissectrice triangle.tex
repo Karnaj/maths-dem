@@ -1,0 +1,27 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half,french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Concourance des bissectrices d'un triangle}
+\date{}
+\author{}
+
+\input{outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Concourance des bissectrices d'un triangle]
+      Les bissectrices d'un triangle sont concourantes.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Soit $ABC$ un triangle. On note $d_A$, $d_B$ et $d_C$ les bissectrices
+      de $ABC$ issues respectivement des sommets $A$, $B$ et $C$. Soit $I$
+      le point d'intersection de $d_A$ et $d_B$. $I \in d_A$, donc
+      la distance de $I$ à $[AB]$ est égale à la distance de $I$ à $[AC]$.
+      De même, puisque $I \in d_B$, la distance de $I$ à $[AB]$ est égale à 
+      la distance de $I$ à $[BC]$. Par suite, la distance de $I$ à $[AC]$ est 
+      égale à la distance de $I$ à $[BC]$ c'est-à-dire $I \in d_C$.
+\end{document}

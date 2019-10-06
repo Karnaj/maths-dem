@@ -1,0 +1,46 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Formule du pion}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Formule de Chu-Vandermonde]
+      Soit $k$ et $n$ deux entiers, $k < n$. 
+      \[
+         k\binom{k}{n} = n\binom{k - 1}{n - 1}.
+      \]
+   \end{Theoreme}
+   % \subsection{Démonstration (numérique)}
+      % On a $(1 + x)^{a + b} = $(1 + x)^a (1 + x)^b$. En utilisant la \emph{formule du binôme de Newton}, on obtient
+      % \[
+         % (1 + x)^{a + b} = \sum_{r = 0}^{a + b} \binom{r}{a + b} x^k
+      % \]
+      % et 
+      % \begin{align*}
+         % (1 + x)^a (1 + x)^b &= \sum_{i = 0}^a \binom{i}{a} x^i \sum_{j = 0}^{b} \binom{j}{b} x^j\\
+                             % &= 
+      % \end{align*}
+   \subsection{Démonstration (ensembliste)}
+      Soit $E$ un ensemble à $n$ éléments.  Notre but est de choisir $k$ éléments
+      dans $E$, dont un élément particulier (le pion). Voici deux moyens de les
+      choisir.
+      \begin{itemize}
+         \item On choisit les $k$ éléments ($\binom{k}{n}$ possibilités), puis
+               on choisit le pion parmi ceux-là ($k$ possibilités).
+         \item On choisir le pion ($n$ possibilités), puis on choisit $k - 1$
+               éléments pour compléter ($\binom{k - 1}{n - 1}$ possibilités 
+               puisque le pion a déjà été choisi).
+      \end{itemize}
+      D'où le résultat.
+      
+      Bien sûr, nous pourrions également le montrer par le calcul.
+\end{document}

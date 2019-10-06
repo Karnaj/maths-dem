@@ -1,0 +1,52 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Théorème de Gauss-Jordan}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Théorème de Gauss-Jordan]
+   On note $\Conv(P)$ l'enveloppe convexe des racines de $P \in \C[X]$.
+   Soit $P \in \C[X]$ un polynôme non constant. Alors $\Conv(P') \subset \Conv(P)$.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Soit $P \in \C[X]$ non constant. On peut écrire
+      \[
+         P = \lambda \prod_{j = 1}^r (X - \lambda_j)^{m_j}
+      \]
+      avec $\lambda \in \C^*$, $r \geq 1$ et $\lambda_k$ les racines distinctes
+      de $P$ d'ordre de multiplicité $m_k$. On a
+      \[
+         P' = \lambda \sum_{k = 1}^r m_k (X - \lambda_k)^{m_k - 1} 
+                                     \prod_{j \neq k} (X - \lambda_j)^{m_j}.
+      \]
+      Par suite, la décomposition en éléments simple de $P'/P$ est
+      \[
+        \frac{P'}{P} = \sum_{k = 1}^r \frac{m_k}{X - \lambda_k}.
+      \]
+      Soit $z$ une racine de $P'$. Si $z$ est une des racines de $P$, alors
+      $z \in \Conv(P)$. Sinon on a
+      \[
+         0 = \frac{P'(z)}{P(z)} 
+           = \sum_{k = 1}^r \frac{m_k}{z - \lambda_k}
+           = \sum_{k = 1}^r m_k\frac{\conjugue{z - \lambda_k}}{\module{z - \lambda_k}^2}.
+      \]
+      En passant au conjugué on obtient
+      \[
+        0 = \sum_{k = 1}^r m_k\frac{z - \lambda_k}{\module{z - \lambda_k}^2}.
+      \]
+      Et donc
+      \[  
+        z = \frac{\sum_{k = 1}^r \frac{m_k}{\module{z - \lambda_k}^2}\lambda_k}
+                 {\sum_{k = 1}^r \frac{m_k}{\module{z - \lambda_k}^2}}
+      \]
+      et est donc une combinaison convexe des $\lambda_k$ d'où le résultat.
+\end{document}

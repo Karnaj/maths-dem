@@ -1,0 +1,50 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half,french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Inégalité de Sylvester}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Inégalité de Sylvester]
+      Soit $E$ un espace vectoriel de dimension $n$ et soit $a$ et $b$ deux 
+      endomorphismes de $E$. Alors
+      \[
+         \rg(a) + \rg(b) - n \leq \rg(ab) \leq \min(\rg(a), \rg(b)).
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      On a 
+      \begin{itemize}
+         \item $\Img(ab) \subset \Img(a)$, donc $\rg(ab) \leq \rg(a)$. 
+         \item $\Img(ab) = a(\Img(b))$ avec $\dim\left(a(\Img(b))\right) \leq \dim(\Img(b)$
+               donc $\rg(ab) \leq rg(b)$.
+      \end{itemize}
+      Donc
+      \[
+        \rg(ab) \leq \min(\rg(a), \rg(b)).
+      \]
+      Pour l'autre inégalité, soit $a'$ la restriction de $a$ à $\Img(b)$. On
+      a alors $\Img(a') = \Img(ab)$ et $\Ker(a') = \Ker(a) \cap \Img(b)$. On a
+      par le théorème du rang
+      \[
+         \rg(a') = \dim(\Img b) - \dim(\Ker(a')
+      \]
+      c'est-à-dire
+      \begin{align*}
+         \dim(\Img(ab)) &= \dim(\Img b) - \dim\left( \Ker(a) \cap \Img(b) \right)\\
+                       &\geq \dim(\Img b) - \dim(\Ker(a))\\
+                       &\geq rg(b) - (n - \rg(a)).
+      \end{align*}
+      Et donc on a bien
+      \[
+        \rg(a) + \rg(b) - n \leq \rg(ab).
+      \]
+\end{document}

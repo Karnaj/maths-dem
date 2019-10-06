@@ -1,0 +1,52 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half, french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Théorème de Carathéodory}
+\date{}
+\author{}
+
+\input{../outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Théorème de Carathéodory]
+      Soit $n \in \N$ et $A \subset \R^n$. L'enveloppe convexe de $A$ est 
+      l'ensemble $\Gamma$ des points s'écrivant comme combinaison convexe
+      d'au plus $n + 1$ éléments de $A$.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Il est clair que $\Gamma \subset \Conv(A)$. Pour l'inclusion inverse, 
+      montrons que toute combinaison convexe de $N > n + 1$ éléments de $A$ peut
+      s'écrire comme combinaison convexe de $N - 1$ éléments. Soit 
+      \[
+        x = \sum_{k = 0}^N \lambda_kx_k
+      \] 
+      une combinaison convexe de $N > n + 1$ éléments de $A$. Les $x_k$
+      sont $N > n + 1$ points dans $\R^n$, donc il existe $N$ scalaires $\mu_k$
+      non tous nuls tels que
+      \[
+         \sum_{k = 0}^N \mu_kx_k = 0 \text{ et }  \sum_{k = 0}^N \mu_k = 0.
+      \]
+      Posons $I = \enstq{k \leq N}{\mu_k > 0}$. Les $\mu_k$ sont non tous nuls,
+      donc $I$ est non vide. Posons
+      \[
+        \lambda = \min \enstq{\frac{\lambda_k}{\mu_k}}{k \in I} \text { et }
+        \lambda'_k = \lambda_k - \lambda\mu_k.
+      \]
+      On a alors
+      \begin{align*}
+        \sum_{k = 1}^N \lambda'_k x_k 
+          &= \sum_{k = 1}^N (\lambda_k - \lambda\mu_k) x_k\\
+          &= x - \lambda \sum_{k = 1}^N \mu_k x_k\\
+          &= x.
+      \end{align*}
+      De plus, en notant $i$ l'indice tel que $\lambda = \frac{\lambda_i}{\mu_k}$,
+      on a $\lambda'_i = 0$, donc on a écrit $x$ comme combinaison linéaire de
+      $N - 1$ points.
+      
+      Donc on a bien $\Gamma = \Conv(A)$.
+\end{document}
