@@ -1,0 +1,47 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half,french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Nombres de Bell}
+\date{}
+\author{}
+
+\input{outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   On pose $\suite{B}$ la suite vérifiant $B_0 = 1$ et $B_{n + 1} = \sum_{k = 0}^n \binom{n}{k} B_k$.
+   \begin{Theoreme}[Nombre de Bell]
+      Soit $n \in \N$, on a
+      \[
+        B_n = \frac{1}{e} \sum_{k = 0}^{+\infty} \frac{k^n}{k!}
+      \]
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Étudions la série entière de terme général $\frac{B_n x^n}{n!}$. 
+      On montre par récurrence que pour tout $n \in \N$, $B_n \leq n!$.
+      
+      Par suite, le rayon de convergence de cette série est supérieur ou égale à 1.
+      On note $f$ sa somme qui est alors une fonction de classe $\mathcal{C}^{\infty}$
+      sur $I = \interv]-1; 1[$. Pour tout $x \in I$,
+      \begin{align*}
+        f'(x) &= \sum_{n = 0}^{+\infty} \frac{B_{n + 1}}{n!} x^n\\
+              &= \sum_{n = 0}^{+\infty} \sum_{k = 0}^n \binom{n}{k} \frac{B_{k}}{n!} x^n\\
+              &= \sum_{n = 0}^{+\infty} \sum_{k = 0}^n \frac{B_{k}}{k!} x^k 
+                                                       \frac{1}{(n -k)!} x^{n - k}\\ 
+              &= \left(\sum_{n = 0}^{+\infty} \frac{B_{n}}{n!} x^n\right) 
+                 \left(\sum_{n = 0}^{+\infty} \frac{x^n}{n!}\right)
+              = f(x)e^x. 
+      \end{align*}
+      d'où il existe $\lambda \in \R$, $f(x) = \lambda e^{e^x}$. 
+      $f(0) = B_0 = 1 = \lambda e$ donne alors $f(x) = \frac{1}{e}e^{e^x}$. Mais
+      \[
+        e^{e^x} = \sum_{k = 0}^{+\infty} \sum_{n = 0}^{+\infty} \frac{k^n x^n}{k!n!}
+                = \sum_{n = 0}^{+\infty} \frac{x^n}{n!} \sum_{k = 0}^{+\infty} \frac{k^n}{k!}.
+      \]
+      les deux sommes pouvant bien être inversées car la série double converge absolument.
+      L'uncité du développement en série entière donne alors le résultat.
+\end{document}
