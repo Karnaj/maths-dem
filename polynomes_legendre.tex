@@ -5,7 +5,7 @@
 \usepackage{amsmath, amssymb, stmaryrd}
 \usepackage[amsmath]{ntheorem}
 
-\title{Polynômes de Legendre}
+\title{Polynôme de Legendre}
 \date{}
 \author{}
 
@@ -17,10 +17,8 @@
    \[
       \scalaire{f}{g} = \int_{-1}^1 f(t)g(t) \dt.
    \]
-   On pose $U_n = (X^2 - 1)^n = (X - 1)^n(X + 1)^n$ et
-   \[
-      P_n = ((X^2 - 1)^n)^{(n)} = U_n^{(n)}.
-   \]
+   On pose $U_n = (X^2 - 1)^n = (X - 1)^n(X + 1)^n$ et 
+   $P_n = ((X^2 - 1)^n)^{(n)} = U_n^{(n)}$.
    \begin{Theoreme}
       La famille $\suite{P}$ est orthonormale totale et $\forall f \in E$,
       \[
@@ -30,20 +28,20 @@
    \subsection{Démonstration}
       $P_k$ est de degré $k$. En effet, $\deg U_k = 2k$ et on dérive $k$ fois.
 
-      De plus, $P_k$ est orthogonal à $\R_{k - 1}[X]$. En effet, pour
+      De plus, $P_k$ est orthogonal à $\R_{k - 1}[X]$. En effet, pour 
       $Q \in \R_{k - 1}[X]$, des intégrations par parties successives donnent
       \[
-         \scalaire{P_k}{Q} = (-1)\scalaire{U_k^{k - 1}}{Q’} = \ldots = (-1)^k\scalaire{U_k}{Q^{(n)}} = 0.
+         \scalaire{P_k}{Q} = (-1)\scalaire{U_k^{(k - 1)}}{Q’} = \ldots = (-1)^{(k)}\scalaire{U_k}{Q^{(n)}} = 0.
       \]
-      Ces deux résultat donne l’orthonormalité de $(P_n)$. Puisque cette suite
-      de polynômes est de degré étagés, c’est une base de $\R[X]$. Le
-      \emph{théorème de Stone-Weirstrass} donne alors que c’est une famille totale.
+      Ces deux résultat donne l’orthonormalité de $(P_n)$. Puisque cette suite 
+      de polynômes est de degré étagés, c’est une base de $\R[X]$. Le 
+      \emph{théorème de Stone-Weirstrass} donne alors que c’est une famille totale. 
       Ceci donne également l’égalité.
-
+      
       PS : Le polynôme
          \[
             f_N = \sum_{n = 0}^{N} \frac{\scalaire{P_n}{f}}{\norme{P_n}^2}P_n
-         \]de Legendre constitue la meilleur approximation euclidienne
-           de $f$ parmi les polynômes de degré inférieur à $N$.
-
+         \]de Legendre constitue la meilleure approximation euclidienne
+           de $f$ parmi les polynômes de degré inférieur à $N$.       
+      
 \end{document}

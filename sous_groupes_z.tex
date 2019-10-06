@@ -19,16 +19,19 @@
    \subsection{Démonstration}
       Soit $n \in \N$, $n\Z$ est le sous-groupe engendré par $n$, donc est bien un sous-groupe.
 
-      Soit maintenant $E$ un sous-groupe de $(\Z, +)$.
+      Soit maintenant $H$ un sous-groupe de $(\Z, +)$.
       
-      Si $H = {0}$, alors $H = 0\Z$.
+      Si $H = \ens{0}$, alors $H = 0\Z$.
 
-      Sinon $H \neq {0}$, et on pose $H_+ = \enstq{x \in H}{x > 0}$. $H \neq {0}$, donc il existe $x_0 \in H$, $x_0 \in H$.
-      Alors, $x_0$ ou $-x_0$ est dans $H_+$, d’où $H_+$ est une partie non vide de $\N$. Par suite, $H_+$ admet un plus 
-      petit élément $n$. On a déjà $n\Z \subset H$. Montrons l’inclusion inverse.
+      Sinon $H \neq \ens{0}$, et on pose $H_+ = \enstq{x \in H}{x > 0}$. 
+      $H \neq \ens{0}$, donc il existe $x_0 \in H$, $x_0 \neq 0$. Alors, $x_0$ 
+      ou $-x_0$ est dans $H_+$, d’où $H_+$ est une partie non vide de $\N$. Par 
+      suite, $H_+$ admet un plus petit élément $n$. On a déjà $n\Z \subset H$. 
+      Montrons l’inclusion inverse.
       
-      Soit $x \in H$. Par division euclidienne, $x = qn + r$ avec $0 \leq r < n$. Alors $r = x - qn$, avec $x \in H$ et 
-      $qn \in H$ (puisque $n\Z \subset H$), donc $r \in H$. Si $r > 0$, alors $r \in H_+$, IMPOSSIBLE car $r < n = \min H_+$,
+      Soit $x \in H$. Par division euclidienne, $x = qn + r$ avec $0 \leq r < n$.
+      Alors $r = x - qn$, avec $x \in H$ et $qn \in H$ (puisque $n\Z \subset H$),
+      donc $r \in H$. Si $r > 0$, alors $r \in H_+$, IMPOSSIBLE car $r < n = \min H_+$,
       donc $r = 0$ et $x = qn$, c’est-à-dire $H \subset n\Z$.
       
       La double inclusion donne bien que $H = n\Z$.

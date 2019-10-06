@@ -5,16 +5,16 @@
 \usepackage{amsmath, amssymb, stmaryrd}
 \usepackage[amsmath]{ntheorem}
 
-\title{Règle d'Abel}
+\title{Règle d'Abel (critère de Dirichlet)}
 \date{}
 \author{}
 
 \input{../outils}
 \setcounter{secnumdepth}{0}
 \begin{document}
-\maketitle
-   \begin{Theoreme}
-      Soit $u_n$ une suite telle que $u_n = a_n v_n$ avec
+\maketitle 
+   \begin{Theoreme}[Critère de Dirichlet]
+      Soit $u_n$ une suite telle que $u_n = a_n v_n$ avec 
          \begin{itemize}
             \item $\suite{a}$ une suite positive, décroissante de limite nulle.
             \item la série de terme général $v_n$ est bornée.
@@ -23,7 +23,7 @@
    \end{Theoreme}
    \subsection{Démonstration}
       Pour commencer, notons $S_n$ la suite des sommes partielles de $v_n$. On a
-      qu’il existe $M$ tel que $\norme{S_n} < M$ pour tout $n$. De plus, on a
+      qu’il existe $M$ tel que $\norme{S_n} < M$ pour tout $n$. De plus, on a 
       avec une \emph{transformation d’Abel} que
       \begin{align*}
          \sum_{k = 0}^n u_k &= \sum_{k = 0}^n a_kv_k\\
@@ -32,13 +32,13 @@
                             &= \sum_{k = 0}^n a_k S_k - \sum_{k = 0}^{n - 1} a_{k + 1} S_k\\
                             &= a_nS_n + \sum_{k = 0}^{n - 1} \left(a_{k - 1} - a_k\right) S_k.
       \end{align*}
-      Montrons la convergence absolue de la première série.
+      Montrons la convergence absolue de la première série. 
       \[
-         \sum_{k = 0}^{n - 1} \norme{\left(a_{k - 1} - a_k\right) S_k}
+         \sum_{k = 0}^{n - 1} \norme{\left(a_{k - 1} - a_k\right) S_k} 
                \leq M \sum_{k = 0}^{n - 1} \norme{\left(a_{k - 1} - a_k\right)} = \left(a_0 - a_{n + 1}\right)M \leq a_0M.
       \]
-      Et on a que le premier terme, $\left(a_nS_n\right)$ tend vers $0$ puisque
+      Et on a que le premier terme, $\left(a_nS_n\right)$ tend vers $0$ puisque 
       $\suite{S}$ bornée et $\suite{a}$ décroissante de limite nulle.
-
+      
       On en déduit bien la convergence de la série de terme général $u_n$.
 \end{document}

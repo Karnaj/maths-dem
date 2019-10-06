@@ -5,7 +5,7 @@
 \usepackage{amsmath, amssymb, stmaryrd}
 \usepackage[amsmath]{ntheorem}
 
-\title{Nombres de partitions d’un ensemble}
+\title{Nombre de partitions d’un ensemble}
 \date{}
 \author{}
 
@@ -13,12 +13,12 @@
 \setcounter{secnumdepth}{0}
 \begin{document}
 \maketitle
-   \begin{Theoreme}[Nombres de Bell]
-      Montrer que le nombre $P_n$ de partitions d’un ensemble à $n$ éléments suit la relation
+   \begin{Theoreme}[Nombre de partition d'un ensembme]
+      Le nombre $B_n$ de partitions d’un ensemble à $n$ éléments suit la relation
       \[
          \begin{systeme}
-            P_0       &= 1\\
-            P_{n + 1} &= \sum{k = 0}^n \binom{n}{k} P_k
+            B_0       &= 1\\
+            B_{n + 1} &= \sum_{k = 0}^n \binom{n}{k} B_k
          \end{systeme}
       \]
    \end{Theoreme}
@@ -30,11 +30,12 @@
       Une partition de $E$ est alors composée d’une partie $H$
       contenant $x$ et ayant $k$ éléments hormis $x$ ($k \in \intervalleEntier{0}{n}$) qu’on complète avec une partition de ce qui reste (donc d’un ensemble à $n - k$ 
       éléments). Pour tout $k$ entre $0$ et $n$, le nombre de parties $H$ possibles
-      est $\binom{n}{k}$ et le nomnbre de partitions possibles de ce qui reste est 
-      $P_{n - k}$, d’où
+      est $\binom{n}{k}$ et le nombre de partitions possibles de ce qui reste est 
+      $B_{n - k}$, d’où
       \begin{align*}
-         P_{n + 1} &= \sum{k = 0}^n \binom{n}{k} P_{n - k}\\
-                   &= \sum_{i = 0}^n \binom{n}{n - i} P_i & (i = n - k)\\
-                   &=  \sum_{i = 0}^n \binom{n}{i} P_i
-      \end{align*}      
+         B_{n + 1} &= \sum_{k = 0}^n \binom{n}{k} B_{n - k}\\
+                   &= \sum_{i = 0}^n \binom{n}{n - i} B_i & (i = n - k)\\
+                   &=  \sum_{i = 0}^n \binom{n}{i} B_i
+      \end{align*}
+      PS : ces nombres sont les nombres de Bell.      
 \end{document}

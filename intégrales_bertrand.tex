@@ -15,7 +15,7 @@
 \maketitle
     Soit $\alpha$ et $\beta$ deux réels. L’intégrale de Bertrand est l’intégrale
    \[
-      \int_{\e}^{+\infty} \frac{\dt}{t^\alpha \left(\ln n \right)^\beta}.
+      \int_{\e}^{+\infty} \frac{\dt}{t^\alpha \left(\ln t \right)^\beta}.
    \]
    \begin{Theoreme}[Intégrale de Bertrand]
       L’intégrale de Bertrand converge si et seulement si $\alpha > 1$ ou $\alpha = 1$ et $\beta > 1$.
@@ -23,31 +23,31 @@
    \subsection{Démonstration}
       Posons
       \[
-         f \colon t \to \frac{1}{t^\alpha \left(\ln n \right)^\beta}.
+         f \colon t \to \frac{1}{t^\alpha \left(\ln t \right)^\beta}.
       \]
       $f$ est définie, continue et positive sur $\interv[\e ; +\infty[$.
       
       Si $\alpha < 1$,
       \[
-         tf(t) = \frac{t^{1 -\alpha}}{\left(\ln n \right)^\beta} \to +\infty
+         tf(t) = \frac{t^{1 -\alpha}}{\left(\ln t \right)^\beta} \to +\infty
       \]
-      donc $f(t) \geq 1/t$ pour $t$ assez grand, or l’intégrale de $1/t$ sur $\e$ à $+\infty$ diverge, donc \emph{par comparaison de fonctions positives}, l’intégrale de Bertrand diverge.
+      donc $f(t) \geq 1/t$ pour $t$ assez grand, or l’intégrale de $1/t$ sur $\interv[\e$; $+\infty[$ diverge, donc \emph{par comparaison de fonctions positives}, l’intégrale de Bertrand diverge.
       
       Si $\alpha > 1$, on prend $m \in \interv]1; \alpha[$. Alors
       \[
-         t^mf(t) = \frac{1}{t^{\alpha - m}}{\left(\ln n \right)^\beta} \to 0
+         t^mf(t) = \frac{1}{t^{\alpha - m}}{\left(\ln t \right)^\beta} \to 0
       \]
       c’est-à-dire $f(t) = o(1/t^m$), avec l’intégrale de $1/t^m$ sur $\interv[\e ; +\infty[$ qui converge (intégrale de Riemann avec $m > 1$), donc \emph{par comparaison de fonctions positives}, l’intégrale de Bertrand converge.
          
       Si $\alpha = 1$, on fait le changement de variable $u = \ln t$.
       \[
-         \int_{\e}^x \frac{\dt}{t \left(\ln n \right)^\beta} = \int_1^{\ln x} \frac{\du}{u^\beta}
+         \int_{\e}^x \frac{\dt}{t \left(\ln t \right)^\beta} = \int_1^{\ln x} \frac{\du}{u^\beta}
       \]
       converge si et seulement si $\beta > 1$ (\emph{Riemann}).
 % \section{Séries de Bertrand}
    % Soit $\alpha$ et $\beta$ deux réels positifs. Posons
    % \[
-      % u_n = \frac{1}{n^\alpha \left(\ln n \right)^\beta}.
+      % u_n = \frac{1}{n^\alpha \left(\ln t \right)^\beta}.
    % \]
    % La série de Bertrand est la série numérique
    % \[
