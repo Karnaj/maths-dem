@@ -1,0 +1,58 @@
+\documentclass[fontsize=12pt,twoside=false,parskip=half,french]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, stmaryrd}
+\usepackage[amsmath]{ntheorem}
+
+\title{Équivalence des normes en dimension finie}
+\date{}
+\author{}
+
+\input{outils}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\maketitle
+   \begin{Theoreme}[Équivalence des normes en dimension finie]
+      Soit $E$ un $\K$-espace vectoriel de dimension finie $p$. Les normes
+      sur $E$ sont équivalentes.
+   \end{Theoreme}
+   \subsection{Démonstration}
+      Si $p = 0$, il y a une seule norme et c'est OK. Sinon, on introduit une base
+      $\mathcal{B} = (e_1, \ldots, e_p)$. Montrons que toute norme $N$
+      est équivalente à $\normeInf{\cdot}$. Pour $x = \sum_{k = 1}^p x_ke_k \in E$, on a
+      \[
+         N(x) \leq \sum_{k = 1}^p \module{x_k}N(e_k)
+              \leq \underbrace{\left(\sum_{k = 1}^p N(e_k)\right)}_{K} \normeInf{x}
+      \]
+      d'où $N$ est dominée par la norme infinie.
+
+      Supposons que $\normeInf{\cdot}$ n'est pas dominée par $N$.
+      Pour tout $\alpha \in \R^+$, il existe $x \in E$ tel que
+      $\normeInf{x} > \alpha N(x)$. Il existe donc $\suite{x}$ dans $E^{\N}$
+      tel que $\normeInf{x_n} > nN(x_n)$. Quitte à diviser par
+      $\normeInf{x_n}$, on peut supposer $\normeInf{x_n} = 1$, d'où
+      $N(x_n) < \frac{1}{n}$ et donc $N(x_n) \to 0$.
+
+      On introduit $(x_1(n), \ldots, x_p(n))$ les suites composantes de $\suite{x}$.
+      $(x_1(n))_{n \in \N}$ est bornée, donc on peut en extraire une suite
+      $(x_1(\phi_1(n)))_{n \in \N}$ convergente.
+
+      $x_2(\phi_1(n))_{n \in \N}$ est bornée (car extraite de $x_2(n)$)
+      donc on peut en extraire une suite $x_2(\phi_1(\phi_2(n)))_{n \in \N}$
+      convergente, et on a que $x_1(\phi_1(\phi_2(n)))_{n \in \N}$ est convergente
+      (car extraite de $x_1(\phi_1(n))_{n \in \N}$ qui est convergente).
+
+      En poursuivant ainsi, on construit $\phi = \phi_1 \circ \ldots \circ \phi_p$
+      telle que toutes les suites $(x_k(\phi(n)))_{n \in \N}$ convergent. Donc
+      elle converge pour la norme infinie. Notons $l$ sa limite.
+
+      Pour tout $n$, $\normeInf{x(\phi(n))} = 1$, donc $\normeInf{l} = 1$.
+      Mais $N$ est dominée par $\normeInf{\cdot}$, donc
+      \[
+         N(x(\phi(n)) - l) \leq K\normeInf{x(\phi(n)) - l} \to 0.
+      \]
+      d'où $x(\phi(n))$ tend vers $l$ pour la norme $N$. Mais puisque
+      $N(x(n)) \to 0$, alors $N(x(\phi(n))) \to 0$, d'où $l = 0$. Impossible
+      puisque $\normeInf{l} = 1$.
+\end{document}
